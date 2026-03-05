@@ -1,81 +1,15 @@
-@forward '/scss-lib/core/variables';
-@forward '/scss-lib/core/tokens';
+@forward './core/variables';
+@forward './core/tokens';
 
-
-@for $ind from 0 to 10 {
-    .r-#{$ind} {
-        border-radius: calc($ind * $pixel);
-    }
-
-    .m-#{$ind} {
-        margin: calc($ind * $pixel);
-    }
-
-    .p-#{$ind} {
-        padding: calc($ind * $pixel);
-    }
-
-    .b-w-#{$ind} {
-        border-width: calc($ind * 1px);
-    }
-
-    @each $dir, $props in $directions {
-        @each $prop in $props {
-            .m#{$dir}-#{$ind} {
-                margin-#{$prop}: calc($ind * $pixel);
-            }
-
-            .p#{$dir}-#{$ind} {
-                padding-#{$prop}: calc($ind * $pixel);
-            }
-
-            .b#{$dir}-w-#{$ind} {
-                border-#{$prop}-width: calc($ind * 1px);
-            }
-        }
-    }
-
-    @each $key, $corners in $border-corns {
-        @each $corn in $corners {
-            .r#{$key}-#{$ind} {
-                border-#{$corn}-radius: calc($ind * $pixel);
-            }
-        }
-    }
-}
-
-@each $font in $fonts {
-    $name: #{map-get($font, name)};
-
-    @font-face {
-        font-family: $name;
-        src: url('./fonts/#{map-get($font, dest)}') format('#{map-get($font, format)}');
-    }
-
-    .f-#{$name} {
-        font-family: $name;
-    }
-}
+@forward './gene/margin';
+@forward './gene/padding';
+@forward './gene/font';
+@forward './gene/border';
+@forward './gene/color';
 
 @each $key, $col in $colors {
     .bg-c-#{$key} {
         background-color: $col;
-    }
-
-    .c-#{$key} {
-        color: $col;
-    }
-
-    .b-c-#{$key} {
-        border-color: $col;
-    }
-
-    @each $dir, $props in $directions {
-        @each $prop in $props {
-            .b#{$dir}-c-#{$key} {
-                border-#{$prop}-color: $col;
-            }
-        }
     }
 }
 
@@ -95,20 +29,6 @@
     @each $filter in $just-ali {
         .a-#{$filter}-#{$key} {
             align-#{$filter}: $pos;
-        }
-    }
-}
-
-@each $key in $borders {
-    .b-#{$key} {
-        border-style: $key;
-    }
-
-    @each $dir, $props in $directions {
-        @each $prop in $props {
-            .b#{$dir}-#{$key} {
-                border-#{$prop}-style: $key;
-            }
         }
     }
 }

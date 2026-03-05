@@ -1,0 +1,19 @@
+@use 'sass:map';
+
+@use '../core/tokens';
+@use '../core/variables';
+
+$fonts: variables.$fonts;
+
+@each $font in $fonts {
+    $name: #{map-get($font, name)};
+
+    @font-face {
+        font-family: $name;
+        src: url('./fonts/#{map-get($font, dest)}') format('#{map-get($font, format)}');
+    }
+
+    .f-#{$name} {
+        font-family: $name;
+    }
+}
