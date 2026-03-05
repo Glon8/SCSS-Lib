@@ -1,0 +1,12 @@
+@use 'sass:map';
+
+@use '../core/tokens';
+@use '../core/variables';
+
+$displays: tokens.$displays;
+
+@each $key in $displays {
+    .#{$key} {
+        display: $key;
+    }
+}

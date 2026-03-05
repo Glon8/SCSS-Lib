@@ -1,0 +1,19 @@
+@use 'sass:map';
+
+@use '../core/tokens';
+@use '../core/variables';
+
+$pos-hor: tokens.$pos-hor;
+$text-deco: tokens.$text-deco;
+
+@each $key, $pos in $pos-hor {
+    .t-a-#{key} {
+        text-align: $pos;
+    }
+}
+
+@each $key in $text-deco {
+    .t-d-#{$key} {
+        text-decoration: $key;
+    }
+}

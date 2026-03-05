@@ -1,0 +1,15 @@
+@use 'sass:map';
+
+@use '../core/tokens';
+@use '../core/variables';
+
+$pos-ver: tokens.$pos-ver;
+$just-ali: tokens.$just-ali;
+
+@each $key, $pos in $pos-ver {
+    @each $filter in $just-ali {
+        .a-#{$filter}-#{$key} {
+            align-#{$filter}: $pos;
+        }
+    }
+}

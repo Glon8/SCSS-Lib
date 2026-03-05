@@ -6,36 +6,15 @@
 @forward './gene/font';
 @forward './gene/border';
 @forward './gene/color';
+@forward './gene/align';
+@forward './gene/display';
+@forward './gene/justify';
+@forward './gene/opacity';
+@forward './gene/text';
 
 @each $key, $col in $colors {
     .bg-c-#{$key} {
         background-color: $col;
-    }
-}
-
-@each $key, $pos in $pos-hor {
-    .t-a-#{key} {
-        text-align: $pos;
-    }
-
-    @each $filter in $just-ali {
-        .j-#{$filter}-#{$key} {
-            justify-#{$filter}: $pos;
-        }
-    }
-}
-
-@each $key, $pos in $pos-ver {
-    @each $filter in $just-ali {
-        .a-#{$filter}-#{$key} {
-            align-#{$filter}: $pos;
-        }
-    }
-}
-
-@each $key in $displays {
-    .#{$key} {
-        display: $key;
     }
 }
 
@@ -93,20 +72,6 @@
     .h-fix-#{$ind} {
         height: calc($ind * 1rem);
     }
-
-    .o-#{$ind} {
-        opacity: calc($ind * $percent);
-    }
-
-    .f-s-#{$ind} {
-        font-size: calc($pixel * $ind);
-    }
-}
-
-@each $key in $text-deco {
-    .t-d-#{$key} {
-        text-decoration: $key;
-    }
 }
 
 @each $prop in $pos {
@@ -126,10 +91,6 @@
 }
 
 @for $ind from 1 to 10 {
-    .f-w-#{$ind} {
-        font-weight: $ind * 100;
-    }
-
     .g-#{$ind} {
         gap: $ind * $pixel;
     }
