@@ -1,0 +1,74 @@
+$pos: (
+    absolute,
+    relative,
+    fixed,
+    sticky,
+    static
+);
+
+$border-corns: (
+    tl: top-left,
+    tr: top-right,
+    bl: bottom-left,
+    br: bottom-right,
+    l: (top-left, bottom-left),
+    r: (top-right, bottom-right),
+    t: (top-left, top-right),
+    b:(bottom-left, bottom-right)
+);
+
+$pos-ver: (
+    s: start,
+    e: end,
+    c: center
+);
+
+$pos-hor: (
+    l: left,
+    r: right,
+    c: center
+);
+
+$just-ali: (
+    content,
+    self,
+    items
+);
+
+$borders: (
+    solid,
+    dotted,
+    dashed,
+    none
+);
+
+$directions: (
+    t: top,
+    b: bottom,
+    r: right,
+    l: left,
+    x: (left, right),
+    y: (top, bottom)
+);
+
+$text-deco: (
+    none,
+    solid,
+    wavy,
+    dotted,
+    dashed
+);
+
+$displays: (
+    flex,
+    none,
+    block,
+    grid
+);
+
+$flex-dir: (
+    column,
+    row,
+    column-reverse,
+    row-reverse
+);

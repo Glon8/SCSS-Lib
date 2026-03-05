@@ -1,0 +1,242 @@
+@forward '/scss-lib/core/variables';
+@forward '/scss-lib/core/tokens';
+
+
+@for $ind from 0 to 10 {
+    .r-#{$ind} {
+        border-radius: calc($ind * $pixel);
+    }
+
+    .m-#{$ind} {
+        margin: calc($ind * $pixel);
+    }
+
+    .p-#{$ind} {
+        padding: calc($ind * $pixel);
+    }
+
+    .b-w-#{$ind} {
+        border-width: calc($ind * 1px);
+    }
+
+    @each $dir, $props in $directions {
+        @each $prop in $props {
+            .m#{$dir}-#{$ind} {
+                margin-#{$prop}: calc($ind * $pixel);
+            }
+
+            .p#{$dir}-#{$ind} {
+                padding-#{$prop}: calc($ind * $pixel);
+            }
+
+            .b#{$dir}-w-#{$ind} {
+                border-#{$prop}-width: calc($ind * 1px);
+            }
+        }
+    }
+
+    @each $key, $corners in $border-corns {
+        @each $corn in $corners {
+            .r#{$key}-#{$ind} {
+                border-#{$corn}-radius: calc($ind * $pixel);
+            }
+        }
+    }
+}
+
+@each $font in $fonts {
+    $name: #{map-get($font, name)};
+
+    @font-face {
+        font-family: $name;
+        src: url('./fonts/#{map-get($font, dest)}') format('#{map-get($font, format)}');
+    }
+
+    .f-#{$name} {
+        font-family: $name;
+    }
+}
+
+@each $key, $col in $colors {
+    .bg-c-#{$key} {
+        background-color: $col;
+    }
+
+    .c-#{$key} {
+        color: $col;
+    }
+
+    .b-c-#{$key} {
+        border-color: $col;
+    }
+
+    @each $dir, $props in $directions {
+        @each $prop in $props {
+            .b#{$dir}-c-#{$key} {
+                border-#{$prop}-color: $col;
+            }
+        }
+    }
+}
+
+@each $key, $pos in $pos-hor {
+    .t-a-#{key} {
+        text-align: $pos;
+    }
+
+    @each $filter in $just-ali {
+        .j-#{$filter}-#{$key} {
+            justify-#{$filter}: $pos;
+        }
+    }
+}
+
+@each $key, $pos in $pos-ver {
+    @each $filter in $just-ali {
+        .a-#{$filter}-#{$key} {
+            align-#{$filter}: $pos;
+        }
+    }
+}
+
+@each $key in $borders {
+    .b-#{$key} {
+        border-style: $key;
+    }
+
+    @each $dir, $props in $directions {
+        @each $prop in $props {
+            .b#{$dir}-#{$key} {
+                border-#{$prop}-style: $key;
+            }
+        }
+    }
+}
+
+@each $key in $displays {
+    .#{$key} {
+        display: $key;
+    }
+}
+
+@each $key in $flex-dir {
+    .f-#{$key} {
+        flex-direction: $key;
+    }
+}
+
+@for $ind from 0 to 21 {
+    .max-w-#{$ind} {
+        max-width: calc($ind * $percent);
+    }
+
+    .min-w-#{$ind} {
+        min-width: calc($ind * $percent);
+    }
+
+    .max-h-#{$ind} {
+        max-height: calc($ind * $percent);
+    }
+
+    .min-h-#{$ind} {
+        min-height: clac($ind * $percent);
+    }
+
+    .w-per-#{$ind} {
+        width: calc($ind * $percent);
+    }
+
+    @each $key, $value in $breakpoints {
+        @media (max-width: $value) {
+            .w-per-#{$ind}-#{$key} {
+                width: calc($ind * $percent);
+            }
+        }
+    }
+
+    .w-fix-#{$ind} {
+        width: calc($ind * 1rem);
+    }
+
+    .h-per-#{$ind} {
+        height: calc($ind * $percent);
+    }
+
+    @each $key, $value in $breakpoints {
+        @media (max-width: $value) {
+            .h-per-#{$ind}-#{$key} {
+                height: calc($ind * $percent);
+            }
+        }
+    }
+
+    .h-fix-#{$ind} {
+        height: calc($ind * 1rem);
+    }
+
+    .o-#{$ind} {
+        opacity: calc($ind * $percent);
+    }
+
+    .f-s-#{$ind} {
+        font-size: calc($pixel * $ind);
+    }
+}
+
+@each $key in $text-deco {
+    .t-d-#{$key} {
+        text-decoration: $key;
+    }
+}
+
+@each $prop in $pos {
+    .#{$prop} {
+        position: $prop;
+    }
+}
+
+@each $key, $prop in $directions {
+    @for $i from 0 to 21 {
+        @if $key !=x and $key !=y {
+            .#{$prop}-#{$i} {
+                #{$prop}: $percent * $i;
+            }
+        }
+    }
+}
+
+@for $ind from 1 to 10 {
+    .f-w-#{$ind} {
+        font-weight: $ind * 100;
+    }
+
+    .g-#{$ind} {
+        gap: $ind * $pixel;
+    }
+
+    .r-g-#{$ind} {
+        row-gap: $ind * $pixel;
+    }
+
+    .c-g-#{$ind} {
+        column-gap: $ind * $pixel;
+    }
+
+    @for $ind_2 from 1 to 21 {
+        .grid-t-r-#{$ind}-fix-#{$ind_2} {
+            grid-template-rows: repeat($ind, $ind_2 * 1rem);
+        }
+
+        .grid-t-r-#{$ind}-per-#{$ind_2} {
+            grid-template-rows: repeat($ind, $ind_2 * $percent);
+        }
+
+        .grid-t-c-#{$ind}-fix-#{$ind_2} {
+            grid-template-columns: repeat($ind, $ind_2 * 1rem);
+        }
+
+        .grid-t-c-#{$ind}-per-#{$ind_2} {
+            grid-template-columns: repeat($ind, $ind_2 * $percent);
+        }
+    }
+}
