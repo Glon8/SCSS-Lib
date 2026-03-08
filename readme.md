@@ -1,17 +1,53 @@
-My own SCSS library.
+# SCSS-lib
 
-NOTE:
-Modify these lists freely to your liking and need, each value effects the whole library.
+**SCSS-lib** is my custom **SASS library**, originally created for personal use but freely available for anyone to use.  
+It was rebuilt and organized from my previous code to be **modular, flexible, and easy to modify**.
 
-- Values - measure values.
-- Colors - custom colors.
-- Fonts - local fonts.
-- Breakpoints - screen resolutions.
+In the future, I plan to build my own UI components based on this library.
 
-FONTS GUIDE:
-NOTE: Ment to add local fonts...
-name - whatever you'd like to call the font, used to refer by
-dest - path to file, including file ending
-format - file format (truetype/opentype)
-========EXAMPLE========
-(name: 'name', dest: 'path to file', format: 'file format'),
+---
+
+## Customization
+
+To modify values such as measurements, colors, fonts, or breakpoints:
+
+1. Open:  
+   `scss-lib/core/_variables.scss`
+2. Edit the lists according to your needs.
+
+> **Note:** Changing values in these lists will affect the entire library.
+
+### Available Lists
+
+- **Values** – Measurement values used across the library  
+- **Colors** – Custom color definitions  
+- **Fonts** – Local font configurations  
+- **Breakpoints** – Screen resolution breakpoints
+
+---
+
+## Fonts Guide
+
+> **Note:** This section is intended for adding **local fonts**.
+
+Each font entry requires the following fields:
+
+- **name** – The font name used to reference it in the library
+- **dest** – Path to the font file (including the file extension)
+- **format** – Font format (`truetype`, `opentype`, etc.)
+
+### Example
+
+```scss
+(name: 'name', dest: 'path/to/font-file', format: 'file-format'),
+```
+
+---
+
+### Installation:
+
+1. Install **SASS** in to your project.
+2. Download folder `scss-lib`.
+3. Link `scss-lib.scss` file in your project.
+
+**DONE!**
