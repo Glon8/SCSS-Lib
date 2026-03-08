@@ -6,7 +6,7 @@
 $colors: variables.$colors;
 
 @each $key, $col in $colors {
-    .c-#{$key} {
+    .color-#{$key} {
         color: $col;
     }
 }

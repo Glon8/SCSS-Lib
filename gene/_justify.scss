@@ -7,9 +7,9 @@ $pos-hor: tokens.$pos-hor;
 $just-ali: tokens.$just-ali;
 
 @each $key, $pos in $pos-hor {
-    @each $filter in $just-ali {
-        .j-#{$filter}-#{$key} {
-            justify-#{$filter}: $pos;
+    @each $name, $val in $just-ali {
+        .justify-#{$name}-#{$key} {
+            justify-#{$val}: $pos;
         }
     }
 }

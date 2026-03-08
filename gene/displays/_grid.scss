@@ -7,15 +7,15 @@ $pixel: map.get(variables.$values, 'pixel');
 $percent: map.get(variables.$values, 'percent');
 
 @for $ind from 1 to 10 {
-    .g-#{$ind} {
+    .gap-#{$ind} {
         gap: $ind * $pixel;
     }
 
-    .r-g-#{$ind} {
+    .r-gap-#{$ind} {
         row-gap: $ind * $pixel;
     }
 
-    .c-g-#{$ind} {
+    .c-gap-#{$ind} {
         column-gap: $ind * $pixel;
     }
 

@@ -5,8 +5,8 @@
 
 $flex-dir: tokens.$flex-dir;
 
-@each $key in $flex-dir {
-    .f-#{$key} {
-        flex-direction: $key;
+@each $key, $val in $flex-dir {
+    .flex-#{$key} {
+        flex-direction: $val;
     }
 }

@@ -30,9 +30,9 @@ $pos-hor: (
 );
 
 $just-ali: (
-    content,
-    self,
-    items
+    c: content,
+    s: self,
+    i: items
 );
 
 $borders: (
@@ -67,8 +67,8 @@ $displays: (
 );
 
 $flex-dir: (
-    column,
-    row,
-    column-reverse,
-    row-reverse
+    c: column,
+    r: row,
+    cr: column-reverse,
+    rr: row-reverse
 );

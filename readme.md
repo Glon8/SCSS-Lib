@@ -5,8 +5,6 @@ It was rebuilt and organized from my previous code to be **modular, flexible, an
 
 In the future, I plan to build my own UI components based on this library.
 
----
-
 ## Customization
 
 To modify values such as measurements, colors, fonts, or breakpoints:
@@ -24,8 +22,6 @@ To modify values such as measurements, colors, fonts, or breakpoints:
 - **Fonts** – Local font configurations  
 - **Breakpoints** – Screen resolution breakpoints
 
----
-
 ## Fonts Guide
 
 > **Note:** This section is intended for adding **local fonts**.
@@ -42,9 +38,7 @@ Each font entry requires the following fields:
 (name: 'name', dest: 'path/to/font-file', format: 'file-format'),
 ```
 
----
-
-### Installation:
+## Installation:
 
 1. Install **SASS** in to your project.
 2. Download folder `scss-lib`.

@@ -14,19 +14,19 @@ $fonts: variables.$fonts;
         src: url('./fonts/#{map-get($font, dest)}') format('#{map-get($font, format)}');
     }
 
-    .f-#{$name} {
+    .font-#{$name} {
         font-family: $name;
     }
 }
 
 @for $ind from 0 to 21 {
-    .f-s-#{$ind} {
+    .font-s-#{$ind} {
         font-size: calc($pixel * $ind);
     }
 }
 
 @for $ind from 1 to 10 {
-    .f-w-#{$ind} {
+    .font-w-#{$ind} {
         font-weight: $ind * 100;
     }
 }

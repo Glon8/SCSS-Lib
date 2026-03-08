@@ -7,13 +7,13 @@ $pixel: map.get(variables.$values , 'pixel');
 $directions: tokens.$directions;
 
 @for $ind from 0 to 10 {
-    .m-#{$ind} {
+    .margin-#{$ind} {
         margin: calc($ind * $pixel);
     }
 
     @each $dir, $props in $directions {
         @each $prop in $props {
-            .m#{$dir}-#{$ind} {
+            .margin-#{$dir}-#{$ind} {
                 margin-#{$prop}: calc($ind * $pixel);
             }
         }
