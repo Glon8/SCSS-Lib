@@ -5,28 +5,43 @@
 
 $percent: map.get(variables.$values, 'percent');
 $breakpoints: variables.$breakpoints;
+$use_breakpoints: map.get(variables.$config, 'breakpoints');
 
 @for $ind from 0 to 21 {
     .max-w-#{$ind} {
-        max-width: calc($ind * $percent);
+        max-width: calc(#{$ind} * #{$percent});
     }
 
     .min-w-#{$ind} {
-        min-width: calc($ind * $percent);
+        min-width: calc(#{$ind} * #{$percent});
     }
 
     .w-per-#{$ind} {
-        width: calc($ind * $percent);
+        width: calc(#{$ind} * #{$percent});
     }
 
     .w-fix-#{$ind} {
-        width: calc($ind * 1rem);
+        width: calc(#{$ind} * 1rem);
     }
 
-    @each $key, $value in $breakpoints {
-        @media (max-width: $value) {
-            .w-per-#{$ind}-#{$key} {
-                width: calc($ind * $percent);
+    @if $use_breakpoints {
+        @each $key, $value in $breakpoints {
+            @media (min-width: $value) {
+                .#{$key}-max-w-#{$ind} {
+                    max-width: calc(#{$ind} * #{$percent});
+                }
+
+                .#{$key}-min-w-#{$ind} {
+                    min-width: calc(#{$ind} * #{$percent});
+                }
+
+                .#{$key}-w-per-#{$ind} {
+                    width: calc(#{$ind} * #{$percent});
+                }
+
+                .#{$key}-w-fix-#{$ind} {
+                    width: calc(#{$ind} * 1rem);
+                }
             }
         }
     }

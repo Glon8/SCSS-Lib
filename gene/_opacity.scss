@@ -4,9 +4,21 @@
 @use '../core/variables';
 
 $percent: map.get(variables.$values, 'percent');
+$breakpoints: variables.$breakpoints;
+$use_breakpoints: map.get(variables.$config, 'breakpoints');
 
 @for $ind from 0 to 21 {
     .o-#{$ind} {
         opacity: calc($ind * $percent);
+    }
+
+    @if $use_breakpoints {
+        @each $name, $val in $breakpoints {
+            @media(min-width: $val) {
+                .#{$name}-o-#{$ind} {
+                    opacity: calc($ind * $percent);
+                }
+            }
+        }
     }
 }

@@ -5,11 +5,23 @@
 
 $pos-ver: tokens.$pos-ver;
 $just-ali: tokens.$just-ali;
+$breakpoints: variables.$breakpoints;
+$use_breakpoints: map.get(variables.$config, 'breakpoints');
 
 @each $key, $pos in $pos-ver {
     @each $name, $val in $just-ali {
         .align-#{$name}-#{$key} {
             align-#{$val}: $pos;
+        }
+
+        @if $use_breakpoints {
+            @each $point, $value in $breakpoints {
+                @media(min-width: $value) {
+                    .#{$point}-align-#{$name}-#{$key} {
+                        align-#{$val}: $pos;
+                    }
+                }
+            }
         }
     }
 }

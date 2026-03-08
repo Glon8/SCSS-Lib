@@ -5,16 +5,38 @@
 
 $pixel: map.get(variables.$values , 'pixel');
 $directions: tokens.$directions;
+$breakpoints: variables.$breakpoints;
+$use_breakpoints: map.get(variables.$config, 'breakpoints');
 
 @for $ind from 0 to 10 {
     .m-#{$ind} {
         margin: calc($ind * $pixel);
     }
 
+    @if $use_breakpoints {
+        @each $name, $val in $breakpoints {
+            @media(min-width: $val) {
+                .#{$name}-m-#{$ind} {
+                    margin: calc($ind * $pixel);
+                }
+            }
+        }
+    }
+
     @each $dir, $props in $directions {
         @each $prop in $props {
             .m-#{$dir}-#{$ind} {
                 margin-#{$prop}: calc($ind * $pixel);
+            }
+
+            @if $use_breakpoints {
+                @each $name, $val in $breakpoints {
+                    @media(min-width: $val) {
+                        .#{$name}-m-#{$dir}-#{$ind} {
+                            margin-#{$prop}: calc($ind * $pixel);
+                        }
+                    }
+                }
             }
         }
     }

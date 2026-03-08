@@ -5,10 +5,22 @@
 
 $pos: tokens.$pos;
 $directions: tokens.$directions;
+$breakpoints: variables.$breakpoints;
+$use_breakpoints: map.get(variables.$config, 'breakpoints');
 
 @each $prop in $pos {
     .#{$prop} {
         position: $prop;
+    }
+
+    @if $use_breakpoints {
+        @each $name, $val in $breakpoints {
+            @media(min-width: $val) {
+                .#{$name}-#{$prop} {
+                    position: $prop;
+                }
+            }
+        }
     }
 }
 
@@ -17,6 +29,16 @@ $directions: tokens.$directions;
         @if $key !=x and $key !=y {
             .#{$prop}-#{$i} {
                 #{$prop}: $percent * $i;
+            }
+
+            @if $use_breakpoints {
+                @each $name, $val in $breakpoints {
+                    @media(min-width: $val) {
+                        .#{$name}-#{$prop}-#{$i} {
+                            #{$prop}: $percent * $i
+                        }
+                    }
+                }
             }
         }
     }

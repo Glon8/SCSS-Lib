@@ -8,6 +8,8 @@ $directions: tokens.$directions;
 $border-corns: tokens.$border-corns;
 $colors: tokens.$colors;
 $borders: tokens.$borders;
+$breakpoints: varables.$breakpoints;
+$use_breakpoints: map.get(variables.$config, 'breakpoints');
 
 .b-d {
     border-radius: 2;
@@ -20,10 +22,30 @@ $borders: tokens.$borders;
         border-width: calc($ind * 1px);
     }
 
+    @if $use_breakpoints {
+        @each $point, $value in $breakpoints {
+            @media(min-width: $value) {
+                .#{$point}-b-#{$ind} {
+                    border-width: calc($ind * 1px);
+                }
+            }
+        }
+    }
+
     @each $dir, $props in $directions {
         @each $prop in $props {
             .b-#{$dir}-w-#{$ind} {
                 border-#{$prop}-width: calc($ind * 1px);
+            }
+
+            @if $use_breakpoints {
+                @each $point, $value in $breakpoints {
+                    @media(min-width: $value) {
+                        .#{$point}-b-#{$dir}-w-#{$ind} {
+                            border-#{$prop}-width: calc($ind * 1px);
+                        }
+                    }
+                }
             }
         }
     }
@@ -32,10 +54,30 @@ $borders: tokens.$borders;
         border-radius: calc($ind * $pixel);
     }
 
+    @if $use_breakpoints {
+        @each $point, $value in $breakpoints {
+            @media(min-width: $value) {
+                .#{$point}-r-#{$ind} {
+                    border-radius: calc($ind * $pixel);
+                }
+            }
+        }
+    }
+
     @each $key, $corners in $border-corns {
         @each $corn in $corners {
             .r-#{$key}-#{$ind} {
                 border-#{$corn}-radius: calc($ind * $pixel);
+            }
+
+            @if $use_breakpoints {
+                @each $point, $value in $breakpoints {
+                    @media(min-width: $value) {
+                        .#{$point}-r-#{$key}-#{$ind} {
+                            border-#{$corn}-radius: calc($ind * $pixel);
+                        }
+                    }
+                }
             }
         }
     }
@@ -46,10 +88,30 @@ $borders: tokens.$borders;
         border-color: $col;
     }
 
+    @if $use_breakpoints {
+        @each $point, $value in $breakpoints {
+            @media(min-width: $value) {
+                .#{$point}-b-#{$key} {
+                    border-color: $col;
+                }
+            }
+        }
+    }
+
     @each $dir, $props in $directions {
         @each $prop in $props {
             .b-#{$dir}-c-#{$key} {
                 border-#{$prop}-color: $col;
+            }
+
+            @if $use_breakpoints {
+                @each $point, $value in $breakpoints {
+                    @media(min-width: $value) {
+                        .#{$point}-b-#{$dir}-c-#{$key} {
+                            border-#{$prop}-color: $col;
+                        }
+                    }
+                }
             }
         }
     }
@@ -60,10 +122,30 @@ $borders: tokens.$borders;
         border-style: $key;
     }
 
+    @if $use_breakpoints {
+        @each $point, $value in $breakpoints {
+            @media(min-width: $value) {
+                .#{$point}-b-#{$key} {
+                    border-style: $key;
+                }
+            }
+        }
+    }
+
     @each $dir, $props in $directions {
         @each $prop in $props {
             .b-#{$dir}-#{$key} {
                 border-#{$prop}-style: $key;
+            }
+
+            @if $use_breakpoints {
+                @each $point, $value in $breakpoints {
+                    @media(min-width: $value) {
+                        .#{$point}-b-#{$dir}-#{$key} {
+                            border-#{$prop}-style: $key;
+                        }
+                    }
+                }
             }
         }
     }

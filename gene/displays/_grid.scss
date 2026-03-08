@@ -5,6 +5,8 @@
 
 $pixel: map.get(variables.$values, 'pixel');
 $percent: map.get(variables.$values, 'percent');
+$breakpoints: varables.$breakpoints;
+$use_breakpoints: map.get(variables.$config, 'breakpoints');
 
 @for $ind from 1 to 10 {
     .gap-#{$ind} {
@@ -17,6 +19,24 @@ $percent: map.get(variables.$values, 'percent');
 
     .c-gap-#{$ind} {
         column-gap: $ind * $pixel;
+    }
+
+    @if $use_breakpoints {
+        @each $point, $value in $breakpoints {
+            @media(min-width: $value) {
+                .#{$point}-gap-#{$ind} {
+                    gap: $ind * $pixel;
+                }
+
+                .#{$point}-r-gap-#{$ind} {
+                    row-gap: $ind * $pixel;
+                }
+
+                .#{$point}-c-gap-#{$ind} {
+                    column-gap: $ind * $pixel;
+                }
+            }
+        }
     }
 
     @for $ind_2 from 1 to 21 {
@@ -34,6 +54,28 @@ $percent: map.get(variables.$values, 'percent');
 
         .grid-t-c-#{$ind}-per-#{$ind_2} {
             grid-template-columns: repeat($ind, $ind_2 * $percent);
+        }
+
+        @if $use_breakpoints {
+            @each $point, $value in $breakpoints {
+                @media(min-width: $value) {
+                    .#{$point}-grid-t-r-#{$ind}-fix-#{$ind_2} {
+                        grid-template-rows: repeat($ind, $ind_2 * 1rem);
+                    }
+
+                    .#{$point}-grid-t-r-#{$ind}-per-#{$ind_2} {
+                        grid-template-rows: repeat($ind, $ind_2 * $percent);
+                    }
+
+                    .#{$point}-grid-t-c-#{$ind}-fix-#{$ind_2} {
+                        grid-template-columns: repeat($ind, $ind_2 * 1rem);
+                    }
+
+                    .#{$point}-grid-t-c-#{$ind}-per-#{$ind_2} {
+                        grid-template-columns: repeat($ind, $ind_2 * $percent);
+                    }
+                }
+            }
         }
     }
 }

@@ -4,9 +4,21 @@
 @use '../core/variables';
 
 $flex-dir: tokens.$flex-dir;
+$breakpoints: variables.$breakpoints;
+$use_breakpoints: map.get(variables.$config, 'breakpoints');
 
 @each $key, $val in $flex-dir {
     .flex-#{$key} {
         flex-direction: $val;
+    }
+
+    @if $use_breakpoints {
+        @each $point, $value in $breakpoints {
+            @media(min-width: $value) {
+                .#{$point}-flex-#{$key} {
+                    flex-direction: $val;
+                }
+            }
+        }
     }
 }

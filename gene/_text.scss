@@ -5,15 +5,37 @@
 
 $pos-hor: tokens.$pos-hor;
 $text-deco: tokens.$text-deco;
+$breakpoints: variables.$breakpoints;
+$use_breakpoints: map.get(variables.$config, 'breakpoints');
 
 @each $key, $pos in $pos-hor {
     .text-a-#{key} {
         text-align: $pos;
+    }
+
+    @if $use_breakpoints {
+        @each $name, $val in $breakpoints {
+            @media(min-width: $val) {
+                .#{$name}-text-a-#{key} {
+                    text-align: $pos;
+                }
+            }
+        }
     }
 }
 
 @each $key in $text-deco {
     .text-d-#{$key} {
         text-decoration: $key;
+    }
+
+    @if $use_breakpoints {
+        @each $name, $val in $breakpoints {
+            @media(min-width: $val) {
+                .#{$name}-text-d-#{key} {
+                    text-decoration: $key;
+                }
+            }
+        }
     }
 }
