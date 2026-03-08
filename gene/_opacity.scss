@@ -6,7 +6,7 @@
 $percent: map.get(variables.$values, 'percent');
 
 @for $ind from 0 to 21 {
-    .opacity-#{$ind} {
+    .o-#{$ind} {
         opacity: calc($ind * $percent);
     }
 }

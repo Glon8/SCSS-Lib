@@ -7,13 +7,13 @@ $pixel: map.get(variables.$values, 'pixel');
 $directions: tokens.$directions;
 
 @for $ind from 0 to 10 {
-    .padding-#{$ind} {
+    .p-#{$ind} {
         padding: calc($ind * $pixel);
     }
 
     @each $dir, $props in $directions {
         @each $prop in $props {
-            .padding-#{$dir}-#{$ind} {
+            .p-#{$dir}-#{$ind} {
                 padding-#{$prop}: calc($ind * $pixel);
             }
         }

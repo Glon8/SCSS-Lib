@@ -14,7 +14,7 @@ $fonts: variables.$fonts;
         src: url('./fonts/#{map-get($font, dest)}') format('#{map-get($font, format)}');
     }
 
-    .font-#{$name} {
+    .#{$name} {
         font-family: $name;
     }
 }
