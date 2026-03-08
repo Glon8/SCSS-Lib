@@ -1,0 +1,23 @@
+@use 'sass:map';
+
+@use '../core/tokens';
+@use '../core/variables';
+
+$pos: tokens.$pos;
+$directions: tokens.$directions;
+
+@each $prop in $pos {
+    .#{$prop} {
+        position: $prop;
+    }
+}
+
+@each $key, $prop in $directions {
+    @for $i from 0 to 21 {
+        @if $key !=x and $key !=y {
+            .#{$prop}-#{$i} {
+                #{$prop}: $percent * $i;
+            }
+        }
+    }
+}

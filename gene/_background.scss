@@ -1,0 +1,12 @@
+@use 'sass:map';
+
+@use '../core/tokens';
+@use '../core/variables';
+
+$colors: variables.$colors;
+
+@each $key, $col in $colors {
+    .bg-c-#{$key} {
+        background-color: $col;
+    }
+}

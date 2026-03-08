@@ -1,0 +1,12 @@
+@use 'sass:map';
+
+@use '../core/tokens';
+@use '../core/variables';
+
+$flex-dir: tokens.$flex-dir;
+
+@each $key in $flex-dir {
+    .f-#{$key} {
+        flex-direction: $key;
+    }
+}

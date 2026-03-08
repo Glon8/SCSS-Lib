@@ -1,0 +1,33 @@
+@use 'sass:map';
+
+@use '../core/tokens';
+@use '../core/variables';
+
+$percent: map.get(variables.$values, 'percent');
+$breakpoints: variables.$breakpoints;
+
+@for $ind from 0 to 21 {
+    .max-h-#{$ind} {
+        max-height: calc($ind * $percent);
+    }
+
+    .min-h-#{$ind} {
+        min-height: clac($ind * $percent);
+    }
+
+    .h-per-#{$ind} {
+        height: calc($ind * $percent);
+    }
+
+    .h-fix-#{$ind} {
+        height: calc($ind * 1rem);
+    }
+
+    @each $key, $value in $breakpoints {
+        @media (max-width: $value) {
+            .h-per-#{$ind}-#{$key} {
+                height: calc($ind * $percent);
+            }
+        }
+    }
+}

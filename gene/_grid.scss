@@ -1,0 +1,39 @@
+@use 'sass:map';
+
+@use '../core/tokens';
+@use '../core/variables';
+
+$pixel: map.get(variables.$values, 'pixel');
+$percent: map.get(variables.$values, 'percent');
+
+@for $ind from 1 to 10 {
+    .g-#{$ind} {
+        gap: $ind * $pixel;
+    }
+
+    .r-g-#{$ind} {
+        row-gap: $ind * $pixel;
+    }
+
+    .c-g-#{$ind} {
+        column-gap: $ind * $pixel;
+    }
+
+    @for $ind_2 from 1 to 21 {
+        .grid-t-r-#{$ind}-fix-#{$ind_2} {
+            grid-template-rows: repeat($ind, $ind_2 * 1rem);
+        }
+
+        .grid-t-r-#{$ind}-per-#{$ind_2} {
+            grid-template-rows: repeat($ind, $ind_2 * $percent);
+        }
+
+        .grid-t-c-#{$ind}-fix-#{$ind_2} {
+            grid-template-columns: repeat($ind, $ind_2 * 1rem);
+        }
+
+        .grid-t-c-#{$ind}-per-#{$ind_2} {
+            grid-template-columns: repeat($ind, $ind_2 * $percent);
+        }
+    }
+}
