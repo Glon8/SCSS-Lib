@@ -2,14 +2,14 @@
 
 @use '../core/tokens';
 @use '../core/variables';
+@use '../core/util';
 
 $pixel: map.get(variables.$values, 'pixel');
 $directions: tokens.$directions;
 $border-corns: tokens.$border-corns;
 $colors: tokens.$colors;
 $borders: tokens.$borders;
-$breakpoints: varables.$breakpoints;
-$use_breakpoints: map.get(variables.$config, 'breakpoints');
+$imp: util.$important;
 
 .b-d {
     border-radius: 2;
@@ -17,66 +17,50 @@ $use_breakpoints: map.get(variables.$config, 'breakpoints');
     border-style: solid;
 }
 
-@for $ind from 0 to 10 {
+@for $ind from 0 through 9 {
     .b-#{$ind} {
-        border-width: calc($ind * 1px);
+        border-width: calc(#{$ind} * 1px) #{$imp};
     }
 
-    @if $use_breakpoints {
-        @each $point, $value in $breakpoints {
-            @media(min-width: $value) {
-                .#{$point}-b-#{$ind} {
-                    border-width: calc($ind * 1px);
-                }
-            }
+    @include util.responsive using ($bp) {
+        .#{$bp}-b-#{$ind} {
+            border-width: calc(#{$ind} * 1px) #{$imp};
         }
     }
 
     @each $dir, $props in $directions {
         @each $prop in $props {
             .b-#{$dir}-w-#{$ind} {
-                border-#{$prop}-width: calc($ind * 1px);
+                border-#{$prop}-width: calc(#{$ind} * 1px) #{$imp};
             }
 
-            @if $use_breakpoints {
-                @each $point, $value in $breakpoints {
-                    @media(min-width: $value) {
-                        .#{$point}-b-#{$dir}-w-#{$ind} {
-                            border-#{$prop}-width: calc($ind * 1px);
-                        }
-                    }
+            @include util.responsive using ($bp) {
+                .#{$bp}-b-#{$dir}-w-#{$ind} {
+                    border-#{$prop}-width: calc(#{$ind} * 1px) #{$imp};
                 }
             }
         }
     }
 
     .r-#{$ind} {
-        border-radius: calc($ind * $pixel);
+        border-radius: calc(#{$ind} * #{$pixel}) #{$imp};
     }
 
-    @if $use_breakpoints {
-        @each $point, $value in $breakpoints {
-            @media(min-width: $value) {
-                .#{$point}-r-#{$ind} {
-                    border-radius: calc($ind * $pixel);
-                }
-            }
+    @include util.responsive using ($bp) {
+        .#{$bp}-r-#{$ind} {
+            border-radius: calc(#{$ind} * #{$pixel}) #{$imp};
         }
     }
 
     @each $key, $corners in $border-corns {
         @each $corn in $corners {
             .r-#{$key}-#{$ind} {
-                border-#{$corn}-radius: calc($ind * $pixel);
+                border-#{$corn}-radius: calc(#{$ind} * #{$pixel}) #{$imp};
             }
 
-            @if $use_breakpoints {
-                @each $point, $value in $breakpoints {
-                    @media(min-width: $value) {
-                        .#{$point}-r-#{$key}-#{$ind} {
-                            border-#{$corn}-radius: calc($ind * $pixel);
-                        }
-                    }
+            @include util.responsive using ($bp) {
+                .#{$bp}-r-#{$key}-#{$ind} {
+                    border-#{$corn}-radius: calc(#{$ind} * #{$pixel}) #{$imp};
                 }
             }
         }
@@ -85,32 +69,24 @@ $use_breakpoints: map.get(variables.$config, 'breakpoints');
 
 @each $key, $col in $colors {
     .b-#{$key} {
-        border-color: $col;
+        border-color: $col #{$imp};
     }
 
-    @if $use_breakpoints {
-        @each $point, $value in $breakpoints {
-            @media(min-width: $value) {
-                .#{$point}-b-#{$key} {
-                    border-color: $col;
-                }
-            }
+    @include util.responsive using ($bp) {
+        .#{$bp}-b-#{$key} {
+            border-color: $col #{$imp};
         }
     }
 
     @each $dir, $props in $directions {
         @each $prop in $props {
             .b-#{$dir}-c-#{$key} {
-                border-#{$prop}-color: $col;
+                border-#{$prop}-color: $col #{$imp};
             }
 
-            @if $use_breakpoints {
-                @each $point, $value in $breakpoints {
-                    @media(min-width: $value) {
-                        .#{$point}-b-#{$dir}-c-#{$key} {
-                            border-#{$prop}-color: $col;
-                        }
-                    }
+            @include util.responsive using ($bp) {
+                .#{$bp}-b-#{$dir}-c-#{$key} {
+                    border-#{$prop}-color: $col #{$imp};
                 }
             }
         }
@@ -119,32 +95,24 @@ $use_breakpoints: map.get(variables.$config, 'breakpoints');
 
 @each $key in $borders {
     .b-#{$key} {
-        border-style: $key;
+        border-style: $key #{$imp};
     }
 
-    @if $use_breakpoints {
-        @each $point, $value in $breakpoints {
-            @media(min-width: $value) {
-                .#{$point}-b-#{$key} {
-                    border-style: $key;
-                }
-            }
+    @include util.responsive using ($bp) {
+        .#{$bp}-b-#{$key} {
+            border-style: $key #{$imp};
         }
     }
 
     @each $dir, $props in $directions {
         @each $prop in $props {
             .b-#{$dir}-#{$key} {
-                border-#{$prop}-style: $key;
+                border-#{$prop}-style: $key #{$imp};
             }
 
-            @if $use_breakpoints {
-                @each $point, $value in $breakpoints {
-                    @media(min-width: $value) {
-                        .#{$point}-b-#{$dir}-#{$key} {
-                            border-#{$prop}-style: $key;
-                        }
-                    }
+            @include util.responsive using ($bp) {
+                .#{$bp}-b-#{$dir}-#{$key} {
+                    border-#{$prop}-style: $key #{$imp};
                 }
             }
         }

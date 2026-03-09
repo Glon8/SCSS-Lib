@@ -2,23 +2,19 @@
 
 @use '../core/tokens';
 @use '../core/variables';
+@use '../core/util';
 
 $colors: variables.$colors;
-$breakpoints: variables.$breakpoints;
-$use_breakpoints: map.get(variables.$config, 'breakpoints');
+$imp: util.$important;
 
 @each $key, $col in $colors {
     .c-#{$key} {
-        color: $col;
+        color: $col #{$imp};
     }
 
-    @if $use_breakpoints {
-        @each $name, $val in $breakpoints {
-            @media (min-width: $val) {
-                .#{$name}-c-#{$key} {
-                    color: $col;
-                }
-            }
+    @include util.responsive using ($bp) {
+        .#{$bp}-c-#{$key} {
+            color: $col #{$imp};
         }
     }
 }

@@ -2,23 +2,19 @@
 
 @use '../core/tokens';
 @use '../core/variables';
+@use '../core/util';
 
 $flex-dir: tokens.$flex-dir;
-$breakpoints: variables.$breakpoints;
-$use_breakpoints: map.get(variables.$config, 'breakpoints');
+$imp: util.$important;
 
 @each $key, $val in $flex-dir {
     .flex-#{$key} {
-        flex-direction: $val;
+        flex-direction: $val #{$imp};
     }
 
-    @if $use_breakpoints {
-        @each $point, $value in $breakpoints {
-            @media(min-width: $value) {
-                .#{$point}-flex-#{$key} {
-                    flex-direction: $val;
-                }
-            }
+    @include util.responsive using ($bp) {
+        .#{$bp}-flex-#{$key} {
+            flex-direction: $val #{$imp};
         }
     }
 }

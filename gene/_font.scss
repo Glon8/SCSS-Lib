@@ -2,63 +2,51 @@
 
 @use '../core/tokens';
 @use '../core/variables';
+@use '../core/util';
 
 $pixel: map.get(variables.$values, 'pixel');
 $fonts: variables.$fonts;
-$breakpoints: variables.$breakpoints;
-$use_breakpoints: map.get(variables.$config, 'breakpoints');
+$imp: util.$important;
 
 @each $font in $fonts {
-    $name: #{map-get($font, name)};
+    $name: #{map.get($font, "name")};
 
     @font-face {
         font-family: $name;
-        src: url('./fonts/#{map-get($font, dest)}') format('#{map-get($font, format)}');
+        src: url('./fonts/#{map.get($font, "dest")}') format('#{map.get($font, "format")}');
     }
 
     .#{$name} {
-        font-family: $name;
+        font-family: $name #{$imp};
     }
 
-    @if $use_breakpoints {
-        @each $point, $value in $breakpoints {
-            @media(min-width: $value) {
-                .#{$point}-#{$name} {
-                    font-family: $name;
-                }
-            }
+    @include util.responsive using ($bp) {
+        .#{$bp}-#{$name} {
+            font-family: $name #{$imp};
         }
     }
 }
 
-@for $ind from 0 to 21 {
+@for $ind from 0 through 20 {
     .font-s-#{$ind} {
-        font-size: calc($pixel * $ind);
+        font-size: calc(#{$pixel} * #{$ind}) #{$imp};
     }
 
-    @if $use_breakpoints {
-        @each $point, $value in $breakpoints {
-            @media(min-width: $value) {
-                .#{$point}-font-s-#{$ind} {
-                    font-size: calc($pixel * $ind);
-                }
-            }
+    @include util.responsive using ($bp) {
+        .#{$bp}-font-s-#{$ind} {
+            font-size: calc(#{$pixel} * #{$ind}) #{$imp};
         }
     }
 }
 
-@for $ind from 1 to 10 {
+@for $ind from 1 through 9 {
     .font-w-#{$ind} {
-        font-weight: $ind * 100;
+        font-weight: calc(#{$ind} * 100) #{$imp};
     }
 
-    @if $use_breakpoints {
-        @each $point, $value in $breakpoints {
-            @media(min-width: $value) {
-                .#{$point}-font-w-#{$ind} {
-                    font-weight: $ind * 100;
-                }
-            }
+    @include util.responsive using ($bp) {
+        .#{$bp}-font-w-#{$ind} {
+            font-weight: calc(#{$ind} * 100) #{$imp};
         }
     }
 }

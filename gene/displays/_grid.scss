@@ -2,79 +2,71 @@
 
 @use '../core/tokens';
 @use '../core/variables';
+@use '../core/util';
 
 $pixel: map.get(variables.$values, 'pixel');
 $percent: map.get(variables.$values, 'percent');
-$breakpoints: varables.$breakpoints;
-$use_breakpoints: map.get(variables.$config, 'breakpoints');
+$imp: util.$important;
 
-@for $ind from 1 to 10 {
+@for $ind from 1 through 9 {
     .gap-#{$ind} {
-        gap: $ind * $pixel;
+        gap: calc(#{$ind} * #{$pixel}) #{$imp};
     }
 
     .r-gap-#{$ind} {
-        row-gap: $ind * $pixel;
+        row-gap: calc(#{$ind} * #{$pixel}) #{$imp};
     }
 
     .c-gap-#{$ind} {
-        column-gap: $ind * $pixel;
+        column-gap: calc(#{$ind} * #{$pixel}) #{$imp};
     }
 
-    @if $use_breakpoints {
-        @each $point, $value in $breakpoints {
-            @media(min-width: $value) {
-                .#{$point}-gap-#{$ind} {
-                    gap: $ind * $pixel;
-                }
+    @include util.responsive using ($bp) {
+        .#{$bp}-gap-#{$ind} {
+            gap: calc(#{$ind} * #{$pixel}) #{$imp};
+        }
 
-                .#{$point}-r-gap-#{$ind} {
-                    row-gap: $ind * $pixel;
-                }
+        .#{$bp}-r-gap-#{$ind} {
+            row-gap: calc(#{$ind} * #{$pixel}) #{$imp};
+        }
 
-                .#{$point}-c-gap-#{$ind} {
-                    column-gap: $ind * $pixel;
-                }
-            }
+        .#{$bp}-c-gap-#{$ind} {
+            column-gap: calc(#{$ind} * #{$pixel}) #{$imp};
         }
     }
 
-    @for $ind_2 from 1 to 21 {
+    @for $ind_2 from 1 through 20 {
         .grid-t-r-#{$ind}-fix-#{$ind_2} {
-            grid-template-rows: repeat($ind, $ind_2 * 1rem);
+            grid-template-rows: repeat(#{$ind}, #{$ind_2} * 1rem) #{$imp};
         }
 
         .grid-t-r-#{$ind}-per-#{$ind_2} {
-            grid-template-rows: repeat($ind, $ind_2 * $percent);
+            grid-template-rows: repeat(#{$ind}, #{$ind_2} * #{$percent}) #{$imp};
         }
 
         .grid-t-c-#{$ind}-fix-#{$ind_2} {
-            grid-template-columns: repeat($ind, $ind_2 * 1rem);
+            grid-template-columns: repeat(#{$ind}, #{$ind_2} * 1rem) #{$imp};
         }
 
         .grid-t-c-#{$ind}-per-#{$ind_2} {
-            grid-template-columns: repeat($ind, $ind_2 * $percent);
+            grid-template-columns: repeat(#{$ind}, #{$ind_2} * #{$percent}) #{$imp};
         }
 
-        @if $use_breakpoints {
-            @each $point, $value in $breakpoints {
-                @media(min-width: $value) {
-                    .#{$point}-grid-t-r-#{$ind}-fix-#{$ind_2} {
-                        grid-template-rows: repeat($ind, $ind_2 * 1rem);
-                    }
+        @include util.responsive using ($bp) {
+            .#{$bp}-grid-t-r-#{$ind}-fix-#{$ind_2} {
+                grid-template-rows: repeat(#{$ind}, #{$ind_2} * 1rem) #{$imp};
+            }
 
-                    .#{$point}-grid-t-r-#{$ind}-per-#{$ind_2} {
-                        grid-template-rows: repeat($ind, $ind_2 * $percent);
-                    }
+            .#{$bp}-grid-t-r-#{$ind}-per-#{$ind_2} {
+                grid-template-rows: repeat(#{$ind}, #{$ind_2} * $percent) #{$imp};
+            }
 
-                    .#{$point}-grid-t-c-#{$ind}-fix-#{$ind_2} {
-                        grid-template-columns: repeat($ind, $ind_2 * 1rem);
-                    }
+            .#{$bp}-grid-t-c-#{$ind}-fix-#{$ind_2} {
+                grid-template-columns: repeat(#{$ind}, #{$ind_2} * 1rem) #{$imp};
+            }
 
-                    .#{$point}-grid-t-c-#{$ind}-per-#{$ind_2} {
-                        grid-template-columns: repeat($ind, $ind_2 * $percent);
-                    }
-                }
+            .#{$bp}-grid-t-c-#{$ind}-per-#{$ind_2} {
+                grid-template-columns: repeat(#{$ind}, #{$ind_2} * $percent) #{$imp};
             }
         }
     }

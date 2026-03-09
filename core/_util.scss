@@ -1,0 +1,20 @@
+@use 'sass:map';
+
+@use './tokens';
+@use './variables';
+
+$use_breakpoints: map.get(variables.$config, "breakpoints");
+$use_important: map-get(variables.$config, "important");
+$breakpoints: variables.$breakpoints;
+
+$important: #{if($use_important, "!important", "")};
+
+@mixin responsive {
+    @if $use_breakpoints {
+        @each $key, $val in $breakpoints {
+            @media(min-width: $val) {
+                @content($key);
+            }
+        }
+    }
+}

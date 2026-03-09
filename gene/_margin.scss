@@ -2,40 +2,32 @@
 
 @use '../core/tokens';
 @use '../core/variables';
+@use '../core/util';
 
 $pixel: map.get(variables.$values , 'pixel');
 $directions: tokens.$directions;
-$breakpoints: variables.$breakpoints;
-$use_breakpoints: map.get(variables.$config, 'breakpoints');
+$imp: util.$important;
 
-@for $ind from 0 to 10 {
+@for $ind from 0 through 9 {
     .m-#{$ind} {
-        margin: calc($ind * $pixel);
+        margin: calc(#{$ind} * #{$pixel}) #{$imp};
     }
 
-    @if $use_breakpoints {
-        @each $name, $val in $breakpoints {
-            @media(min-width: $val) {
-                .#{$name}-m-#{$ind} {
-                    margin: calc($ind * $pixel);
-                }
-            }
+    @include util.responsive using ($bp) {
+        .#{$bp}-m-#{$ind} {
+            margin: calc(#{$ind} * #{$pixel}) #{$imp};
         }
     }
 
     @each $dir, $props in $directions {
         @each $prop in $props {
             .m-#{$dir}-#{$ind} {
-                margin-#{$prop}: calc($ind * $pixel);
+                margin-#{$prop}: calc(#{$ind} * #{$pixel}) #{$imp};
             }
 
-            @if $use_breakpoints {
-                @each $name, $val in $breakpoints {
-                    @media(min-width: $val) {
-                        .#{$name}-m-#{$dir}-#{$ind} {
-                            margin-#{$prop}: calc($ind * $pixel);
-                        }
-                    }
+            @include util.responsive using ($bp) {
+                .#{$bp}-m-#{$dir}-#{$ind} {
+                    margin-#{$prop}: calc(#{$ind} * #{$pixel}) #{$imp};
                 }
             }
         }
