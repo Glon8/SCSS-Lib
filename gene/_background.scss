@@ -7,6 +7,9 @@
 $colors: variables.$colors;
 $per: map.get(variables.$values, "per");
 $imp: util.$important;
+$position: tokens.$bg-pos;
+$repeat: tokens.$bg-rep;
+$attach: tokens.$bg-att;
 
 @each $key, $col in $colors {
     .bg-c-#{$key} {
@@ -44,7 +47,7 @@ $imp: util.$important;
     }
 }
 
-@each $key, $val in $bg-pos {
+@each $key, $val in $position {
     .bg-p-#{$key} {
         background-position: $val #{$imp};
     }
@@ -64,6 +67,18 @@ $imp: util.$important;
     @include util.responsive using ($bp) {
         .#{$bp}-bg-r-#{$key} {
             background-repeat: $val #{$imp};
+        }
+    }
+}
+
+@each $key, $val in $attach {
+    .bg-a-#{$key} {
+        background-attachment: $val;
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-bg-a-#{$key} {
+            background-attachment: $val;
         }
     }
 }

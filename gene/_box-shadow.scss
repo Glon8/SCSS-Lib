@@ -1,0 +1,24 @@
+@use 'sass:map';
+
+@use '../core/tokens';
+@use '../core/variables';
+@use '../core/util';
+
+$imp: util.$important;
+$sizes: tokens.$box-shadow;
+
+@each $val in $sizes {
+    @for $i from 0 through 3 {
+        .box-sh-#{$val}-o-#{$i} {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, #{$i}/10),
+            0 6px 20px 0 rgba(0, 0, 0, (#{$i} - 1)/10) #{$imp};
+        }
+
+        @include util.responsive using ($bp) {
+            .#{$bp}-box-sh-#{$val}-o-#{$i} {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, #{$i}/10),
+                0 6px 20px 0 rgba(0, 0, 0, (#{$i} - 1)/10) #{$imp};
+            }
+        }
+    }
+}

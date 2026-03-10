@@ -38,6 +38,19 @@ Each font entry requires the following fields:
 (name: 'name', dest: 'path/to/font-file', format: 'file-format'),
 ```
 
+## Images Guide
+
+> **Note:** This section is intended for adding **local images**.
+
+- **name** – The font name used to reference it in the library.
+- **dest** – Path to the font file (including the file extension)
+
+### Example
+
+```scss
+name: url('path/to/image'),
+```
+
 ## Installation:
 
 1. Install **SASS** in to your project.

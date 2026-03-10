@@ -7,6 +7,7 @@
 $px: map.get(variables.$values, 'px');
 $fonts: variables.$fonts;
 $imp: util.$important;
+$font-style: tokens.$font-style;
 
 @each $font in $fonts {
     $name: #{map.get($font, "name")};
@@ -47,6 +48,18 @@ $imp: util.$important;
     @include util.responsive using ($bp) {
         .#{$bp}-font-w-#{$ind} {
             font-weight: calc(#{$ind} * 100) #{$imp};
+        }
+    }
+}
+
+@each $key, $value in $font-style {
+    .font-st-#{$key} {
+        font-style: $value;
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-font-st-#{$key} {
+            font-style: $value;
         }
     }
 }

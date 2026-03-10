@@ -1,0 +1,15 @@
+@use '../core/util';
+
+$imp: util.$important;
+
+@for $i from 1 through 10 {
+    .letter-s-#{$i} {
+        letter-spacing: calc(#{$i} * 1px) #{$imp};
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-letter-s-#{$i} {
+            letter-spacing: calc(#{$i} * 1px) #{$imp};
+        }
+    }
+}
