@@ -4,30 +4,30 @@
 @use '../core/variables';
 @use '../core/util';
 
-$pixel: map.get(variables.$values , 'pixel');
+$px: map.get(variables.$values , 'px');
 $directions: tokens.$directions;
 $imp: util.$important;
 
 @for $ind from 0 through 9 {
     .m-#{$ind} {
-        margin: calc(#{$ind} * #{$pixel}) #{$imp};
+        margin: calc(#{$ind} * #{$px}) #{$imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-m-#{$ind} {
-            margin: calc(#{$ind} * #{$pixel}) #{$imp};
+            margin: calc(#{$ind} * #{$px}) #{$imp};
         }
     }
 
     @each $dir, $props in $directions {
         @each $prop in $props {
             .m-#{$dir}-#{$ind} {
-                margin-#{$prop}: calc(#{$ind} * #{$pixel}) #{$imp};
+                margin-#{$prop}: calc(#{$ind} * #{$px}) #{$imp};
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-m-#{$dir}-#{$ind} {
-                    margin-#{$prop}: calc(#{$ind} * #{$pixel}) #{$imp};
+                    margin-#{$prop}: calc(#{$ind} * #{$px}) #{$imp};
                 }
             }
         }

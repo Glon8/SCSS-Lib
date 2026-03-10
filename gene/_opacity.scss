@@ -4,17 +4,17 @@
 @use '../core/variables';
 @use '../core/util';
 
-$percent: map.get(variables.$values, 'percent');
+$per: map.get(variables.$values, 'per');
 $imp: util.$important;
 
 @for $ind from 0 through 20 {
     .o-#{$ind} {
-        opacity: calc(#{$ind} * #{$percent}) #{$imp};
+        opacity: calc(#{$ind} * #{$per}) #{$imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-o-#{$ind} {
-            opacity: calc(#{$ind} * #{$percent}) #{$imp};
+            opacity: calc(#{$ind} * #{$per}) #{$imp};
         }
     }
 }

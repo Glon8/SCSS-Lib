@@ -4,69 +4,57 @@
 @use '../core/variables';
 @use '../core/util';
 
-$pixel: map.get(variables.$values, 'pixel');
-$percent: map.get(variables.$values, 'percent');
+$values: variables.$values;
+$px: map.get($values, 'px');
 $imp: util.$important;
 
 @for $ind from 1 through 9 {
     .gap-#{$ind} {
-        gap: calc(#{$ind} * #{$pixel}) #{$imp};
+        gap: calc(#{$ind} * #{$px}) #{$imp};
     }
 
     .r-gap-#{$ind} {
-        row-gap: calc(#{$ind} * #{$pixel}) #{$imp};
+        row-gap: calc(#{$ind} * #{$px}) #{$imp};
     }
 
     .c-gap-#{$ind} {
-        column-gap: calc(#{$ind} * #{$pixel}) #{$imp};
+        column-gap: calc(#{$ind} * #{$px}) #{$imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-gap-#{$ind} {
-            gap: calc(#{$ind} * #{$pixel}) #{$imp};
+            gap: calc(#{$ind} * #{$px}) #{$imp};
         }
 
         .#{$bp}-r-gap-#{$ind} {
-            row-gap: calc(#{$ind} * #{$pixel}) #{$imp};
+            row-gap: calc(#{$ind} * #{$px}) #{$imp};
         }
 
         .#{$bp}-c-gap-#{$ind} {
-            column-gap: calc(#{$ind} * #{$pixel}) #{$imp};
+            column-gap: calc(#{$ind} * #{$px}) #{$imp};
         }
     }
 
     @for $ind_2 from 1 through 20 {
-        .grid-t-r-#{$ind}-fix-#{$ind_2} {
-            grid-template-rows: repeat(#{$ind}, #{$ind_2} * 1rem) #{$imp};
-        }
+        @each $key, $value in $values {
+            .grid-t-r-#{$ind}-#{$key}-#{$ind_2} {
+                grid-template-rows: repeat(#{$ind}, #{$ind_2} * #{$value}) #{$imp};
+            }
 
-        .grid-t-r-#{$ind}-per-#{$ind_2} {
-            grid-template-rows: repeat(#{$ind}, #{$ind_2} * #{$percent}) #{$imp};
-        }
-
-        .grid-t-c-#{$ind}-fix-#{$ind_2} {
-            grid-template-columns: repeat(#{$ind}, #{$ind_2} * 1rem) #{$imp};
-        }
-
-        .grid-t-c-#{$ind}-per-#{$ind_2} {
-            grid-template-columns: repeat(#{$ind}, #{$ind_2} * #{$percent}) #{$imp};
+            .grid-t-c-#{$ind}-#{$key}-#{$ind_2} {
+                grid-template-columns: repeat(#{$ind}, #{$ind_2} * #{$value}) #{$imp};
+            }
         }
 
         @include util.responsive using ($bp) {
-            .#{$bp}-grid-t-r-#{$ind}-fix-#{$ind_2} {
-                grid-template-rows: repeat(#{$ind}, #{$ind_2} * 1rem) #{$imp};
-            }
+            @each $key, $value in $values {
+                .#{$bp}-grid-t-r-#{$ind}-#{$key}-#{$ind_2} {
+                    grid-template-rows: repeat(#{$ind}, #{$ind_2} * #{$value}) #{$imp};
+                }
 
-            .#{$bp}-grid-t-r-#{$ind}-per-#{$ind_2} {
-                grid-template-rows: repeat(#{$ind}, #{$ind_2} * $percent) #{$imp};
-            }
-
-            .#{$bp}-grid-t-c-#{$ind}-fix-#{$ind_2} {
-                grid-template-columns: repeat(#{$ind}, #{$ind_2} * 1rem) #{$imp};
-            }
-
-            .#{$bp}-grid-t-c-#{$ind}-per-#{$ind_2} {
-                grid-template-columns: repeat(#{$ind}, #{$ind_2} * $percent) #{$imp};
+                .#{$bp}-grid-t-c-#{$ind}-#{$key}-#{$ind_2} {
+                    grid-template-columns: repeat(#{$ind}, #{$ind_2} * #{$value}) #{$imp};
+                }
             }
         }
     }

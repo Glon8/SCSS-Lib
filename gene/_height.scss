@@ -4,41 +4,38 @@
 @use '../core/variables';
 @use '../core/util';
 
-$percent: map.get(variables.$values, 'percent');
+$values: variables.$values;
+$per: map.get($values, 'per');
 $imp: util.$important;
 
 @for $ind from 0 through 20 {
     .max-h-#{$ind} {
-        max-height: calc(#{$ind} * #{$percent}) #{$imp};
+        max-height: calc(#{$ind} * #{$per}) #{$imp};
     }
 
     .min-h-#{$ind} {
-        min-height: clac(#{$ind} * #{$percent}) #{$imp};
+        min-height: clac(#{$ind} * #{$per}) #{$imp};
     }
 
-    .h-per-#{$ind} {
-        height: calc(#{$ind} * #{$percent}) #{$imp};
-    }
-
-    .h-fix-#{$ind} {
-        height: calc(#{$ind} * 1rem) #{$imp};
+    @each $key, $value in $values {
+        .h-#{$key}-#{$ind} {
+            height: calc(#{$ind} * #{$value}) #{$imp};
+        }
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-max-h-#{$ind} {
-            max-height: calc(#{$ind} * #{$percent}) #{$imp};
+            max-height: calc(#{$ind} * #{$per}) #{$imp};
         }
 
         .#{$bp}-min-h-#{$ind} {
-            min-height: clac(#{$ind} * #{$percent}) #{$imp};
+            min-height: clac(#{$ind} * #{$per}) #{$imp};
         }
 
-        .#{$bp}-h-per-#{$ind} {
-            height: calc(#{$ind} * #{$percent}) #{$imp};
-        }
-
-        .#{$bp}-h-fix-#{$ind} {
-            height: calc(#{$ind} * 1rem) #{$imp};
+        @each $key, $value in $values {
+            .#{$bp}-h-#{$key}-#{$ind} {
+                height: calc(#{$ind} * #{$value}) #{$imp};
+            }
         }
     }
 }

@@ -4,41 +4,39 @@
 @use '../core/variables';
 @use '../core/util';
 
-$percent: map.get(variables.$values, 'percent');
+
+$values: variables.$values;
+$per: map.get($values, 'per');
 $imp: util.$important;
 
 @for $ind from 0 through 20 {
     .max-w-#{$ind} {
-        max-width: calc(#{$ind} * #{$percent}) #{$imp};
+        max-width: calc(#{$ind} * #{$per}) #{$imp};
     }
 
     .min-w-#{$ind} {
-        min-width: calc(#{$ind} * #{$percent}) #{$imp};
+        min-width: calc(#{$ind} * #{$per}) #{$imp};
     }
 
-    .w-per-#{$ind} {
-        width: calc(#{$ind} * #{$percent}) #{$imp};
-    }
-
-    .w-fix-#{$ind} {
-        width: calc(#{$ind} * 1rem) #{$imp};
+    @each $key, $value in $values {
+        .w-#{$key}-#{$ind} {
+            width: calc(#{$ind} * #{$value}) #{$imp};
+        }
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-max-w-#{$ind} {
-            max-width: calc(#{$ind} * #{$percent}) #{$imp};
+            max-width: calc(#{$ind} * #{$per}) #{$imp};
         }
 
         .#{$bp}-min-w-#{$ind} {
-            min-width: calc(#{$ind} * #{$percent}) #{$imp};
+            min-width: calc(#{$ind} * #{$per}) #{$imp};
         }
 
-        .#{$bp}-w-per-#{$ind} {
-            width: calc(#{$ind} * #{$percent}) #{$imp};
-        }
-
-        .#{$bp}-w-fix-#{$ind} {
-            width: calc(#{$ind} * 1rem) #{$imp};
+        @each $key, $value in $values {
+            .#{$bp}-w-#{$key}-#{$ind} {
+                width: calc(#{$ind} * #{$value}) #{$imp};
+            }
         }
     }
 }

@@ -4,8 +4,9 @@ $config: (
 );
 
 $values: (
-    pixel: 5px,
-    percent: 5%,
+    px: 5px,
+    per: 5%,
+    rem: 2rem,
 );
 
 $colors: (
@@ -13,11 +14,14 @@ $colors: (
     dark: #102020,
 );
 
+$breakpoints: (
+    sm: 320px,
+    md: 768px,
+    lg: 1440px,
+);
+
 $fonts: (
 );
 
-$breakpoints: (
-    sm: 425px,
-    md: 768px,
-    lg: 1024px,
+$images: (
 );

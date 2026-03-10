@@ -4,7 +4,7 @@
 @use '../core/variables';
 @use '../core/util';
 
-$pixel: map.get(variables.$values, 'pixel');
+$px: map.get(variables.$values, 'px');
 $fonts: variables.$fonts;
 $imp: util.$important;
 
@@ -29,12 +29,12 @@ $imp: util.$important;
 
 @for $ind from 0 through 20 {
     .font-s-#{$ind} {
-        font-size: calc(#{$pixel} * #{$ind}) #{$imp};
+        font-size: calc(#{$ind} * #{$px}) #{$imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-font-s-#{$ind} {
-            font-size: calc(#{$pixel} * #{$ind}) #{$imp};
+            font-size: calc(#{$ind} * #{$px}) #{$imp};
         }
     }
 }
