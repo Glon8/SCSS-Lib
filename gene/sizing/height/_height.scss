@@ -1,38 +1,16 @@
-@use 'sass:map';
-
-@use '../../../core/tokens';
 @use '../../../core/variables';
 @use '../../../core/util';
 
 $values: variables.$values;
-$per: map.get($values, 'per');
 $imp: util.$important;
 
 @for $ind from 0 through 20 {
-    .max-h-#{$ind} {
-        max-height: calc(#{$ind} * #{$per}) #{$imp};
-    }
-
-    .min-h-#{$ind} {
-        min-height: clac(#{$ind} * #{$per}) #{$imp};
-    }
-
     @each $key, $value in $values {
         .h-#{$key}-#{$ind} {
             height: calc(#{$ind} * #{$value}) #{$imp};
         }
-    }
 
-    @include util.responsive using ($bp) {
-        .#{$bp}-max-h-#{$ind} {
-            max-height: calc(#{$ind} * #{$per}) #{$imp};
-        }
-
-        .#{$bp}-min-h-#{$ind} {
-            min-height: clac(#{$ind} * #{$per}) #{$imp};
-        }
-
-        @each $key, $value in $values {
+        @include util.responsive using ($bp) {
             .#{$bp}-h-#{$key}-#{$ind} {
                 height: calc(#{$ind} * #{$value}) #{$imp};
             }

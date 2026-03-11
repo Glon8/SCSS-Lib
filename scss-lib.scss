@@ -23,7 +23,13 @@
 @forward './gene/flex/flex-wrap';
 
 // <           GRID
-@forward './gene/grid/grid';
+// <     GAP
+@forward './gene/grid/gap/column-gap';
+@forward './gene/grid/gap/gap';
+@forward './gene/grid/gap/row-gap';
+// <     TEMPLATES
+@forward './gene/grid/grid-template-columns';
+@forward './gene/grid/grid-template-rows';
 
 // <           POSITION
 @forward './gene/position/directions';
@@ -31,7 +37,9 @@
 
 // <           SIZING
 // <     HEIGHT
-@forward './gene/sizing/height';
+@forward './gene/sizing/height/height';
+@forward './gene/sizing/height/max-height';
+@forward './gene/sizing/height/min-height';
 // <     WIDTH
 @forward './gene/sizing/width/max-width';
 @forward './gene/sizing/width/min-width';

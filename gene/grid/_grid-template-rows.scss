@@ -1,0 +1,21 @@
+@use '../../core/variables';
+@use '../../core/util';
+
+$values: variables.$values;
+$imp: util.$important;
+
+@for $ind from 1 through 9 {
+    @for $ind_2 from 1 through 20 {
+        @each $key, $value in $values {
+            .grid-t-r-#{$ind}-#{$key}-#{$ind_2} {
+                grid-template-rows: repeat(#{$ind}, #{$ind_2} * #{$value}) #{$imp};
+            }
+
+            @include util.responsive using ($bp) {
+                .#{$bp}-grid-t-r-#{$ind}-#{$key}-#{$ind_2} {
+                    grid-template-rows: repeat(#{$ind}, #{$ind_2} * #{$value}) #{$imp};
+                }
+            }
+        }
+    }
+}
