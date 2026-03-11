@@ -1,0 +1,17 @@
+@use '../../../core/tokens';
+@use '../../../core/util';
+
+$imp: util.$important;
+$overflow: tokens.$text-overflow;
+
+@each $key, $value in $overflow {
+    .text-o-#{$key} {
+        text-overflow: $value #{$imp};
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-text-o-#{$key} {
+            text-overflow: $value #{$imp};
+        }
+    }
+}

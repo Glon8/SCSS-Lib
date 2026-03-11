@@ -1,0 +1,17 @@
+@use '../../../core/tokens';
+@use '../../../core/util';
+
+$imp: util.$important;
+$transform: tokens.$text-transform;
+
+@each $key, $value in $transform {
+    .text-t-#{$key} {
+        text-transform: $value #{$imp};
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-text-t-#{$key} {
+            text-transform: $value #{$imp};
+        }
+    }
+}

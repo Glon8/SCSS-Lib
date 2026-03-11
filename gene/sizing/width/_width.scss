@@ -1,0 +1,19 @@
+@use '../../../core/variables';
+@use '../../../core/util';
+
+$values: variables.$values;
+$imp: util.$important;
+
+@for $ind from 0 through 20 {
+    @each $key, $value in $values {
+        .w-#{$key}-#{$ind} {
+            width: calc(#{$ind} * #{$value}) #{$imp};
+        }
+
+        @include util.responsive using ($bp) {
+            .#{$bp}-w-#{$key}-#{$ind} {
+                width: calc(#{$ind} * #{$value}) #{$imp};
+            }
+        }
+    }
+}

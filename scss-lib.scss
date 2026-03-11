@@ -30,16 +30,33 @@
 @forward './gene/position/position';
 
 // <           SIZING
-@forward './gene/sizing/width';
+// <     HEIGHT
 @forward './gene/sizing/height';
+// <     WIDTH
+@forward './gene/sizing/width/max-width';
+@forward './gene/sizing/width/min-width';
+@forward './gene/sizing/width/width';
 
 // <           SPACING
 @forward './gene/spacing/margin';
 @forward './gene/spacing/padding';
 
 // <           TYPOGRAPHY
-@forward './gene/typography/font';
-@forward './gene/typography/text';
+// <     FONT
+@forward './gene/typography/font/font-family';
+@forward './gene/typography/font/font-size';
+@forward './gene/typography/font/font-style';
+@forward './gene/typography/font/font-weight';
+// <     LETTER SPACING
 @forward './gene/typography/letter-spacing';
+// <     LINE HEIGHT
 @forward './gene/typography/line-height';
+// <     TEXT
+@forward './gene/typography/text/text-align';
+@forward './gene/typography/text/text-decoration-color';
+@forward './gene/typography/text/text-decoration-thickness';
+@forward './gene/typography/text/text-decoration';
+@forward './gene/typography/text/text-overflow';
+@forward './gene/typography/text/text-transform';
+// <     WHITE SPACE
 @forward './gene/typography/white-space';

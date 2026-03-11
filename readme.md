@@ -43,7 +43,7 @@ Each font entry requires the following fields:
 > **Note:** This section is intended for adding **local images**.
 
 - **name** – The font name used to reference it in the library.
-- **dest** – Path to the font file (including the file extension)
+- **path** – Path to the font file (including the file extension)
 
 ### Example
 

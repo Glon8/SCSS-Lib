@@ -1,0 +1,17 @@
+@use '../../../core/tokens';
+@use '../../../core/util';
+
+$text-deco: tokens.$text-deco;
+$imp: util.$important;
+
+@each $key in $text-deco {
+    .text-d-#{$key} {
+        text-decoration: $key #{$imp};
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-text-d-#{key} {
+            text-decoration: $key #{$imp};
+        }
+    }
+}
