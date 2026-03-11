@@ -1,8 +1,7 @@
 @use 'sass:map';
 
-@use '../core/tokens';
-@use '../core/variables';
-@use '../core/util';
+@use '../../core/variables';
+@use '../../core/util';
 
 $per: map.get(variables.$values, 'per');
 $imp: util.$important;

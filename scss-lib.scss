@@ -1,20 +1,45 @@
-@forward './gene/margin';
-@forward './gene/padding';
-@forward './gene/font';
-@forward './gene/border';
+// <           ALIGMENT
+@forward './gene/aligment/align';
+@forward './gene/aligment/justify';
+
+// <           BACKGROUND
+@forward './gene/background/background';
+
+// <           BORDER
+@forward './gene/border/border';
+
+// <           COLOR
 @forward './gene/color';
-@forward './gene/align';
+
+// <           DISPLAY
 @forward './gene/display';
-@forward './gene/justify';
-@forward './gene/opacity';
-@forward './gene/text';
-@forward './gene/background';
-@forward './gene/displays/flex';
-@forward './gene/displays/grid';
-@forward './gene/position';
-@forward './gene/width';
-@forward './gene/height';
-@forward './gene/letter-spacing';
-@forward './gene/line-height';
-@forward './gene/white-space';
-@forward './gene/box-shadow';
+
+// <           EFFECTS
+@forward './gene/effects/box-shadow';
+@forward './gene/effects/opacity';
+
+// <           FLEX
+@forward './gene/flex/flex-direction';
+@forward './gene/flex/flex-wrap';
+
+// <           GRID
+@forward './gene/grid/grid';
+
+// <           POSITION
+@forward './gene/position/directions';
+@forward './gene/position/position';
+
+// <           SIZING
+@forward './gene/sizing/width';
+@forward './gene/sizing/height';
+
+// <           SPACING
+@forward './gene/spacing/margin';
+@forward './gene/spacing/padding';
+
+// <           TYPOGRAPHY
+@forward './gene/typography/font';
+@forward './gene/typography/text';
+@forward './gene/typography/letter-spacing';
+@forward './gene/typography/line-height';
+@forward './gene/typography/white-space';

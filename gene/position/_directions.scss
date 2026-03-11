@@ -1,0 +1,25 @@
+@use 'sass:map';
+
+@use '../../core/tokens';
+@use '../../core/variables';
+@use '../../core/util';
+
+$imp: util.$important;
+$directions: tokens.$directions;
+$per: map.get(variables.$values, 'per');
+
+@each $key, $prop in $directions {
+    @for $i from 0 through 20 {
+        @if $key !=x and $key !=y {
+            .#{$prop}-#{$i} {
+                #{$prop}: calc(#{$per} * #{$i}) #{$imp};
+            }
+
+            @include util.responsive using ($bp) {
+                .#{$bp}-#{$prop}-#{$i} {
+                    #{$prop}: calc(#{$per} * #{$i}) #{$imp};
+                }
+            }
+        }
+    }
+}

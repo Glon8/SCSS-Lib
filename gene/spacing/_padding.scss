@@ -1,8 +1,8 @@
 @use 'sass:map';
 
-@use '../core/tokens';
-@use '../core/variables';
-@use '../core/util';
+@use '../../core/tokens';
+@use '../../core/variables';
+@use '../../core/util';
 
 $px: map.get(variables.$values, 'px');
 $directions: tokens.$directions;

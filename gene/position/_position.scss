@@ -1,0 +1,17 @@
+@use '../../core/tokens';
+@use '../../core/util';
+
+$pos: tokens.$pos;
+$imp: util.$important;
+
+@each $prop in $pos {
+    .#{$prop} {
+        position: $prop #{$imp};
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-#{$prop} {
+            position: $prop #{$imp};
+        }
+    }
+}

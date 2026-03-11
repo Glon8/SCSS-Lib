@@ -1,0 +1,18 @@
+@use '../../core/tokens';
+@use '../../core/util';
+
+$flex-dir: tokens.$flex-dir;
+$imp: util.$important;
+
+@each $key, $val in $flex-dir {
+    .flex-#{$key} {
+        flex-direction: $val #{$imp};
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-flex-#{$key} {
+            flex-direction: $val #{$imp};
+        }
+    }
+}
+

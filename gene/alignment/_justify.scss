@@ -1,8 +1,5 @@
-@use 'sass:map';
-
-@use '../core/tokens';
-@use '../core/variables';
-@use '../core/util';
+@use '../../core/tokens';
+@use '../../core/util';
 
 $pos-hor: tokens.$pos-hor;
 $just-ali: tokens.$just-ali;

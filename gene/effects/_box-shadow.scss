@@ -1,8 +1,5 @@
-@use 'sass:map';
-
-@use '../core/tokens';
-@use '../core/variables';
-@use '../core/util';
+@use '../../core/tokens';
+@use '../../core/util';
 
 $imp: util.$important;
 $sizes: tokens.$box-shadow;

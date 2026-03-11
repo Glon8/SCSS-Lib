@@ -1,7 +1,4 @@
-@use 'sass:map';
-
 @use '../core/tokens';
-@use '../core/variables';
 @use '../core/util';
 
 $displays: tokens.$displays;
