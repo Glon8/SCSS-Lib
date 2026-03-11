@@ -7,17 +7,19 @@
 $imp: util.$important;
 $sizes: tokens.$box-shadow;
 
-@each $val in $sizes {
+@for $ind from 1 through length($sizes) {
+    $val: nth($sizes, $ind);
+
     @for $i from 0 through 3 {
         .box-sh-#{$val}-o-#{$i} {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, #{$i}/10),
-            0 6px 20px 0 rgba(0, 0, 0, (#{$i} - 1)/10) #{$imp};
+            box-shadow: 0 calc(#{$i} * 2px) calc(#{$i} * 4px) 0 rgba(0, 0, 0, #{$i}/10),
+            0 calc(#{$i} * 3px) calc(#{$i} * 10px) 0 rgba(0, 0, 0, (#{$i} - 1)/10) #{$imp};
         }
 
         @include util.responsive using ($bp) {
             .#{$bp}-box-sh-#{$val}-o-#{$i} {
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, #{$i}/10),
-                0 6px 20px 0 rgba(0, 0, 0, (#{$i} - 1)/10) #{$imp};
+                box-shadow: 0 calc(#{$i} * 2px) calc(#{$i} * 4px) 0 rgba(0, 0, 0, #{$i}/10),
+                0 calc(#{$i} * 3px) calc(#{$i} * 10px) 0 rgba(0, 0, 0, (#{$i} - 1)/10) #{$imp};
             }
         }
     }
