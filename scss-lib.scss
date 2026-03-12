@@ -3,10 +3,19 @@
 @forward './gene/aligment/justify';
 
 // <           BACKGROUND
-@forward './gene/background/background';
+@forward './gene/background/background-attachment';
+@forward './gene/background/background-color';
+@forward './gene/background/background-image';
+@forward './gene/background/background-position';
+@forward './gene/background/background-repeat';
+@forward './gene/background/background-size';
 
 // <           BORDER
-@forward './gene/border/border';
+@forward './gene/border/border-color';
+@forward './gene/border/border-def';
+@forward './gene/border/border-radius';
+@forward './gene/border/border-style';
+@forward './gene/border/border-width';
 
 // <           COLOR
 @forward './gene/color';

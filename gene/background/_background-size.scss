@@ -1,0 +1,19 @@
+@use 'sass:map';
+
+@use '../../core/variables';
+@use '../../core/util';
+
+$per: map.get(variables.$values, "per");
+$imp: util.$important;
+
+@for $i from 0 through 20 {
+    .bg-s-#{$i} {
+        background-size: calc(#{$i} * #{$per}) #{$imp};
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-bg-s-#{$i} {
+            background-size: calc(#{$i} * #{$per}) #{$imp};
+        }
+    }
+}

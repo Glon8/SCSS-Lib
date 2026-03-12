@@ -1,0 +1,35 @@
+@use 'sass:map';
+
+@use '../../core/tokens';
+@use '../../core/variables';
+@use '../../core/util';
+
+$px: map.get(variables.$values, 'px');
+$border-corns: tokens.$border-corns;
+$imp: util.$important;
+
+@for $ind from 0 through 9 {
+    .r-#{$ind} {
+        border-radius: calc(#{$ind} * #{$px}) #{$imp};
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-r-#{$ind} {
+            border-radius: calc(#{$ind} * #{$px}) #{$imp};
+        }
+    }
+
+    @each $key, $corners in $border-corns {
+        @each $corn in $corners {
+            .r-#{$key}-#{$ind} {
+                border-#{$corn}-radius: calc(#{$ind} * #{$px}) #{$imp};
+            }
+
+            @include util.responsive using ($bp) {
+                .#{$bp}-r-#{$key}-#{$ind} {
+                    border-#{$corn}-radius: calc(#{$ind} * #{$px}) #{$imp};
+                }
+            }
+        }
+    }
+}

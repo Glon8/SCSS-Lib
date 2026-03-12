@@ -1,0 +1,32 @@
+@use '../../core/tokens';
+@use '../../core/util';
+
+$directions: tokens.$directions;
+$borders: tokens.$borders;
+$imp: util.$important;
+
+@each $key in $borders {
+    .b-#{$key} {
+        border-style: $key #{$imp};
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-b-#{$key} {
+            border-style: $key #{$imp};
+        }
+    }
+
+    @each $dir, $props in $directions {
+        @each $prop in $props {
+            .b-#{$dir}-#{$key} {
+                border-#{$prop}-style: $key #{$imp};
+            }
+
+            @include util.responsive using ($bp) {
+                .#{$bp}-b-#{$dir}-#{$key} {
+                    border-#{$prop}-style: $key #{$imp};
+                }
+            }
+        }
+    }
+}

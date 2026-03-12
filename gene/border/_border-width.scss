@@ -1,0 +1,31 @@
+@use '../../core/tokens';
+@use '../../core/util';
+
+$directions: tokens.$directions;
+$imp: util.$important;
+
+@for $ind from 0 through 9 {
+    .b-#{$ind} {
+        border-width: calc(#{$ind} * 1px) #{$imp};
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-b-#{$ind} {
+            border-width: calc(#{$ind} * 1px) #{$imp};
+        }
+    }
+
+    @each $dir, $props in $directions {
+        @each $prop in $props {
+            .b-#{$dir}-w-#{$ind} {
+                border-#{$prop}-width: calc(#{$ind} * 1px) #{$imp};
+            }
+
+            @include util.responsive using ($bp) {
+                .#{$bp}-b-#{$dir}-w-#{$ind} {
+                    border-#{$prop}-width: calc(#{$ind} * 1px) #{$imp};
+                }
+            }
+        }
+    }
+}
