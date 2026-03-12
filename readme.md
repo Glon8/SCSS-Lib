@@ -15,8 +15,6 @@ To modify values such as measurements, colors, fonts, breakpoints etc:
 
 > **Note:** Changing values in these lists will affect the entire library.
 
----
-
 ## Colors Guide
 
 1. Find css color.
@@ -35,8 +33,6 @@ Each font entry requires the following fields:
 ```scss
 name: color,
 ```
-
----
 
 ## Fonts Guide
 
@@ -81,8 +77,6 @@ Each font entry requires the following fields:
 ```scss
 (name: font),
 ```
-
----
 
 ## Images Guide
 
