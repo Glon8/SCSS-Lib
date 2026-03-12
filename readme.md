@@ -7,7 +7,7 @@ In the future, I plan to build my own UI components based on this library.
 
 ## Customization
 
-To modify values such as measurements, colors, fonts, or breakpoints:
+To modify values such as measurements, colors, fonts, breakpoints etc:
 
 1. Open:  
    `scss-lib/core/_variables.scss`
@@ -15,12 +15,30 @@ To modify values such as measurements, colors, fonts, or breakpoints:
 
 > **Note:** Changing values in these lists will affect the entire library.
 
-### Available Lists
+---
 
-- **Values** – Measurement values used across the library  
-- **Colors** – Custom color definitions  
-- **Fonts** – Local font configurations  
-- **Breakpoints** – Screen resolution breakpoints
+## Colors Guide
+
+- **name** – The font name used to reference it in the library.
+- **color** – Color you choosed.
+
+> **Note:** Suggested to pick up colors on sites for color pallets.
+
+### Example: 
+
+**Site** 
+
+```scss
+https://colorpalettes.net/
+```
+
+**Format**
+
+```scss
+name: color,
+```
+
+---
 
 ## Fonts Guide
 
@@ -37,6 +55,8 @@ Each font entry requires the following fields:
 ```scss
 (name: 'name', dest: 'path/to/font-file', format: 'file-format'),
 ```
+
+---
 
 ## Images Guide
 
