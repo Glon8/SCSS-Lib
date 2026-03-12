@@ -19,20 +19,18 @@ To modify values such as measurements, colors, fonts, breakpoints etc:
 
 ## Colors Guide
 
+1. Find css color.
+2. Open `scss-lib/core/_variables.scss`.
+3. Add color as described below to `colors` list.
+
+Each font entry requires the following fields:
+
 - **name** – The font name used to reference it in the library.
-- **color** – Color you choosed.
+- **color** – Color you choosed (hex, rgb, etc).
 
-> **Note:** Suggested to pick up colors on sites for color pallets.
+> **Note:** Good site for colors `https://colorpalettes.net`.
 
-### Example: 
-
-**Site** 
-
-```scss
-https://colorpalettes.net/
-```
-
-**Format**
+### Example:
 
 ```scss
 name: color,
@@ -42,13 +40,20 @@ name: color,
 
 ## Fonts Guide
 
-> **Note:** This section is intended for adding **local fonts**.
+> **Note:** This section is intended for adding **local fonts / custom fonts**.
+
+1. Download custom font.
+2. Add font files to your project.
+3. Open `scss-lib/core/_variables.scss`.
+4. Add custom font as described below to `fonts-custom` list.
 
 Each font entry requires the following fields:
 
-- **name** – The font name used to reference it in the library
+- **name** – The font name used to reference it in the library.
 - **dest** – Path to the font file (including the file extension)
 - **format** – Font format (`truetype`, `opentype`, etc.)
+
+> **Note:** Good site for fonts `https://www.1001fonts.com`.
 
 ### Example
 
@@ -56,11 +61,35 @@ Each font entry requires the following fields:
 (name: 'name', dest: 'path/to/font-file', format: 'file-format'),
 ```
 
+> **Note:** This section is intended for adding **built in font**.
+
+1. Find css font.
+2. Open `scss-lib/core/_variables.scss`.
+3. Add font as described below to `fonts` list.
+
+Each font entry requires the following fields:
+
+- **name** – The font name used to reference it in the library.
+- **font** - Existing font in css.
+
+### Example
+
+```scss
+(name: font),
+```
+
 ---
 
 ## Images Guide
 
 > **Note:** This section is intended for adding **local images**.
+
+1. Download custom image.
+2. Add image file to your project.
+3. Open `scss-lib/core/_variables.scss`.
+4. Add image as described below to `images` list.
+
+Each image entry requires the following fields:
 
 - **name** – The font name used to reference it in the library.
 - **path** – Path to the font file (including the file extension)
