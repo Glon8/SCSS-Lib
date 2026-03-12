@@ -40,6 +40,8 @@ name: color,
 
 ## Fonts Guide
 
+### Custom Font
+
 > **Note:** This section is intended for adding **local fonts / custom fonts**.
 
 1. Download custom font.
@@ -61,7 +63,9 @@ Each font entry requires the following fields:
 (name: 'name', dest: 'path/to/font-file', format: 'file-format'),
 ```
 
-> **Note:** This section is intended for adding **built in font**.
+### Built-in Font
+
+> **Note:** This section is intended for adding **built-in font**.
 
 1. Find css font.
 2. Open `scss-lib/core/_variables.scss`.
