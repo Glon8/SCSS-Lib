@@ -1,17 +1,17 @@
 @use '../core/tokens';
 @use '../core/util';
 
-$displays: tokens.$displays;
-$imp: util.$important;
+$_displays: tokens.$displays;
+$_imp: util.$important;
 
-@each $key in $displays {
+@each $key in $_displays {
     .#{$key} {
-        display: $key #{$imp};
+        display: $key #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-#{$key} {
-            display: $key #{$imp};
+            display: $key #{$_imp};
         }
     }
 }

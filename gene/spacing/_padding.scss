@@ -4,30 +4,30 @@
 @use '../../core/variables';
 @use '../../core/util';
 
-$px: map.get(variables.$values, 'px');
-$directions: tokens.$directions;
-$imp: util.$important;
+$_px: map.get(variables.$values, 'px');
+$_directions: tokens.$directions;
+$_imp: util.$important;
 
 @for $ind from 0 through 9 {
     .p-#{$ind} {
-        padding: calc(#{$ind} * #{$px}) #{$imp};
+        padding: calc(#{$ind} * #{$_px}) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-p-#{$ind} {
-            padding: calc(#{$ind} * #{$px}) #{$imp};
+            padding: calc(#{$ind} * #{$_px}) #{$_imp};
         }
     }
 
-    @each $dir, $props in $directions {
+    @each $dir, $props in $_directions {
         @each $prop in $props {
             .p-#{$dir}-#{$ind} {
-                padding-#{$prop}: calc(#{$ind} * #{$px}) #{$imp};
+                padding-#{$prop}: calc(#{$ind} * #{$_px}) #{$_imp};
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-p-#{$dir}-#{$ind} {
-                    padding-#{$prop}: calc(#{$ind} * #{$px}) #{$imp};
+                    padding-#{$prop}: calc(#{$ind} * #{$_px}) #{$_imp};
                 }
             }
         }

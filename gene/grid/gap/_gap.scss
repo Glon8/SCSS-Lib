@@ -3,17 +3,17 @@
 @use '../../../core/variables';
 @use '../../../core/util';
 
-$px: map.get(variables.$values, 'px');
-$imp: util.$important;
+$_px: map.get(variables.$values, 'px');
+$_imp: util.$important;
 
 @for $ind from 1 through 9 {
     .gap-#{$ind} {
-        gap: calc(#{$ind} * #{$px}) #{$imp};
+        gap: calc(#{$ind} * #{$_px}) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-gap-#{$ind} {
-            gap: calc(#{$ind} * #{$px}) #{$imp};
+            gap: calc(#{$ind} * #{$_px}) #{$_imp};
         }
     }
 }

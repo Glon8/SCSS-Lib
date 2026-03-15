@@ -1,18 +1,18 @@
 @use '../../../core/variables';
 @use '../../../core/util';
 
-$values: variables.$values;
-$imp: util.$important;
+$_values: variables.$values;
+$_imp: util.$important;
 
 @for $i from 0 through 20 {
-    @each $key, $value in $values {
+    @each $key, $value in $_values {
         .text-d-t-#{$key}-#{$i} {
-            text-decoration-thickness: calc(#{$i} * #{$value}) #{$imp};
+            text-decoration-thickness: calc(#{$i} * #{$value}) #{$_imp};
         }
 
         @include util.responsive using ($bp) {
             #{$bp}-text-d-t-#{$key}-#{$i} {
-                text-decoration-thickness: calc(#{$i} * #{$value}) #{$imp};
+                text-decoration-thickness: calc(#{$i} * #{$value}) #{$_imp};
             }
         }
     }

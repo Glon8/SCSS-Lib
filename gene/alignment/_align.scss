@@ -1,19 +1,19 @@
 @use '../../core/tokens';
 @use '../../core/util';
 
-$pos-ver: tokens.$pos-ver;
-$just-ali: tokens.$just-ali;
-$imp: util.$important;
+$_pos-ver: tokens.$pos-ver;
+$_just-ali: tokens.$just-ali;
+$_imp: util.$important;
 
-@each $key, $pos in $pos-ver {
-    @each $name, $val in $just-ali {
+@each $key, $pos in $_pos-ver {
+    @each $name, $val in $_just-ali {
         .align-#{$name}-#{$key} {
-            align-#{$val}: $pos #{$imp};
+            align-#{$val}: $pos #{$_imp};
         }
 
         @include util.responsive using ($bp) {
             .#{$bp}-align-#{$name}-#{$key} {
-                align-#{$val}: $pos #{$imp};
+                align-#{$val}: $pos #{$_imp};
             }
         }
     }

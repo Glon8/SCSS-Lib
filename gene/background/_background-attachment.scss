@@ -1,17 +1,17 @@
 @use '../../core/tokens';
 @use '../../core/util';
 
-$imp: util.$important;
-$attach: tokens.$bg-att;
+$_imp: util.$important;
+$_attach: tokens.$bg-att;
 
-@each $key, $val in $attach {
+@each $key, $val in $_attach {
     .bg-a-#{$key} {
-        background-attachment: $val #{$imp};
+        background-attachment: $val #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-bg-a-#{$key} {
-            background-attachment: $val #{$imp};
+            background-attachment: $val #{$_imp};
         }
     }
 }

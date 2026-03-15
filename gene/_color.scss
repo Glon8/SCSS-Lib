@@ -1,17 +1,17 @@
 @use '../core/variables';
 @use '../core/util';
 
-$colors: variables.$colors;
-$imp: util.$important;
+$_colors: variables.$colors;
+$_imp: util.$important;
 
-@each $key, $col in $colors {
+@each $key, $col in $_colors {
     .c-#{$key} {
-        color: $col #{$imp};
+        color: $col #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-c-#{$key} {
-            color: $col #{$imp};
+            color: $col #{$_imp};
         }
     }
 }

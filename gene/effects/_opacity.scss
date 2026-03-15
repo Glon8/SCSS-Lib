@@ -3,17 +3,17 @@
 @use '../../core/variables';
 @use '../../core/util';
 
-$per: map.get(variables.$values, 'per');
-$imp: util.$important;
+$_per: map.get(variables.$values, 'per');
+$_imp: util.$important;
 
 @for $ind from 0 through 20 {
     .o-#{$ind} {
-        opacity: calc(#{$ind} * #{$per}) #{$imp};
+        opacity: calc(#{$ind} * #{$_per}) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-o-#{$ind} {
-            opacity: calc(#{$ind} * #{$per}) #{$imp};
+            opacity: calc(#{$ind} * #{$_per}) #{$_imp};
         }
     }
 }

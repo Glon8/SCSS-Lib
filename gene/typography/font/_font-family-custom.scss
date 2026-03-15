@@ -3,10 +3,10 @@
 @use '../../../core/variables';
 @use '../../../core/util';
 
-$fonts: variables.$fonts-custom;
-$imp: util.$important;
+$_fonts: variables.$fonts-custom;
+$_imp: util.$important;
 
-@each $font in $fonts {
+@each $font in $_fonts {
     $name: #{map.get($font, "name")};
 
     @font-face {
@@ -15,12 +15,12 @@ $imp: util.$important;
     }
 
     .#{$name} {
-        font-family: $name #{$imp};
+        font-family: $name #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-#{$name} {
-            font-family: $name #{$imp};
+            font-family: $name #{$_imp};
         }
     }
 }

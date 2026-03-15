@@ -4,30 +4,30 @@
 @use '../../core/variables';
 @use '../../core/util';
 
-$px: map.get(variables.$values, 'px');
-$border-corns: tokens.$border-corns;
-$imp: util.$important;
+$_px: map.get(variables.$values, 'px');
+$_border-corns: tokens.$border-corns;
+$_imp: util.$important;
 
 @for $ind from 0 through 9 {
     .r-#{$ind} {
-        border-radius: calc(#{$ind} * #{$px}) #{$imp};
+        border-radius: calc(#{$ind} * #{$_px}) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-r-#{$ind} {
-            border-radius: calc(#{$ind} * #{$px}) #{$imp};
+            border-radius: calc(#{$ind} * #{$_px}) #{$_imp};
         }
     }
 
-    @each $key, $corners in $border-corns {
+    @each $key, $corners in $_border-corns {
         @each $corn in $corners {
             .r-#{$key}-#{$ind} {
-                border-#{$corn}-radius: calc(#{$ind} * #{$px}) #{$imp};
+                border-#{$corn}-radius: calc(#{$ind} * #{$_px}) #{$_imp};
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-r-#{$key}-#{$ind} {
-                    border-#{$corn}-radius: calc(#{$ind} * #{$px}) #{$imp};
+                    border-#{$corn}-radius: calc(#{$ind} * #{$_px}) #{$_imp};
                 }
             }
         }

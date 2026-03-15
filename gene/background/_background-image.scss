@@ -1,17 +1,17 @@
 @use '../../core/variables';
 @use '../../core/util';
 
-$imp: util.$important;
-$images: variables.$images;
+$_imp: util.$important;
+$_images: variables.$images;
 
-@each $name, $img in $images {
+@each $name, $img in $_images {
     .bg-i-#{$name} {
-        background-image: $img #{$imp};
+        background-image: $img #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-bg-i-#{$name} {
-            background-image: $img #{$imp};
+            background-image: $img #{$_imp};
         }
     }
 }

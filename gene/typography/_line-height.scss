@@ -3,17 +3,17 @@
 @use '../../core/variables';
 @use '../../core/util';
 
-$per: map.get(variables.$values, "per");
-$imp: util.$important;
+$_per: map.get(variables.$values, "per");
+$_imp: util.$important;
 
 @for $i from 0 through 20 {
     .line-h-#{$i} {
-        line-height: calc(100% + #{$i} * #{$per}) #{$imp};
+        line-height: calc(100% + #{$i} * #{$_per}) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-line-h-#{$i} {
-            line-height: calc(100% + #{$i} * #{$per}) #{$imp};
+            line-height: calc(100% + #{$i} * #{$_per}) #{$_imp};
         }
     }
 }

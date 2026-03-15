@@ -3,17 +3,17 @@
 @use '../../../core/variables';
 @use '../../../core/util';
 
-$px: map.get(variables.$values, 'px');
-$imp: util.$important;
+$_px: map.get(variables.$values, 'px');
+$_imp: util.$important;
 
 @for $ind from 0 through 20 {
     .font-s-#{$ind} {
-        font-size: calc(#{$ind} * #{$px}) #{$imp};
+        font-size: calc(#{$ind} * #{$_px}) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-font-s-#{$ind} {
-            font-size: calc(#{$ind} * #{$px}) #{$imp};
+            font-size: calc(#{$ind} * #{$_px}) #{$_imp};
         }
     }
 }

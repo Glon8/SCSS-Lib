@@ -3,17 +3,17 @@
 @use '../../../core/variables';
 @use '../../../core/util';
 
-$per: map.get(variables.$values, 'per');
-$imp: util.$important;
+$_per: map.get(variables.$values, 'per');
+$_imp: util.$important;
 
 @for $ind from 0 through 20 {
     .max-h-#{$ind} {
-        max-height: calc(#{$ind} * #{$per}) #{$imp};
+        max-height: calc(#{$ind} * #{$_per}) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-max-h-#{$ind} {
-            max-height: calc(#{$ind} * #{$per}) #{$imp};
+            max-height: calc(#{$ind} * #{$_per}) #{$_imp};
         }
     }
 }

@@ -3,17 +3,17 @@
 @use '../../../core/variables';
 @use '../../../core/util';
 
-$per: map.get(variables.$values, 'per');
-$imp: util.$important;
+$_per: map.get(variables.$values, 'per');
+$_imp: util.$important;
 
 @for $ind from 0 through 20 {
     .min-w-#{$ind} {
-        min-width: calc(#{$ind} * #{$per}) #{$imp};
+        min-width: calc(#{$ind} * #{$_per}) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-min-w-#{$ind} {
-            min-width: calc(#{$ind} * #{$per}) #{$imp};
+            min-width: calc(#{$ind} * #{$_per}) #{$_imp};
         }
     }
 }

@@ -4,20 +4,20 @@
 @use '../../core/variables';
 @use '../../core/util';
 
-$imp: util.$important;
-$directions: tokens.$directions;
-$per: map.get(variables.$values, 'per');
+$_imp: util.$important;
+$_directions: tokens.$directions;
+$_per: map.get(variables.$values, 'per');
 
-@each $key, $prop in $directions {
+@each $key, $prop in $_directions {
     @for $i from 0 through 20 {
         @if $key !=x and $key !=y {
             .#{$prop}-#{$i} {
-                #{$prop}: calc(#{$per} * #{$i}) #{$imp};
+                #{$prop}: calc(#{$_per} * #{$i}) #{$_imp};
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-#{$prop}-#{$i} {
-                    #{$prop}: calc(#{$per} * #{$i}) #{$imp};
+                    #{$prop}: calc(#{$_per} * #{$i}) #{$_imp};
                 }
             }
         }

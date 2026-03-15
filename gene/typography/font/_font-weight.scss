@@ -1,15 +1,15 @@
 @use '../../../core/util';
 
-$imp: util.$important;
+$_imp: util.$important;
 
 @for $ind from 1 through 9 {
     .font-w-#{$ind} {
-        font-weight: calc(#{$ind} * 100) #{$imp};
+        font-weight: calc(#{$ind} * 100) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-font-w-#{$ind} {
-            font-weight: calc(#{$ind} * 100) #{$imp};
+            font-weight: calc(#{$ind} * 100) #{$_imp};
         }
     }
 }

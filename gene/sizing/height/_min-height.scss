@@ -3,17 +3,17 @@
 @use '../../../core/variables';
 @use '../../../core/util';
 
-$per: map.get(variables.$values, 'per');
-$imp: util.$important;
+$_per: map.get(variables.$values, 'per');
+$_imp: util.$important;
 
 @for $ind from 0 through 20 {
     .min-h-#{$ind} {
-        min-height: clac(#{$ind} * #{$per}) #{$imp};
+        min-height: clac(#{$ind} * #{$_per}) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-min-h-#{$ind} {
-            min-height: clac(#{$ind} * #{$per}) #{$imp};
+            min-height: clac(#{$ind} * #{$_per}) #{$_imp};
         }
     }
 }
