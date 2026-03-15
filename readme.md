@@ -104,7 +104,8 @@ name: url('path/to/image'),
 2. Download folder `scss-lib`.
 3. Link `scss-lib.scss` file in your project.
 
-or  instead of downloading lib manually, use next phrase in terminal:
+or instead of downloading lib manually, use next phrase in terminal:
+
 ```scss
 npm install git+https://github.com/Glon8/SCSS-Lib.git
 ```
