@@ -1,0 +1,13 @@
+{
+  "name": "scss-lib",
+  "version": "0.9.5",
+  "main": "scss-lib.scss",
+  "files": [
+    "scss-lib.scss",
+    "core",
+    "gene"
+  ],
+  "keywords": ["scss", "sass", "library", "utilities"],
+  "author": "Demon_Ruz",
+  "license": "MIT"
+}
