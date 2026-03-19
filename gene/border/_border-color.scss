@@ -1,8 +1,9 @@
 @use '../../core/tokens';
+@use '../../core/variables';
 @use '../../core/util';
 
 $_directions: tokens.$directions;
-$_colors: tokens.$colors;
+$_colors: variables.$colors;
 $_imp: util.$important;
 
 @each $key, $col in $_colors {
