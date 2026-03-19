@@ -4,7 +4,7 @@
 $_imp: util.$important;
 $_position: tokens.$bg-pos;
 
-@each $key, $val in $position {
+@each $key, $val in $_position {
     .bg-p-#{$key} {
         background-position: $val #{$_imp};
     }
