@@ -8,12 +8,12 @@ $_imp: util.$important;
     @for $ind_2 from 1 through 20 {
         @each $key, $value in $_values {
             .grid-t-r-#{$ind}-#{$key}-#{$ind_2} {
-                grid-template-rows: repeat(#{$ind}, #{$ind_2} * #{$value}) #{$_imp};
+                grid-template-rows: repeat(#{$ind}, $ind_2 * $value) #{$_imp};
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-grid-t-r-#{$ind}-#{$key}-#{$ind_2} {
-                    grid-template-rows: repeat(#{$ind}, #{$ind_2} * #{$value}) #{$_imp};
+                    grid-template-rows: repeat(#{$ind}, $ind_2 * $value) #{$_imp};
                 }
             }
         }
