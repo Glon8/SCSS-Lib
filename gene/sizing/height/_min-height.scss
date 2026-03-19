@@ -8,12 +8,12 @@ $_imp: util.$important;
 
 @for $ind from 0 through 20 {
     .min-h-#{$ind} {
-        min-height: clac(#{$ind} * #{$_per}) #{$_imp};
+        min-height: clac($ind * $_per) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-min-h-#{$ind} {
-            min-height: clac(#{$ind} * #{$_per}) #{$_imp};
+            min-height: clac($ind * $_per) #{$_imp};
         }
     }
 }

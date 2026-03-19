@@ -8,12 +8,12 @@ $_imp: util.$important;
 
 @for $ind from 0 through 20 {
     .max-w-#{$ind} {
-        max-width: calc(#{$ind} * #{$_per}) #{$_imp};
+        max-width: calc($ind * $_per) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-max-w-#{$ind} {
-            max-width: calc(#{$ind} * #{$_per}) #{$_imp};
+            max-width: calc($ind * $_per) #{$_imp};
         }
     }
 }

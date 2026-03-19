@@ -8,12 +8,12 @@ $_imp: util.$important;
 
 @for $ind from 0 through 20 {
     .max-h-#{$ind} {
-        max-height: calc(#{$ind} * #{$_per}) #{$_imp};
+        max-height: calc($ind * $_per) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-max-h-#{$ind} {
-            max-height: calc(#{$ind} * #{$_per}) #{$_imp};
+            max-height: calc($ind * $_per) #{$_imp};
         }
     }
 }

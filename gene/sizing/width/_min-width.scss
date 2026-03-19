@@ -8,12 +8,12 @@ $_imp: util.$important;
 
 @for $ind from 0 through 20 {
     .min-w-#{$ind} {
-        min-width: calc(#{$ind} * #{$_per}) #{$_imp};
+        min-width: calc($ind * $_per) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-min-w-#{$ind} {
-            min-width: calc(#{$ind} * #{$_per}) #{$_imp};
+            min-width: calc($ind * $_per) #{$_imp};
         }
     }
 }
