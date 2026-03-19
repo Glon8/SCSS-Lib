@@ -1,5 +1,5 @@
-@use '../../core/tokens';
-@use '../../core/util';
+@use '../../../core/tokens';
+@use '../../../core/util';
 
 $_imp: util.$important;
 $_font-style: tokens.$font-style;
