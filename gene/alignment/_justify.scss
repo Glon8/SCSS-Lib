@@ -8,7 +8,7 @@ $_imp: util.$important;
 @each $key, $pos in $_pos-hor {
     @each $name, $val in $_just-ali {
         .justify-#{$name}-#{$key} {
-            justify-#{$val}: $pos #{_$imp};
+            justify-#{$val}: $pos #{$_imp};
         }
 
         @include util.responsive using ($bp) {
