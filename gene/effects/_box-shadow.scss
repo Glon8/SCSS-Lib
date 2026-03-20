@@ -9,14 +9,14 @@ $_sizes: tokens.$box-shadow;
 
     @for $i from 0 through 3 {
         .box-sh-#{$val}-o-#{$i} {
-            box-shadow: 0 calc(#{$i} * 2px) calc(#{$i} * 4px) 0 rgba(0, 0, 0, $i/10),
-            0 calc(#{$i} * 3px) calc(#{$i} * 10px) 0 rgba(0, 0, 0, ($i - 1)/10) #{$_imp};
+            box-shadow: 0 calc(#{$i} * 2px) calc(#{$i} * 4px) 0 rgba(0, 0, 0, calc($i/10)),
+            0 calc(#{$i} * 3px) calc(#{$i} * 10px) 0 rgba(0, 0, 0, calc(($i - 1)/10)) #{$_imp};
         }
 
         @include util.responsive using ($bp) {
             .#{$bp}-box-sh-#{$val}-o-#{$i} {
-                box-shadow: 0 calc(#{$i} * 2px) calc(#{$i} * 4px) 0 rgba(0, 0, 0, $i/10),
-                0 calc(#{$i} * 3px) calc(#{$i} * 10px) 0 rgba(0, 0, 0, ($i - 1)/10) #{$_imp};
+                box-shadow: 0 calc(#{$i} * 2px) calc(#{$i} * 4px) 0 rgba(0, 0, 0, calc($i/10)),
+                0 calc(#{$i} * 3px) calc(#{$i} * 10px) 0 rgba(0, 0, 0, calc(($i - 1)/10)) #{$_imp};
             }
         }
     }
