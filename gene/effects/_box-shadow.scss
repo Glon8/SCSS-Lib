@@ -4,8 +4,8 @@
 $_imp: util.$important;
 $_sizes: tokens.$box-shadow;
 
-@for $ind from 1 through length($_sizes) {
-    $val: nth($_sizes, $ind);
+@for $ind from 1 through list.length($_sizes) {
+    $val: list.nth($_sizes, $ind);
 
     @for $i from 0 through 3 {
         .box-sh-#{$val}-o-#{$i} {
