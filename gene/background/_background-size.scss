@@ -7,12 +7,12 @@ $_per: map.get(variables.$values, "per");
 $_imp: util.$important;
 
 @for $i from 0 through 20 {
-    .bg-s-#{$i} {
+    .bg-#{$i} {
         background-size: calc(#{$i} * #{$_per}) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-bg-s-#{$i} {
+        .#{$bp}-bg-#{$i} {
             background-size: calc(#{$i} * #{$_per}) #{$_imp};
         }
     }

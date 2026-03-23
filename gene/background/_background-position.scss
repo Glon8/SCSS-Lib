@@ -5,12 +5,12 @@ $_imp: util.$important;
 $_position: tokens.$bg-pos;
 
 @each $key, $val in $_position {
-    .bg-p-#{$key} {
+    .bg-#{$key} {
         background-position: $val #{$_imp};
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-bg-p-#{$key} {
+        .#{$bp}-bg-#{$key} {
             background-position: $val #{$_imp};
         }
     }

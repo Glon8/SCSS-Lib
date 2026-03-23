@@ -5,12 +5,12 @@ $_imp: util.$important;
 $_repeat: tokens.$bg-rep;
 
 @each $key, $val in $_repeat {
-    .bg-r-#{$key} {
+    .bg-#{$key} {
         background-repeat: $val #{$_imp};
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-bg-r-#{$key} {
+        .#{$bp}-bg-#{$key} {
             background-repeat: $val #{$_imp};
         }
     }
