@@ -17,12 +17,12 @@ $_imp: util.$important;
 
     @each $dir, $props in $_directions {
         @each $prop in $props {
-            .b-#{$dir}-w-#{$ind} {
+            .b-#{$dir}-#{$ind} {
                 border-#{$prop}-width: calc(#{$ind} * 1px) #{$_imp};
             }
 
             @include util.responsive using ($bp) {
-                .#{$bp}-b-#{$dir}-w-#{$ind} {
+                .#{$bp}-b-#{$dir}-#{$ind} {
                     border-#{$prop}-width: calc(#{$ind} * 1px) #{$_imp};
                 }
             }

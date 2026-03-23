@@ -19,12 +19,12 @@ $_imp: util.$important;
 
     @each $dir, $props in $_directions {
         @each $prop in $props {
-            .b-#{$dir}-c-#{$key} {
+            .b-#{$dir}-#{$key} {
                 border-#{$prop}-color: $col #{$_imp};
             }
 
             @include util.responsive using ($bp) {
-                .#{$bp}-b-#{$dir}-c-#{$key} {
+                .#{$bp}-b-#{$dir}-#{$key} {
                     border-#{$prop}-color: $col #{$_imp};
                 }
             }
