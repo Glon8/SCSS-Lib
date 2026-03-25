@@ -1,0 +1,17 @@
+@use 'sass:color';
+
+@use '../../core/variables';
+
+$_shades: variables.$color-shades;
+
+@each $name, $shade in $_shades {
+    .c-sh-#{$name} {
+        --c-sh: #{$shade};
+    }
+
+    @include util.responsive using ($bp) {
+        .c-sh-#{$name} {
+            --c-sh: #{$shade};
+        }
+    }
+}

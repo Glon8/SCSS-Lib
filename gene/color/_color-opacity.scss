@@ -1,0 +1,15 @@
+@use '../../core/variables';
+
+$_opacity: variables.$color-opacity;
+
+@each $name, $opac in $_opacity {
+    .c-op-#{$name} {
+        --c-op: #{$opac};
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-c-op-#{$name} {
+            --c-op: #{$opac};
+        }
+    }
+}

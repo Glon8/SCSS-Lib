@@ -18,6 +18,17 @@ $colors: (
     yellow: #F2BD03,
 );
 
+$color-shades: (
+    l: (white, 60%),
+    d: (black, 65%),
+);
+
+$color-opacity: (
+    sm: 0.8,
+    md: 0.5,
+    lg: 0.3,
+);
+
 $breakpoints: (
     sm: 320px,
     md: 768px,
