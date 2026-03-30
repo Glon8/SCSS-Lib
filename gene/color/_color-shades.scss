@@ -6,12 +6,14 @@ $_shades: variables.$color-shades;
 
 @each $name, $shade in $_shades {
     .c-sh-#{$name} {
-        --c-sh: #{$shade};
+        --c-sh-i: #{$shade};
+        --c-sh-t: #{$name};
     }
 
     @include util.responsive using ($bp) {
         .c-sh-#{$name} {
-            --c-sh: #{$shade};
+            --c-sh-i: #{$shade};
+            --c-sh-t: #{$name};
         }
     }
 }
