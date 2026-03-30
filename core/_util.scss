@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass: color';
 
 @use './tokens';
 @use './variables';
@@ -17,4 +18,11 @@ $important: #{if(sass($use_important): "!important"; else: "")};
             }
         }
     }
+}
+
+@function rgb-values($col){
+    @return
+         #(color.channel($col, "red", $space: rgb)),
+         #(color.channel($col, "green", $space: rgb)),
+         #(color.channel($col, "blue", $space: rgb));
 }
