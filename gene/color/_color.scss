@@ -20,7 +20,7 @@ $_imp: util.$important;
 
 @each $key, $col in $_colors {
     .c-#{$key} {
-        --c: #{util.$rgb-values($col)};
+        --c: #{util.rgb-values($col)};
         --c-body: color-mix(in srgb, rgb(var(--c)) var(--c-sh-i, 100%), var(--c-sh-t, white));
 
     	color: rgba(var(--c-body), var(--c-op, 1)) #{$_imp};
