@@ -22,14 +22,14 @@ $_imp: util.$important;
     .c-#{"" + $key} {
         --c: #{util.rgb-values($col)};
 
-        color: rgb(color-mix(in srgb, rgb(var(--c)) var(--c-sh-i, 100%), var(--c-sh-t, white)) r g b / var(--c-op, 1)) #{$_imp};
+        color: rgb(from color-mix(in srgb, rgb(var(--c)) var(--c-sh-i, 100%), var(--c-sh-t, white)) r g b / var(--c-op, 1)) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-c-#{"" + $key} {
             --c: #{util.rgb-values($col)};
 
-            color: rgb(color-mix(in srgb, rgb(var(--c)) var(--c-sh-i, 100%), var(--c-sh-t, white)) r g b / var(--c-op, 1)) #{$_imp};
+            color: rgb(from color-mix(in srgb, rgb(var(--c)) var(--c-sh-i, 100%), var(--c-sh-t, white)) r g b / var(--c-op, 1)) #{$_imp};
         }
     }
 }
