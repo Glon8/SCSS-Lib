@@ -1,7 +1,5 @@
-@use 'sass:color';
-
-@use '../../core/variables';
-@use '../../core/util';
+@use '../../../core/variables';
+@use '../../../core/util';
 
 $_shades: variables.$color-shades;
 
