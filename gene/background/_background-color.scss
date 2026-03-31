@@ -5,12 +5,12 @@ $_colors: variables.$colors;
 $_imp: util.$important;
 
 @each $key, $col in $_colors {
-    .bg-#{$key} {
+    .bg-#{"" + $key} {
         background-color: $col #{$_imp};
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-bg-#{$key} {
+        .#{$bp}-bg-#{"" + $key} {
             background-color: $col #{$_imp};
         }
     }

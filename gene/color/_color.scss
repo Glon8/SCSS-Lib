@@ -19,7 +19,7 @@ $_imp: util.$important;
 // MUST CONVER  $color in to RGB!!!!!!
 
 @each $key, $col in $_colors {
-    .c-#{$key} {
+    .c-#{"" + $key} {
         --c: #{util.rgb-values($col)};
         --c-body: color-mix(in srgb, rgb(var(--c)) var(--c-sh-i, 100%), var(--c-sh-t, white));
 
@@ -27,7 +27,7 @@ $_imp: util.$important;
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-c-#{$key} {
+        .#{$bp}-c-#{"" + $key} {
         	--c: #{util.rgb-values($col)};
         	--c-body: color-mix(in srgb, rgb(var(--c)) var(--c-sh-i, 100%), var(--c-sh-t, white));
 

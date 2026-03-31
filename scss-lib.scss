@@ -19,6 +19,8 @@
 
 // <           COLOR
 @forward './gene/color/color';
+@forward './gene/color/color-shades';
+@forward './gene/color/color-opacity';
 
 // <           DISPLAY
 @forward './gene/display';

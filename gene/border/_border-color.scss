@@ -7,24 +7,24 @@ $_colors: variables.$colors;
 $_imp: util.$important;
 
 @each $key, $col in $_colors {
-    .b-#{$key} {
+    .b-#{"" + $key} {
         border-color: $col #{$_imp};
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-b-#{$key} {
+        .#{$bp}-b-#{"" + $key} {
             border-color: $col #{$_imp};
         }
     }
 
     @each $dir, $props in $_directions {
         @each $prop in $props {
-            .b-#{$dir}-#{$key} {
+            .b-#{$dir}-#{"" + $key} {
                 border-#{$prop}-color: $col #{$_imp};
             }
 
             @include util.responsive using ($bp) {
-                .#{$bp}-b-#{$dir}-#{$key} {
+                .#{$bp}-b-#{$dir}-#{"" + $key} {
                     border-#{$prop}-color: $col #{$_imp};
                 }
             }

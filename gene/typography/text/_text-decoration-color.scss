@@ -5,12 +5,12 @@ $_imp: util.$important;
 $_colors: variables.$colors;
 
 @each $key, $value in $_colors {
-    .text-d-c-#{$key} {
+    .text-d-c-#{"" + $key} {
         text-decoration-color: $value #{$_imp};
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-text-d-c-#{$key} {
+        .#{$bp}-text-d-c-#{"" + $key} {
             text-decoration-color: $value #{$_imp};
         }
     }
