@@ -52,6 +52,13 @@ $directions: (
 );
 
 $text-deco: (
+    no: none,
+    und: underline,
+    ovr: overline,
+    li-th: line-through,
+);
+
+$text-deco-style: (
     none,
     solid,
     wavy,
