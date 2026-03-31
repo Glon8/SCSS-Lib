@@ -1,8 +1,10 @@
 @use 'sass:color';
 
 @use '../../core/variables';
+@use '../../core/util';
 
 $_shades: variables.$color-shades;
+$_imp: util.$important;
 
 @each $name, $shade in $_shades {
     .c-sh-#{$name} {
