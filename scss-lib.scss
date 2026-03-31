@@ -4,7 +4,9 @@
 
 // <           BACKGROUND
 @forward './gene/background/background-attachment';
-@forward './gene/background/background-color';
+@forward './gene/background//background-color/background-color-opacity';
+@forward './gene/background/background-color/background-color-shades';
+@forward './gene/background/background-color/background-color';
 @forward './gene/background/background-image';
 @forward './gene/background/background-position';
 @forward './gene/background/background-repeat';

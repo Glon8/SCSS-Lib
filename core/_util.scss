@@ -20,9 +20,12 @@ $important: #{if(sass($use_important): "!important"; else: "")};
     }
 }
 
-@function rgb-values($col){
-    @return
-         #{color.channel($col, "red", $space: rgb)},
-         #{color.channel($col, "green", $space: rgb)},
-         #{color.channel($col, "blue", $space: rgb)};
+@function rgb-values($col) {
+    @return #{color.channel($col, "red", $space: rgb)},
+    #{color.channel($col, "green", $space: rgb)},
+    #{color.channel($col, "blue", $space: rgb)};
+}
+
+@function color-scheme($c, $sh-i, $sh-t, $op) {
+    @return rgb(from color-mix(in srgb, rgb(var(#{$c})) var(#{$sh-i}, 100%), var(#{$sh-t}, white)) r g b / var(#{$op}, 1));
 }

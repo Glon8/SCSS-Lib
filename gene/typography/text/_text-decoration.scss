@@ -6,12 +6,12 @@ $_imp: util.$important;
 
 @each $key in $_text-deco {
     .text-d-#{$key} {
-        text-decoration: $key #{$_imp};
+        text-decoration-line: $key #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-d-#{key} {
-            text-decoration: $key #{$_imp};
+            text-decoration-line: $key #{$_imp};
         }
     }
 }

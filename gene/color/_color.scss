@@ -4,32 +4,18 @@
 $_colors: variables.$colors;
 $_imp: util.$important;
 
-//@each $key, $col in $_colors {
-//    .c-#{$key} {
-//        color: $col #{$_imp};
-//    }
-//
-//    @include util.responsive using ($bp) {
-//        .#{$bp}-c-#{$key} {
-//            color: $col #{$_imp};
-//        }
-//    }
-//}
-
-// MUST CONVER  $color in to RGB!!!!!!
-
 @each $key, $col in $_colors {
     .c-#{"" + $key} {
         --c: #{util.rgb-values($col)};
 
-        color: rgb(from color-mix(in srgb, rgb(var(--c)) var(--c-sh-i, 100%), var(--c-sh-t, white)) r g b / var(--c-op, 1)) #{$_imp};
+        color: util.color-scheme(--c, --c-sh-i, --c-sh-t, --c-op) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-c-#{"" + $key} {
             --c: #{util.rgb-values($col)};
 
-            color: rgb(from color-mix(in srgb, rgb(var(--c)) var(--c-sh-i, 100%), var(--c-sh-t, white)) r g b / var(--c-op, 1)) #{$_imp};
+            color: util.color-scheme(--c, --c-sh-i, --c-sh-t, --c-op) #{$_imp};
         }
     }
 }
