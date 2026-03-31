@@ -4,7 +4,7 @@
 
 // <           BACKGROUND
 @forward './gene/background/background-attachment';
-@forward './gene/background//background-color/background-color-opacity';
+@forward './gene/background/background-color/background-color-opacity';
 @forward './gene/background/background-color/background-color-shades';
 @forward './gene/background/background-color/background-color';
 @forward './gene/background/background-image';
@@ -13,7 +13,9 @@
 @forward './gene/background/background-size';
 
 // <           BORDER
-@forward './gene/border/border-color';
+@forward './gene/border/border-color/border-color-opacity';
+@forward './gene/border/border-color/border-color-shades';
+@forward './gene/border/border-color/border-color';
 @forward './gene/border/border-def';
 @forward './gene/border/border-radius';
 @forward './gene/border/border-style';
