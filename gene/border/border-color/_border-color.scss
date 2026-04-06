@@ -1,8 +1,8 @@
-@use '../../../core/tokens';
+@use '../../../core/tokens/directions';
 @use '../../../core/variables';
 @use '../../../core/util';
 
-$_directions: tokens.$directions;
+$_directions: directions.$directions;
 $_colors: variables.$colors;
 $_imp: util.$important;
 
