@@ -1,7 +1,7 @@
-@use '../../core/tokens';
+@use '../../core/tokens/flex';
 @use '../../core/util';
 
-$_flex-dir: tokens.$flex-dir;
+$_flex-dir: flex.$flex-dir;
 $_imp: util.$important;
 
 @each $key, $val in $_flex-dir {

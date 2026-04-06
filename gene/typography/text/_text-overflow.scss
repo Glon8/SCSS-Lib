@@ -1,8 +1,8 @@
-@use '../../../core/tokens';
+@use '../../../core/tokens/text';
 @use '../../../core/util';
 
 $_imp: util.$important;
-$_overflow: tokens.$text-overflow;
+$_overflow: text.$text-overflow;
 
 @each $key, $value in $_overflow {
     .text-o-#{$key} {

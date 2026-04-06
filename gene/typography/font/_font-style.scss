@@ -1,8 +1,8 @@
-@use '../../../core/tokens';
+@use '../../../core/tokens/font';
 @use '../../../core/util';
 
 $_imp: util.$important;
-$_font-style: tokens.$font-style;
+$_font-style: font.$font-style;
 
 @each $key, $value in $_font-style {
     .font-st-#{$key} {

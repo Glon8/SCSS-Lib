@@ -1,11 +1,11 @@
 @use 'sass:map';
 
-@use '../../core/tokens';
+@use '../../core/tokens/border';
 @use '../../core/variables';
 @use '../../core/util';
 
 $_px: map.get(variables.$values, 'px');
-$_border-corns: tokens.$border-corns;
+$_border-corns: border.$border-corns;
 $_imp: util.$important;
 
 @for $ind from 0 through 9 {

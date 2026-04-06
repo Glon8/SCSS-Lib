@@ -1,10 +1,10 @@
 @use 'sass:list';
 
-@use '../../core/tokens';
+@use '../../core/tokens/sizes';
 @use '../../core/util';
 
 $_imp: util.$important;
-$_sizes: tokens.$box-shadow;
+$_sizes: sizes.$sizes;
 
 @for $ind from 1 through list.length($_sizes) {
     $val: list.nth($_sizes, $ind);

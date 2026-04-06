@@ -1,7 +1,7 @@
-@use '../../../core/tokens';
+@use '../../../core/tokens/decoration';
 @use '../../../core/util';
 
-$_text-deco: tokens.$text-deco-style;
+$_text-deco: decoration.$dec-style;
 $_imp: util.$important;
 
 @each $key in $_text-deco {

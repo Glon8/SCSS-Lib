@@ -1,8 +1,8 @@
-@use '../../core/tokens';
+@use '../../core/tokens/white-space';
 @use '../../core/util';
 
 $_imp: util.$important;
-$_white-space: tokens.$white-space;
+$_white-space: white-space.$white-space;
 
 @each $value in $_white-space {
     .w-space-#{$value} {

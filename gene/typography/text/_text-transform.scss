@@ -1,8 +1,8 @@
-@use '../../../core/tokens';
+@use '../../../core/tokens/text';
 @use '../../../core/util';
 
 $_imp: util.$important;
-$_transform: tokens.$text-transform;
+$_transform: text.$text-transform;
 
 @each $key, $value in $_transform {
     .text-t-#{$key} {

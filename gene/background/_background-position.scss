@@ -1,8 +1,8 @@
-@use '../../core/tokens';
+@use '../../core/tokens/background';
 @use '../../core/util';
 
 $_imp: util.$important;
-$_position: tokens.$bg-pos;
+$_position: background.$bg-pos;
 
 @each $key, $val in $_position {
     .bg-#{$key} {

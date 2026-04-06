@@ -1,11 +1,11 @@
 @use 'sass:map';
 
-@use '../../core/tokens';
+@use '../../core/tokens/directions';
 @use '../../core/variables';
 @use '../../core/util';
 
 $_px: map.get(variables.$values, 'px');
-$_directions: tokens.$directions;
+$_directions: directions.$directions;
 $_imp: util.$important;
 
 @for $ind from 0 through 9 {

@@ -1,7 +1,7 @@
-@use '../../core/tokens';
+@use '../../core/tokens/position';
 @use '../../core/util';
 
-$_pos: tokens.$pos;
+$_pos: position.$pos;
 $_imp: util.$important;
 
 @each $prop in $_pos {

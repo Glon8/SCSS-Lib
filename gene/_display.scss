@@ -1,7 +1,7 @@
-@use '../core/tokens';
+@use '../core/tokens/display';
 @use '../core/util';
 
-$_displays: tokens.$displays;
+$_displays: display.$displays;
 $_imp: util.$important;
 
 @each $key in $_displays {

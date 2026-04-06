@@ -1,0 +1,25 @@
+$bg-pos: (
+    lt: left top,
+    lc: left center,
+    lb: left bottom,
+    rt: right top,
+    rc: right center,
+    rb: right bottom,
+    ct: center top,
+    cc: center center,
+    cb: center bottom,
+);
+
+$bg-rep: (
+    re: repeat,
+    re-x: repeat-x,
+    re-y: repeat-y,
+    no-re: no-repeat,
+    sp: space,
+    ro: round,
+);
+
+$bg-att: (
+    fix: fixed,
+    loc: local,
+);

@@ -1,0 +1,17 @@
+$text-deco: (
+    no: none,
+    und: underline,
+    ovr: overline,
+    li-th: line-through,
+);
+
+$text-transform: (
+    cap: capitalize,
+    up: uppercase,
+    low: lowercase,
+);
+
+$text-overflow: (
+    cli: clip,
+    eli: ellipsis,
+);

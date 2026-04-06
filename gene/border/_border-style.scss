@@ -1,8 +1,9 @@
-@use '../../core/tokens';
+@use '../../core/tokens/directions';
+@use '../../core/tokens/decoration';
 @use '../../core/util';
 
-$_directions: tokens.$directions;
-$_borders: tokens.$borders;
+$_directions: directions.$directions;
+$_borders: decoration.$dec-style;
 $_imp: util.$important;
 
 @each $key in $_borders {

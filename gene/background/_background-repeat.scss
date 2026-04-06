@@ -1,8 +1,8 @@
-@use '../../core/tokens';
+@use '../../core/tokens/background';
 @use '../../core/util';
 
 $_imp: util.$important;
-$_repeat: tokens.$bg-rep;
+$_repeat: background.$bg-rep;
 
 @each $key, $val in $_repeat {
     .bg-#{$key} {

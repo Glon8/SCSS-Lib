@@ -1,8 +1,9 @@
-@use '../../core/tokens';
+@use '../../core/tokens/positions';
+@use '../../core/tokens/alignment';
 @use '../../core/util';
 
-$_pos-hor: tokens.$pos-hor;
-$_just-ali: tokens.$just-ali;
+$_pos-hor: positions.$pos-hor;
+$_just-ali: alignment.$just-ali;
 $_imp: util.$important;
 
 @each $key, $pos in $_pos-hor {
