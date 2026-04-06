@@ -1,7 +1,6 @@
 @use 'sass:map';
 @use 'sass:color';
 
-@use './tokens';
 @use './variables';
 
 $use_breakpoints: map.get(variables.$config, "breakpoints");
