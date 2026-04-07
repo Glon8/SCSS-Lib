@@ -1,11 +1,12 @@
 @use 'sass:map';
 @use 'sass:color';
 
-@use './variables';
+@use './variables/config';
+@use './variables/volumes';
 
-$use_breakpoints: map.get(variables.$config, "breakpoints");
-$use_important: map.get(variables.$config, "important");
-$breakpoints: variables.$breakpoints;
+$use_breakpoints: map.get(config.$config, "breakpoints");
+$use_important: map.get(config.$config, "important");
+$breakpoints: volumes.$breakpoints;
 
 $important: #{if(sass($use_important): "!important"; else: "")};
 
