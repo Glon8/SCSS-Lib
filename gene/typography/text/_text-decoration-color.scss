@@ -1,8 +1,8 @@
-@use '../../../core/variables';
+@use '../../../core/variables/colors';
 @use '../../../core/util';
 
 $_imp: util.$important;
-$_colors: variables.$colors;
+$_colors: colors.$colors;
 
 @each $key, $value in $_colors {
     .text-d-c-#{"" + $key} {

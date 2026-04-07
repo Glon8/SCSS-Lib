@@ -1,7 +1,7 @@
-@use '../../core/variables';
+@use '../../core/variables/colors';
 @use '../../core/util';
 
-$_shades: variables.$color-shades;
+$_shades: colors.$color-shades;
 
 @each $name, $shade in $_shades {
     .c-sh-#{"" + $name} {

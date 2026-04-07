@@ -1,9 +1,9 @@
 @use 'sass:map';
 
-@use '../../../core/variables';
+@use '../../../core/variables/volumes';
 @use '../../../core/util';
 
-$_per: map.get(variables.$values, 'per');
+$_per: map.get(volumes.$values, 'per');
 $_imp: util.$important;
 
 @for $ind from 0 through 20 {

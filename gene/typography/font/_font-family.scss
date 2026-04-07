@@ -1,8 +1,8 @@
-@use '../../../core/variables';
+@use '../../../core/variables/fonts';
 @use '../../../core/util';
 
 $_imp: util.$important;
-$_fonts: variables.$fonts;
+$_fonts: fonts.$fonts;
 
 @each $name, $font in $_fonts {
     .font-#{$name} {

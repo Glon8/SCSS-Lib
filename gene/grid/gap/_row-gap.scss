@@ -1,9 +1,9 @@
 @use 'sass:map';
 
-@use '../../../core/variables';
+@use '../../../core/variables/volumes';
 @use '../../../core/util';
 
-$_px: map.get(variables.$values, 'px');
+$_px: map.get(volumes.$values, 'px');
 $_imp: util.$important;
 
 @for $ind from 1 through 9 {

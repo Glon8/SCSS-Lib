@@ -1,7 +1,7 @@
-@use '../../core/variables';
+@use '../../core/variables/colors';
 @use '../../core/util';
 
-$_opacity: variables.$color-opacity;
+$_opacity: colors.$color-opacity;
 
 @each $name, $opac in $_opacity {
     .c-op-#{$name} {

@@ -1,8 +1,8 @@
-@use '../../core/variables';
+@use '../../core/variables/background';
 @use '../../core/util';
 
 $_imp: util.$important;
-$_images: variables.$images;
+$_images: background.$images;
 
 @each $name, $img in $_images {
     .bg-i-#{$name} {

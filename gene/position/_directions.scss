@@ -1,12 +1,12 @@
 @use 'sass:map';
 
 @use '../../core/tokens/directions';
-@use '../../core/variables';
+@use '../../core/variables/volumes';
 @use '../../core/util';
 
 $_imp: util.$important;
 $_directions: directions.$directions;
-$_per: map.get(variables.$values, 'per');
+$_per: map.get(volumes.$values, 'per');
 
 @each $key, $prop in $_directions {
     @for $i from 0 through 20 {

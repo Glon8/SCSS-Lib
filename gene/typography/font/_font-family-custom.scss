@@ -1,9 +1,9 @@
 @use 'sass:map';
 
-@use '../../../core/variables';
+@use '../../../core/variables/fonts';
 @use '../../../core/util';
 
-$_fonts: variables.$fonts-custom;
+$_fonts: fonts.$fonts-custom;
 $_imp: util.$important;
 
 @each $font in $_fonts {

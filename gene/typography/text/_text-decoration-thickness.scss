@@ -1,7 +1,7 @@
-@use '../../../core/variables';
+@use '../../../core/variables/volumes';
 @use '../../../core/util';
 
-$_values: variables.$values;
+$_values: volumes.$values;
 $_imp: util.$important;
 
 @for $i from 0 through 20 {
