@@ -77,10 +77,12 @@
 @forward './gene/typography/line-height';
 // <     TEXT
 @forward './gene/typography/text/text-align';
-@forward './gene/typography/text/text-decoration-color';
-@forward './gene/typography/text/text-decoration-thickness';
-@forward './gene/typography/text/text-decoration-style';
-@forward './gene/typography/text/text-decoration';
+@forward './gene/typography/text/text-decoration/text-decoration-color/text-decoration-opacity';
+@forward './gene/typography/text/text-decoration/text-decoration-color/text-decoration-shades';
+@forward './gene/typography/text/text-decoration/text-decoration-color/text-decoration-color';
+@forward './gene/typography/text/text-decoration/text-decoration-thickness';
+@forward './gene/typography/text/text-decoration/text-decoration-style';
+@forward './gene/typography/text/text-decoration/text-decoration';
 @forward './gene/typography/text/text-overflow';
 @forward './gene/typography/text/text-transform';
 // <     WHITE SPACE
