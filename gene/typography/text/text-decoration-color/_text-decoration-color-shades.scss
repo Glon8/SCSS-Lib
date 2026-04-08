@@ -1,0 +1,18 @@
+@use '../../core/variables/colors';
+@use '../../core/util';
+
+$_shades: colors.$color-shades;
+
+@each $name, $shade in $_shades {
+    .text-c-sh-#{"" + $name} {
+        --t-c-sh-i: #{$shade};
+        --t-c-sh-t: #{$name};
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-text-c-sh-#{"" + $name} {
+            --t-c-sh-i: #{$shade};
+            --t-c-sh-t: #{$name};
+        }
+    }
+}

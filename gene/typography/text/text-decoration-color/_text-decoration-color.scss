@@ -1,17 +1,16 @@
 @use '../../../core/variables/colors';
 @use '../../../core/util';
 
-$_imp: util.$important;
 $_colors: colors.$colors;
 
 @each $key, $value in $_colors {
     .text-d-c-#{"" + $key} {
-        text-decoration-color: $value #{$_imp};
+        --t-d-c: util.color-scheme(rgb-values($value), #{--t-c-sh-i}, #{--t-c-sh-t}, #{--t-c-op});
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-d-c-#{"" + $key} {
-            text-decoration-color: $value #{$_imp};
+            --t-d-c: util.color-scheme(rgb-values($value), #{--t-c-sh-i}, #{--t-c-sh-t}, #{--t-c-op};
         }
     }
 }
