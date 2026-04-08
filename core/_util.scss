@@ -1,3 +1,4 @@
+@use 'sass:meta';
 @use 'sass:map';
 @use 'sass:color';
 
@@ -21,6 +22,8 @@ $important: #{if(sass($use_important): "!important"; else: "")};
 }
 
 @function rgb-values($col) {
+    @if meta.type-of($col) != 'color'{@return null;}
+    
     @return #{color.channel($col, "red", $space: rgb)},
     #{color.channel($col, "green", $space: rgb)},
     #{color.channel($col, "blue", $space: rgb)};

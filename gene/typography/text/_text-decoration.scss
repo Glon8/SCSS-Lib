@@ -6,12 +6,24 @@ $_imp: util.$important;
 
 @each $key in $_text-deco {
     .text-d-#{$key} {
-        text-decoration-line: $key #{$_imp};
+//        text-decoration-line: $key #{$_imp};
+          --t-c-body: var(--t-d-c, black);
+          
+          text-decoration: 
+              #{$key}
+              var(--t-d-style, solid)
+              rgb(from var(--t-c-body) r g b / var(--t-c-op, 1)) #{$_imp};              
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-d-#{key} {
-            text-decoration-line: $key #{$_imp};
+//            text-decoration-line: $key #{$_imp};
+              --t-c-body: var(--t-d-c, black));
+          
+              text-decoration: 
+                  #{$key}
+                  var(--t-d-style, solid)
+                  rgb(from var(--t-c-body) r g b / var(--t-c-op, 1)) #{$_imp};
         }
     }
 }
