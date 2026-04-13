@@ -5,12 +5,12 @@ $_pos-hor: positions.$pos-hor;
 $_imp: util.$important;
 
 @each $key, $pos in $_pos-hor {
-    .text-a-#{key} {
+    .text-a-#{$key} {
         text-align: #{$pos} #{$_imp};
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-text-a-#{key} {
+        .#{$bp}-text-a-#{$key} {
             text-align: #{$pos} #{$_imp};
         }
     }
