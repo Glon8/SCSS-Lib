@@ -2,20 +2,15 @@
 @use '../../../../core/util';
 
 $_text-deco: text.$text-deco;
-$_imp: util.$important;
 
 @each $name, $spec in $_text-deco {
     .text-d-#{$name} {
-        // text-decoration-line: $key #{$_imp};
-
-        text-decoration: #{$spec} #{var(--t-d-t, 1px)} #{var(--t-d-s, solid)} #{var(--t-d-c, black)} #{$_imp};
+        --t-d: #{$spec};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-d-#{$name} {
-            // text-decoration-line: $key #{$_imp};
-
-            text-decoration: #{$spec} #{var(--t-d-t, 1px)} #{var(--t-d-s, solid)} #{var(--t-d-c, black)} #{$_imp};
+            --t-d: #{$spec};
         }
     }
 }
