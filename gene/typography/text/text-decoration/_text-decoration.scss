@@ -8,14 +8,14 @@ $_imp: util.$important;
     .text-d-#{$key} {
         // text-decoration-line: $key #{$_imp};
 
-        text-decoration: #{$key} var(--t-d-style, solid) var(--t-d-c, black) #{$_imp};
+        text-decoration: $key var(--t-d-style, solid) var(--t-d-c, black) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-d-#{key} {
             // text-decoration-line: $key #{$_imp};
 
-            text-decoration: #{$key} var(--t-d-style, solid) var(--t-d-c, black) #{$_imp};
+            text-decoration: $key var(--t-d-style, solid) var(--t-d-c, black) #{$_imp};
         }
     }
 }
