@@ -2,17 +2,16 @@
 @use '../../../../core/util';
 
 $_values: volumes.$values;
-$_imp: util.$important;
 
 @for $i from 0 through 20 {
     @each $key, $value in $_values {
         .text-d-t-#{$key}-#{$i} {
-            text-decoration-thickness: calc(#{$i} * #{$value}) #{$_imp};
+            --t-d-t: calc(#{$i} * #{$value});
         }
 
         @include util.responsive using ($bp) {
             #{$bp}-text-d-t-#{$key}-#{$i} {
-                text-decoration-thickness: calc(#{$i} * #{$value}) #{$_imp};
+                --t-d-t: calc(#{$i} * #{$value});
             }
         }
     }
