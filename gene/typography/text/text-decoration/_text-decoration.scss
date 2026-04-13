@@ -4,18 +4,18 @@
 $_text-deco: text.$text-deco;
 $_imp: util.$important;
 
-@each $key in $_text-deco {
+@each $key, $value in $_text-deco {
     .text-d-#{$key} {
         // text-decoration-line: $key #{$_imp};
 
-        text-decoration: $key var(--t-d-style, solid) var(--t-d-c, black) #{$_imp};
+        text-decoration: #{$value} var(--t-d-style, solid) var(--t-d-c, black) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-d-#{key} {
             // text-decoration-line: $key #{$_imp};
 
-            text-decoration: $key var(--t-d-style, solid) var(--t-d-c, black) #{$_imp};
+            text-decoration: #{$value} var(--t-d-style, solid) var(--t-d-c, black) #{$_imp};
         }
     }
 }
