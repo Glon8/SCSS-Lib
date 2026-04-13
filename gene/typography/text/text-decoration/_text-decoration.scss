@@ -1,5 +1,5 @@
-@use '../../../core/tokens/text';
-@use '../../../core/util';
+@use '../../../../core/tokens/text';
+@use '../../../../core/util';
 
 $_text-deco: text.$text-deco;
 $_imp: util.$important;
