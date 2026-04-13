@@ -2,16 +2,15 @@
 @use '../../../core/util';
 
 $_text-deco: decoration.$dec-style;
-$_imp: util.$important;
 
 @each $key in $_text-deco {
     .text-d-s-#{$key} {
-        text-decoration-style: $key #{$_imp};
+        --t-d-style: $key;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-d-s-#{key} {
-            text-decoration-style: $key #{$_imp};
+            --t-d-style: $key;
         }
     }
 }
