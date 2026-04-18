@@ -1,10 +1,10 @@
 $border-corns: (
-    tl: top-left,
-    tr: top-right,
-    bl: bottom-left,
-    br: bottom-right,
-    l: (top-left, bottom-left),
-    r: (top-right, bottom-right),
-    t: (top-left, top-right),
-    b:(bottom-left, bottom-right)
+    tl: (tl),
+    tr: (tr),
+    bl: (bl),
+    br: (br),
+    l: (tl, bl),
+    r: (tr, br),
+    t: (tl, tr),
+    b:(bl, br)
 );

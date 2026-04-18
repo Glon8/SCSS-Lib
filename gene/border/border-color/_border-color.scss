@@ -8,32 +8,32 @@ $_imp: util.$important;
 
 @each $key, $col in $_colors {
     .b-#{"" + $key} {
-        --b-c: #{util.rgb-values($col)};
+        --b-c-b: #{util.rgb-values($col)};
 
-        border-color: util.color-scheme(--b-c, --b-sh-i, --b-sh-t, --b-op) #{$_imp};
+        --b-c: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-b-#{"" + $key} {
-            --b-c: #{util.rgb-values($col)};
+            --b-c-b: #{util.rgb-values($col)};
 
-            border-color: util.color-scheme(--b-c, --b-sh-i, --b-sh-t, --b-op) #{$_imp};
+            --b-c: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op) #{$_imp};
         }
     }
 
     @each $dir, $props in $_directions {
         @each $prop in $props {
             .b-#{$dir}-#{"" + $key} {
-                --b-c: #{util.rgb-values($col)};
+                --b-c-b: #{util.rgb-values($col)};
 
-                border-#{$prop}-color: util.color-scheme(--b-c, --b-sh-i, --b-sh-t, --b-op) #{$_imp};
+                border-#{$prop}-color: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op) #{$_imp};
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-b-#{$dir}-#{"" + $key} {
-                    --b-c: #{util.rgb-values($col)};
+                    --b-c-b: #{util.rgb-values($col)};
 
-                    border-#{$prop}-color: util.color-scheme(--b-c, --b-sh-i, --b-sh-t, --b-op) #{$_imp};
+                    border-#{$prop}-color: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op) #{$_imp};
                 }
             }
         }

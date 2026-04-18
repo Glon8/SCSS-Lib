@@ -6,24 +6,24 @@ $_imp: util.$important;
 
 @for $ind from 0 through 9 {
     .b-#{$ind} {
-        border-width: calc(#{$ind} * 1px) #{$_imp};
+        --b-w: calc(#{$ind} * 1px) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-b-#{$ind} {
-            border-width: calc(#{$ind} * 1px) #{$_imp};
+            --b-w: calc(#{$ind} * 1px) #{$_imp};
         }
     }
 
-    @each $dir, $props in $_directions {
+    @each $key, $props in $_directions {
         @each $prop in $props {
-            .b-#{$dir}-#{$ind} {
-                border-#{$prop}-width: calc(#{$ind} * 1px) #{$_imp};
+            .b-#{$key}-#{$ind} {
+                --b-#{$prop}-w: calc(#{$ind} * 1px) #{$_imp};
             }
 
             @include util.responsive using ($bp) {
-                .#{$bp}-b-#{$dir}-#{$ind} {
-                    border-#{$prop}-width: calc(#{$ind} * 1px) #{$_imp};
+                .#{$bp}-b-#{$key}-#{$ind} {
+                    --b-#{$prop}-w: calc(#{$ind} * 1px) #{$_imp};
                 }
             }
         }

@@ -10,24 +10,24 @@ $_imp: util.$important;
 
 @for $ind from 0 through 9 {
     .r-#{$ind} {
-        border-radius: calc(#{$ind} * #{$_px}) #{$_imp};
+        --b-r: calc(#{$ind} * #{$_px}) #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-r-#{$ind} {
-            border-radius: calc(#{$ind} * #{$_px}) #{$_imp};
+            --b-r: calc(#{$ind} * #{$_px}) #{$_imp};
         }
     }
 
-    @each $key, $corners in $_border-corns {
-        @each $corn in $corners {
+    @each $key, props in $_border-corns {
+        @each $prop in $props {
             .r-#{$key}-#{$ind} {
-                border-#{$corn}-radius: calc(#{$ind} * #{$_px}) #{$_imp};
+                --b-#{$prop}-r: calc(#{$ind} * #{$_px}) #{$_imp};
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-r-#{$key}-#{$ind} {
-                    border-#{$corn}-radius: calc(#{$ind} * #{$_px}) #{$_imp};
+                    --b-#{$prop}-r: calc(#{$ind} * #{$_px}) #{$_imp};
                 }
             }
         }

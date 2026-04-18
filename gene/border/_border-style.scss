@@ -8,24 +8,24 @@ $_imp: util.$important;
 
 @each $key in $_borders {
     .b-#{$key} {
-        border-style: $key #{$_imp};
+        --b-s: $key #{$_imp};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-b-#{$key} {
-            border-style: $key #{$_imp};
+            --b-s: $key #{$_imp};
         }
     }
 
     @each $dir, $props in $_directions {
         @each $prop in $props {
             .b-#{$dir}-#{$key} {
-                border-#{$prop}-style: $key #{$_imp};
+                --b-#{$prop}-s: $key #{$_imp};
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-b-#{$dir}-#{$key} {
-                    border-#{$prop}-style: $key #{$_imp};
+                    --b-#{$prop}-s: $key #{$_imp};
                 }
             }
         }
