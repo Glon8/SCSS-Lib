@@ -37,6 +37,6 @@ $breakpoints: volumes.$breakpoints;
     @return rgb(from color-mix(in srgb, rgb(var(#{$c})) var(#{$sh-i}, 100%), var(#{$sh-t}, white)) r g b / var(#{$op}, 1));
 }
 
-@function units($val, $units-name, $def) {
-    @return imp(calc($val * var(--#{$units-name}, 1px)));
+@function units($val, $units-name, $def: 1px) {
+    @return imp(calc($val * var(--#{$units-name}, #{$def})));
 }
