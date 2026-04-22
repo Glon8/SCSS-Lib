@@ -1,5 +1,7 @@
+@use '../../core/util';
+
 .b-def {
-    border-radius: 5px;
+    border-radius: util.imp(5px);
     --b-w: 1px;
     --b-s: solid;
 }

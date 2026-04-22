@@ -1,33 +1,31 @@
-@use 'sass:map';
-
 @use '../../core/tokens/border';
 @use '../../core/variables/volumes';
 @use '../../core/util';
 
-$_px: map.get(volumes.$values, 'px');
 $_border-corns: border.$border-corns;
-$_imp: util.$important;
 
-@for $ind from 0 through 9 {
+$unit-ns: b-r-unit;
+
+@for $ind from 0 through 100 {
     .r-#{$ind} {
-        --b-r: calc(#{$ind} * #{$_px}) #{$_imp};
+        --b-r: util.imp(util.units($ind, $unit-ns));
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-r-#{$ind} {
-            --b-r: calc(#{$ind} * #{$_px}) #{$_imp};
+            --b-r: util.imp(util.units($ind, $unit-ns));
         }
     }
 
-    @each $key, props in $_border-corns {
+    @each $key, $props in $_border-corns {
         @each $prop in $props {
             .r-#{$key}-#{$ind} {
-                --b-#{$prop}-r: calc(#{$ind} * #{$_px}) #{$_imp};
+                --b-#{$prop}-r: util.imp(util.units($ind, $unit-ns));
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-r-#{$key}-#{$ind} {
-                    --b-#{$prop}-r: calc(#{$ind} * #{$_px}) #{$_imp};
+                    --b-#{$prop}-r: util.imp(util.units($ind, $unit-ns));
                 }
             }
         }

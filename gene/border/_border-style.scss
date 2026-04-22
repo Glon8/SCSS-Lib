@@ -4,28 +4,27 @@
 
 $_directions: directions.$directions;
 $_borders: decoration.$dec-style;
-$_imp: util.$important;
 
 @each $key in $_borders {
     .b-#{$key} {
-        --b-s: $key #{$_imp};
+        --b-s: util.imp($key);
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-b-#{$key} {
-            --b-s: $key #{$_imp};
+            --b-s: util.imp($key);
         }
     }
 
     @each $dir, $props in $_directions {
         @each $prop in $props {
             .b-#{$dir}-#{$key} {
-                --b-#{$prop}-s: $key #{$_imp};
+                --b-#{$prop}-s: util.imp($key);
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-b-#{$dir}-#{$key} {
-                    --b-#{$prop}-s: $key #{$_imp};
+                    --b-#{$prop}-s: util.imp($key);
                 }
             }
         }

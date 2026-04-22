@@ -4,17 +4,16 @@
 
 $_pos-ver: positions.$pos-ver;
 $_just-ali: alignment.$just-ali;
-$_imp: util.$important;
 
 @each $key, $pos in $_pos-ver {
     @each $name, $val in $_just-ali {
         .align-#{$name}-#{$key} {
-            align-#{$val}: $pos #{$_imp};
+            align-#{$val}: util.imp($pos);
         }
 
         @include util.responsive using ($bp) {
             .#{$bp}-align-#{$name}-#{$key} {
-                align-#{$val}: $pos #{$_imp};
+                align-#{$val}: util.imp($pos);
             }
         }
     }

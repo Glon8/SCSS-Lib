@@ -4,16 +4,17 @@
 @use '../../core/util';
 
 $_per: map.get(volumes.$values, "per");
-$_imp: util.$important;
 
-@for $i from 0 through 20 {
+$unit-ns: bg-s-unit;
+
+@for $i from 0 through 100 {
     .bg-#{$i} {
-        background-size: calc(#{$i} * #{$_per}) #{$_imp};
+        background-size: util.imp(util.units($i, $unit-ns));
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-bg-#{$i} {
-            background-size: calc(#{$i} * #{$_per}) #{$_imp};
+            background-size: util.imp(util.units($i, $unit-ns));
         }
     }
 }

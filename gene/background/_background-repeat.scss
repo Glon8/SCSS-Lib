@@ -1,17 +1,16 @@
 @use '../../core/tokens/background';
 @use '../../core/util';
 
-$_imp: util.$important;
 $_repeat: background.$bg-rep;
 
 @each $key, $val in $_repeat {
     .bg-#{$key} {
-        background-repeat: $val #{$_imp};
+        background-repeat: util.imp($val);
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-bg-#{$key} {
-            background-repeat: $val #{$_imp};
+            background-repeat: util.imp($val);
         }
     }
 }

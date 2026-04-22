@@ -9,7 +9,9 @@ $use_breakpoints: map.get(config.$config, "breakpoints");
 $use_important: map.get(config.$config, "important");
 $breakpoints: volumes.$breakpoints;
 
-$important: #{if(sass($use_important): "!important"; else: "")};
+@function imp($value) {
+    @return $value #{if(sass($use_important): "!important"; else: "")};
+}
 
 @mixin responsive {
     @if $use_breakpoints {
@@ -22,8 +24,10 @@ $important: #{if(sass($use_important): "!important"; else: "")};
 }
 
 @function rgb-values($col) {
-    @if meta.type-of($col) != 'color'{@return null;}
-    
+    @if meta.type-of($col) !='color' {
+        @return null;
+    }
+
     @return #{color.channel($col, "red", $space: rgb)},
     #{color.channel($col, "green", $space: rgb)},
     #{color.channel($col, "blue", $space: rgb)};
@@ -31,4 +35,8 @@ $important: #{if(sass($use_important): "!important"; else: "")};
 
 @function color-scheme($c, $sh-i, $sh-t, $op) {
     @return rgb(from color-mix(in srgb, rgb(var(#{$c})) var(#{$sh-i}, 100%), var(#{$sh-t}, white)) r g b / var(#{$op}, 1));
+}
+
+@function units($val, $units-name, $def) {
+    @return imp(calc($val * var(--#{$units-name}, 1px)));
 }

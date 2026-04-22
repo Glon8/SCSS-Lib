@@ -4,17 +4,16 @@
 
 $_pos-hor: positions.$pos-hor;
 $_just-ali: alignment.$just-ali;
-$_imp: util.$important;
 
 @each $key, $pos in $_pos-hor {
     @each $name, $val in $_just-ali {
         .justify-#{$name}-#{$key} {
-            justify-#{$val}: $pos #{$_imp};
+            justify-#{$val}: util.imp($pos);
         }
 
         @include util.responsive using ($bp) {
             .#{$bp}-justify-#{$name}-#{$key} {
-                justify-#{$val}: $pos #{$_imp};
+                justify-#{$val}: util.imp($pos);
             }
         }
     }

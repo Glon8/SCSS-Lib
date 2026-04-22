@@ -2,28 +2,29 @@
 @use '../../core/util';
 
 $_directions: directions.$directions;
-$_imp: util.$important;
 
-@for $ind from 0 through 9 {
+$unit-ns: b-w-unit;
+
+@for $ind from 0 through 100 {
     .b-#{$ind} {
-        --b-w: calc(#{$ind} * 1px) #{$_imp};
+        --b-w: util.units($ind, $unit-ns);
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-b-#{$ind} {
-            --b-w: calc(#{$ind} * 1px) #{$_imp};
+            --b-w: util.units($ind, $unit-ns);
         }
     }
 
     @each $key, $props in $_directions {
         @each $prop in $props {
             .b-#{$key}-#{$ind} {
-                --b-#{$prop}-w: calc(#{$ind} * 1px) #{$_imp};
+                --b-#{$prop}-w: util.units($ind, $unit-ns);
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-b-#{$key}-#{$ind} {
-                    --b-#{$prop}-w: calc(#{$ind} * 1px) #{$_imp};
+                    --b-#{$prop}-w: util.units($ind, $unit-ns);
                 }
             }
         }

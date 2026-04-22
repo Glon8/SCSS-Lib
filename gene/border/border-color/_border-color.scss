@@ -4,20 +4,19 @@
 
 $_directions: directions.$directions;
 $_colors: colors.$colors;
-$_imp: util.$important;
 
 @each $key, $col in $_colors {
     .b-#{"" + $key} {
         --b-c-b: #{util.rgb-values($col)};
 
-        --b-c: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op) #{$_imp};
+        --b-c: util.imp(util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op));
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-b-#{"" + $key} {
             --b-c-b: #{util.rgb-values($col)};
 
-            --b-c: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op) #{$_imp};
+            --b-c: util.imp(util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op));
         }
     }
 
@@ -26,14 +25,14 @@ $_imp: util.$important;
             .b-#{$dir}-#{"" + $key} {
                 --b-c-b: #{util.rgb-values($col)};
 
-                border-#{$prop}-color: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op) #{$_imp};
+                border-#{$prop}-color: util.imp(util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op));
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-b-#{$dir}-#{"" + $key} {
                     --b-c-b: #{util.rgb-values($col)};
 
-                    border-#{$prop}-color: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op) #{$_imp};
+                    border-#{$prop}-color: util.imp(util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op));
                 }
             }
         }
