@@ -9,15 +9,16 @@ $_sizes: sizes.$sizes;
     $val: list.nth($_sizes, $ind);
 
     @for $i from 0 through 3 {
+        $shadow: 0 calc(#{$i} * 2px) calc(#{$i} * 4px) 0 rgba(0, 0, 0, calc($i/10)),
+            0 calc(#{$i} * 3px) calc(#{$i} * 10px) 0 rgba(0, 0, 0, calc(($i - 1)/10));
+
         .box-sh-#{$val}-o-#{$i} {
-            box-shadow: util.imp(0 calc(#{$i} * 2px) calc(#{$i} * 4px) 0 rgba(0, 0, 0, calc($i/10)),
-            0 calc(#{$i} * 3px) calc(#{$i} * 10px) 0 rgba(0, 0, 0, calc(($i - 1)/10)));
+            box-shadow: util.imp($shadow);
         }
 
         @include util.responsive using ($bp) {
             .#{$bp}-box-sh-#{$val}-o-#{$i} {
-                box-shadow: util.imp(0 calc(#{$i} * 2px) calc(#{$i} * 4px) 0 rgba(0, 0, 0, calc($i/10)),
-                0 calc(#{$i} * 3px) calc(#{$i} * 10px) 0 rgba(0, 0, 0, calc(($i - 1)/10)));
+                box-shadow: util.imp($shadow);
             }
         }
     }
