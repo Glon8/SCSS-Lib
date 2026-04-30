@@ -8,12 +8,12 @@ $_values: volumes.$values;
         $width: util.imp(calc($ind * $value));
 
         .w-#{$key}-#{$ind} {
-            width: $width;
+            --w: $width;
         }
 
         @include util.responsive using ($bp) {
             .#{$bp}-w-#{$key}-#{$ind} {
-                width: $width;
+                --w: $width;
             }
         }
     }

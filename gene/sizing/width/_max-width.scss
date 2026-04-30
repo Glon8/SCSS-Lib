@@ -9,12 +9,12 @@ $_per: map.get(volumes.$values, 'per');
     $width: util.imp(calc($ind * $_per));
 
     .max-w-#{$ind} {
-        max-width: $width;
+        --max-w: $width;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-max-w-#{$ind} {
-            max-width: $width;
+            --max-w: $width;
         }
     }
 }

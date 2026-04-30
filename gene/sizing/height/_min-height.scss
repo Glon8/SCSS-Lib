@@ -9,12 +9,12 @@ $_per: map.get(volumes.$values, 'per');
     $height: util.imp(clac($ind * $_per));
 
     .min-h-#{$ind} {
-        min-height: $height;
+        --min-h: $height;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-min-h-#{$ind} {
-            min-height: $height;
+            --min-h: $height;
         }
     }
 }
