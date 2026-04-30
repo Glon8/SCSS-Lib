@@ -6,13 +6,15 @@
 $_per: map.get(volumes.$values, 'per');
 
 @for $ind from 0 through 20 {
+    $height: util.imp(calc($ind * $_per));
+
     .max-h-#{$ind} {
-        max-height: util.imp(calc($ind * $_per));
+        max-height: $height;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-max-h-#{$ind} {
-            max-height: util.imp(calc($ind * $_per));
+            max-height: $height;
         }
     }
 }

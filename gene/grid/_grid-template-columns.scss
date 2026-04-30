@@ -6,13 +6,15 @@ $_values: volumes.$values;
 @for $ind from 1 through 9 {
     @for $ind_2 from 1 through 20 {
         @each $key, $value in $_values {
+            $col-temp: util.imp(repeat(#{$ind}, $ind_2 * $value));
+
             .grid-t-c-#{$ind}-#{$key}-#{$ind_2} {
-                grid-template-columns: util.imp(repeat(#{$ind}, $ind_2 * $value));
+                grid-template-columns: $col-temp;
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-grid-t-c-#{$ind}-#{$key}-#{$ind_2} {
-                    grid-template-columns: util.imp(repeat(#{$ind}, $ind_2 * $value));
+                    grid-template-columns: $col-temp;
                 }
             }
         }

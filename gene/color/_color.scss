@@ -4,17 +4,20 @@
 $_colors: colors.$colors;
 
 @each $key, $col in $_colors {
-    .c-#{"" + $key} {
-        --c: #{util.rgb-values($col)};
+    $color-base: #{util.rgb-values($col)};
+    $color-scheme: util.color-scheme(--c, --c-sh-i, --c-sh-t, --c-op);
 
-        color: util.imp(util.color-scheme(--c, --c-sh-i, --c-sh-t, --c-op));
+    .c-#{"" + $key} {
+        --c: $color-base;
+
+        color: $color-scheme;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-c-#{"" + $key} {
-            --c: #{util.rgb-values($col)};
+            --c: $color-base;
 
-            color: util.imp(util.color-scheme(--c, --c-sh-i, --c-sh-t, --c-op));
+            color: $color-scheme;
         }
     }
 }

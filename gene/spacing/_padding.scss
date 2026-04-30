@@ -8,25 +8,27 @@ $_px: map.get(volumes.$values, 'px');
 $_directions: directions.$directions;
 
 @for $ind from 0 through 9 {
+    $padding: util.imp(calc(#{$ind} * #{$_px}));
+
     .p-#{$ind} {
-        padding: util.imp(calc(#{$ind} * #{$_px}));
+        padding: $padding;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-p-#{$ind} {
-            padding: util.imp(calc(#{$ind} * #{$_px}));
+            padding: $padding;
         }
     }
 
     @each $dir, $props in $_directions {
         @each $prop in $props {
             .p-#{$dir}-#{$ind} {
-                padding-#{$prop}: util.imp(calc(#{$ind} * #{$_px}));
+                padding-#{$prop}: $padding;
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-p-#{$dir}-#{$ind} {
-                    padding-#{$prop}: util.imp(calc(#{$ind} * #{$_px}));
+                    padding-#{$prop}: $padding;
                 }
             }
         }

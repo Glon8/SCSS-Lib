@@ -4,13 +4,15 @@
 $_unit-ns: bg-s-unit;
 
 @for $i from 0 through 100 {
+    $bg-size-units: util.units($i, $_unit-ns, 1%);
+
     .bg-#{$i} {
-        --bg-s: util.units($i, $_unit-ns, 1%);
+        --bg-s: $bg-size-units;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-bg-#{$i} {
-            --bg-s: util.units($i, $_unit-ns, 1%);
+            --bg-s: $bg-size-units;
         }
     }
 }

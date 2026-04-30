@@ -1,13 +1,15 @@
 @use '../../core/util';
 
 @for $i from 1 through 10 {
+    $spacing: util.imp(calc(#{$i} * 1px));
+
     .letter-s-#{$i} {
-        letter-spacing: util.imp(calc(#{$i} * 1px));
+        letter-spacing: $spacing;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-letter-s-#{$i} {
-            letter-spacing: util.imp(calc(#{$i} * 1px));
+            letter-spacing: $spacing;
         }
     }
 }

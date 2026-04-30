@@ -6,13 +6,15 @@
 $_px: map.get(volumes.$values, 'px');
 
 @for $ind from 0 through 20 {
+    $font-size: util.imp(calc(#{$ind} * #{$_px}));
+
     .font-s-#{$ind} {
-        font-size: util.imp(calc(#{$ind} * #{$_px}));
+        font-size: $font-size;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-font-s-#{$ind} {
-            font-size: util.imp(calc(#{$ind} * #{$_px}));
+            font-size: $font-size;
         }
     }
 }

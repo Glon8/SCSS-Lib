@@ -6,25 +6,27 @@ $_directions: directions.$directions;
 $_unit-ns: b-w-unit;
 
 @for $ind from 0 through 100 {
+    $border-units: util.units($ind, $_unit-ns);
+
     .b-#{$ind} {
-        --b-w: util.units($ind, $_unit-ns);
+        --b-w: $border-units;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-b-#{$ind} {
-            --b-w: util.units($ind, $_unit-ns);
+            --b-w: $border-units;
         }
     }
 
     @each $key, $props in $_directions {
         @each $prop in $props {
             .b-#{$key}-#{$ind} {
-                --b-#{$prop}-w: util.units($ind, $_unit-ns);
+                --b-#{$prop}-w: $border-units;
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-b-#{$key}-#{$ind} {
-                    --b-#{$prop}-w: util.units($ind, $_unit-ns);
+                    --b-#{$prop}-w: $border-units;
                 }
             }
         }

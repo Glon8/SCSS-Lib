@@ -6,13 +6,15 @@
 $_px: map.get(volumes.$values, 'px');
 
 @for $ind from 0 through 100 {
+    $gap: util.imp(calc(#{$ind} * #{$_px}));
+
     .c-gap-#{$ind} {
-        column-gap: util.imp(calc(#{$ind} * #{$_px}));
+        column-gap: $gap;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-c-gap-#{$ind} {
-            column-gap: util.imp(calc(#{$ind} * #{$_px}));
+            column-gap: $gap;
         }
     }
 }

@@ -4,13 +4,15 @@
 $_c: colors.$colors;
 
 @each $key, $value in $_c {
+    $text-color: util.color-scheme(rgb-values($value), --t-c-sh-i, --t-c-sh-t, --t-c-op);
+
     .text-d-c-#{"" + $key} {
-        --t-d-c: util.color-scheme(rgb-values($value), --t-c-sh-i, --t-c-sh-t, --t-c-op);
+        --t-d-c: $text-color;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-d-c-#{"" + $key} {
-            --t-d-c: util.color-scheme(rgb-values($value), --t-c-sh-i, --t-c-sh-t, --t-c-op);
+            --t-d-c: $text-color;
         }
     }
 }

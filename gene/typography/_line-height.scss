@@ -6,13 +6,15 @@
 $_per: map.get(volumes.$values, "per");
 
 @for $i from 0 through 20 {
+    $height: util.imp(calc(100% + #{$i} * #{$_per}));
+
     .line-h-#{$i} {
-        line-height: util.imp(calc(100% + #{$i} * #{$_per}));
+        line-height: $height;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-line-h-#{$i} {
-            line-height: util.imp(calc(100% + #{$i} * #{$_per}));
+            line-height: $height;
         }
     }
 }

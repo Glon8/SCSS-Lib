@@ -6,33 +6,36 @@ $_directions: directions.$directions;
 $_colors: colors.$colors;
 
 @each $key, $col in $_colors {
-    .b-#{"" + $key} {
-        --b-c-b: #{util.rgb-values($col)};
+    $color-base: #{util.rgb-values($col)};
+    $color-scheme: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op);
 
-        --b-c: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op);
+    .b-#{"" + $key} {
+        --b-c-b: $color-base;
+
+        --b-c: $color-scheme;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-b-#{"" + $key} {
-            --b-c-b: #{util.rgb-values($col)};
+            --b-c-b: $color-base;
 
-            --b-c: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op);
+            --b-c: $color-scheme;
         }
     }
 
     @each $dir, $props in $_directions {
         @each $prop in $props {
             .b-#{$dir}-#{"" + $key} {
-                --b-c-b: #{util.rgb-values($col)};
+                --b-c-b: $color-base;
 
-                border-#{$prop}-color: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op);
+                border-#{$prop}-color: $color-scheme;
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-b-#{$dir}-#{"" + $key} {
-                    --b-c-b: #{util.rgb-values($col)};
+                    --b-c-b: $color-base;
 
-                    border-#{$prop}-color: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op);
+                    border-#{$prop}-color: $color-scheme;
                 }
             }
         }

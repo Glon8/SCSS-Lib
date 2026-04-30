@@ -10,13 +10,15 @@ $_per: map.get(volumes.$values, 'per');
 @each $key, $prop in $_directions {
     @for $i from 0 through 20 {
         @if $key !=x and $key !=y {
+            $dir: util.imp(calc(#{$_per} * #{$i}));
+
             .#{$prop}-#{$i} {
-                #{$prop}: util.imp(calc(#{$_per} * #{$i}));
+                #{$prop}: $dir;
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-#{$prop}-#{$i} {
-                    #{$prop}: util.imp(calc(#{$_per} * #{$i}));
+                    #{$prop}: $dir;
                 }
             }
         }

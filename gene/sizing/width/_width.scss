@@ -5,13 +5,15 @@ $_values: volumes.$values;
 
 @for $ind from 0 through 20 {
     @each $key, $value in $_values {
+        $width: util.imp(calc($ind * $value));
+
         .w-#{$key}-#{$ind} {
-            width: util.imp(calc($ind * $value));
+            width: $width;
         }
 
         @include util.responsive using ($bp) {
             .#{$bp}-w-#{$key}-#{$ind} {
-                width: util.imp(calc($ind * $value));
+                width: $width;
             }
         }
     }

@@ -5,13 +5,15 @@ $_values: volumes.$values;
 
 @for $i from 0 through 20 {
     @each $key, $value in $_values {
+        $text-thickness: calc(#{$i} * #{$value});
+
         .text-d-t-#{$key}-#{$i} {
-            --t-d-t: calc(#{$i} * #{$value});
+            --t-d-t: $text-thickness;
         }
 
         @include util.responsive using ($bp) {
             #{$bp}-text-d-t-#{$key}-#{$i} {
-                --t-d-t: calc(#{$i} * #{$value});
+                --t-d-t: $text-thickness;
             }
         }
     }

@@ -7,25 +7,27 @@ $_border-corns: border.$border-corns;
 $_unit-ns: b-r-unit;
 
 @for $ind from 0 through 100 {
+    $radius-units: util.units($ind, $_unit-ns);
+
     .r-#{$ind} {
-        --b-r: util.units($ind, $_unit-ns);
+        --b-r: $radius-units;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-r-#{$ind} {
-            --b-r: util.units($ind, $_unit-ns);
+            --b-r: $radius-units;
         }
     }
 
     @each $key, $props in $_border-corns {
         @each $prop in $props {
             .r-#{$key}-#{$ind} {
-                --b-#{$prop}-r: util.units($ind, $_unit-ns);
+                --b-#{$prop}-r: $radius-units;
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-r-#{$key}-#{$ind} {
-                    --b-#{$prop}-r: util.units($ind, $_unit-ns);
+                    --b-#{$prop}-r: $radius-units;
                 }
             }
         }
