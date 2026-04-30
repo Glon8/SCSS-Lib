@@ -1,7 +1,6 @@
 @use '../../../core/tokens/text';
 @use '../../../core/util';
 
-$_imp: util.$important;
 $_transform: text.$text-transform;
 
 @each $key, $value in $_transform {
