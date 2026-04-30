@@ -56,12 +56,14 @@
 
 // <           SIZING
 // <     HEIGHT
+@forward './gene/sizing/height/height-def';
 @forward './gene/sizing/height/height';
 @forward './gene/sizing/height/max-height';
 @forward './gene/sizing/height/min-height';
 // <     WIDTH
 @forward './gene/sizing/width/max-width';
 @forward './gene/sizing/width/min-width';
+@forward "./gene/sizing/width/width-def";
 @forward './gene/sizing/width/width';
 
 // <           SPACING
