@@ -3,28 +3,28 @@
 
 $_directions: directions.$directions;
 
-$unit-ns: b-w-unit;
+$_unit-ns: b-w-unit;
 
 @for $ind from 0 through 100 {
     .b-#{$ind} {
-        --b-w: util.units($ind, $unit-ns);
+        --b-w: util.units($ind, $_unit-ns);
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-b-#{$ind} {
-            --b-w: util.units($ind, $unit-ns);
+            --b-w: util.units($ind, $_unit-ns);
         }
     }
 
     @each $key, $props in $_directions {
         @each $prop in $props {
             .b-#{$key}-#{$ind} {
-                --b-#{$prop}-w: util.units($ind, $unit-ns);
+                --b-#{$prop}-w: util.units($ind, $_unit-ns);
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-b-#{$key}-#{$ind} {
-                    --b-#{$prop}-w: util.units($ind, $unit-ns);
+                    --b-#{$prop}-w: util.units($ind, $_unit-ns);
                 }
             }
         }

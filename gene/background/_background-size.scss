@@ -1,16 +1,16 @@
 @use '../../core/variables/volumes';
 @use '../../core/util';
 
-$unit-ns: bg-s-unit;
+$_unit-ns: bg-s-unit;
 
 @for $i from 0 through 100 {
     .bg-#{$i} {
-        --bg-s: util.units($i, $unit-ns, 1%);
+        --bg-s: util.units($i, $_unit-ns, 1%);
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-bg-#{$i} {
-            --bg-s: util.units($i, $unit-ns, 1%);
+            --bg-s: util.units($i, $_unit-ns, 1%);
         }
     }
 }

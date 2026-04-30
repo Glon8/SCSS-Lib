@@ -4,28 +4,28 @@
 
 $_border-corns: border.$border-corns;
 
-$unit-ns: b-r-unit;
+$_unit-ns: b-r-unit;
 
 @for $ind from 0 through 100 {
     .r-#{$ind} {
-        --b-r: util.units($ind, $unit-ns);
+        --b-r: util.units($ind, $_unit-ns);
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-r-#{$ind} {
-            --b-r: util.units($ind, $unit-ns);
+            --b-r: util.units($ind, $_unit-ns);
         }
     }
 
     @each $key, $props in $_border-corns {
         @each $prop in $props {
             .r-#{$key}-#{$ind} {
-                --b-#{$prop}-r: util.units($ind, $unit-ns);
+                --b-#{$prop}-r: util.units($ind, $_unit-ns);
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-r-#{$key}-#{$ind} {
-                    --b-#{$prop}-r: util.units($ind, $unit-ns);
+                    --b-#{$prop}-r: util.units($ind, $_unit-ns);
                 }
             }
         }
