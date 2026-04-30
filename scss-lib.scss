@@ -7,12 +7,12 @@
 @forward './gene/background/background-color/background-color-shades';
 @forward './gene/background/background-color/background-color';
 @forward './gene/background/background-attachment';
+@forward './gene/background/background-def';
 @forward './gene/background/background-image';
 @forward './gene/background/background-position';
 @forward './gene/background/background-repeat';
 @forward './gene/background/background-size';
 @forward './gene/background/background-units';
-@forward './gene/background/background';
 
 // <           BORDER
 @forward './gene/border/border-color/border-color-opacity';
@@ -23,7 +23,6 @@
 @forward './gene/border/border-style';
 @forward './gene/border/border-units';
 @forward './gene/border/border-width';
-@forward './gene/border/border';
 
 // <           COLOR
 @forward './gene/color/color';
