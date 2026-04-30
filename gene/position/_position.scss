@@ -2,16 +2,15 @@
 @use '../../core/util';
 
 $_pos: position.$pos;
-$_imp: util.$important;
 
 @each $prop in $_pos {
     .#{$prop} {
-        position: $prop #{$_imp};
+        position: util.imp($prop);
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-#{$prop} {
-            position: $prop #{$_imp};
+            position: util.imp($prop);
         }
     }
 }

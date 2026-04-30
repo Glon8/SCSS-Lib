@@ -3,7 +3,6 @@
 @use '../../core/tokens/sizes';
 @use '../../core/util';
 
-$_imp: util.$important;
 $_sizes: sizes.$sizes;
 
 @for $ind from 1 through list.length($_sizes) {
@@ -11,14 +10,14 @@ $_sizes: sizes.$sizes;
 
     @for $i from 0 through 3 {
         .box-sh-#{$val}-o-#{$i} {
-            box-shadow: 0 calc(#{$i} * 2px) calc(#{$i} * 4px) 0 rgba(0, 0, 0, calc($i/10)),
-            0 calc(#{$i} * 3px) calc(#{$i} * 10px) 0 rgba(0, 0, 0, calc(($i - 1)/10)) #{$_imp};
+            box-shadow: util.imp(0 calc(#{$i} * 2px) calc(#{$i} * 4px) 0 rgba(0, 0, 0, calc($i/10)),
+            0 calc(#{$i} * 3px) calc(#{$i} * 10px) 0 rgba(0, 0, 0, calc(($i - 1)/10)));
         }
 
         @include util.responsive using ($bp) {
             .#{$bp}-box-sh-#{$val}-o-#{$i} {
-                box-shadow: 0 calc(#{$i} * 2px) calc(#{$i} * 4px) 0 rgba(0, 0, 0, calc($i/10)),
-                0 calc(#{$i} * 3px) calc(#{$i} * 10px) 0 rgba(0, 0, 0, calc(($i - 1)/10)) #{$_imp};
+                box-shadow: util.imp(0 calc(#{$i} * 2px) calc(#{$i} * 4px) 0 rgba(0, 0, 0, calc($i/10)),
+                0 calc(#{$i} * 3px) calc(#{$i} * 10px) 0 rgba(0, 0, 0, calc(($i - 1)/10)));
             }
         }
     }

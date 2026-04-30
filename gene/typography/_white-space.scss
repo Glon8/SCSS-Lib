@@ -1,17 +1,16 @@
 @use '../../core/tokens/white-space';
 @use '../../core/util';
 
-$_imp: util.$important;
 $_white-space: white-space.$white-space;
 
 @each $value in $_white-space {
     .w-space-#{$value} {
-        white-space: $value #{$_imp};
+        white-space: util.imp($value);
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-w-space-#{$value} {
-            white-space: $value #{$_imp};
+            white-space: util.imp($value);
         }
     }
 }

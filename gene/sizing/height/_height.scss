@@ -2,17 +2,16 @@
 @use '../../../core/util';
 
 $_values: volumes.$values;
-$_imp: util.$important;
 
 @for $ind from 0 through 20 {
     @each $key, $value in $_values {
         .h-#{$key}-#{$ind} {
-            height: calc($ind * $value) #{$_imp};
+            height: util.imp(calc($ind * $value));
         }
 
         @include util.responsive using ($bp) {
             .#{$bp}-h-#{$key}-#{$ind} {
-                height: calc($ind * $value) #{$_imp};
+                height: util.imp(calc($ind * $value));
             }
         }
     }

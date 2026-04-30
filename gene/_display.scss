@@ -2,16 +2,15 @@
 @use '../core/util';
 
 $_displays: display.$displays;
-$_imp: util.$important;
 
 @each $key in $_displays {
     .#{$key} {
-        display: $key #{$_imp};
+        display: util.imp($key);
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-#{$key} {
-            display: $key #{$_imp};
+            display: util.imp($key);
         }
     }
 }

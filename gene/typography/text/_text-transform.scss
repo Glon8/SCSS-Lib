@@ -6,12 +6,12 @@ $_transform: text.$text-transform;
 
 @each $key, $value in $_transform {
     .text-t-#{$key} {
-        text-transform: $value #{$_imp};
+        text-transform: util.imp($value);
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-t-#{$key} {
-            text-transform: $value #{$_imp};
+            text-transform: util.imp($value);
         }
     }
 }

@@ -1,17 +1,16 @@
 @use '../../../core/variables/fonts';
 @use '../../../core/util';
 
-$_imp: util.$important;
 $_fonts: fonts.$fonts;
 
 @each $name, $font in $_fonts {
     .font-#{$name} {
-        font-family: $font #{$_imp};
+        font-family: util.imp($font);
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-font-#{$name} {
-            font-family: $font #{$_imp};
+            font-family: util.imp($font);
         }
     }
 }

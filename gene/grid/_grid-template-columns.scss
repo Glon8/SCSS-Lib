@@ -2,18 +2,17 @@
 @use '../../core/util';
 
 $_values: volumes.$values;
-$_imp: util.$important;
 
 @for $ind from 1 through 9 {
     @for $ind_2 from 1 through 20 {
         @each $key, $value in $_values {
             .grid-t-c-#{$ind}-#{$key}-#{$ind_2} {
-                grid-template-columns: repeat(#{$ind}, $ind_2 * $value) #{$_imp};
+                grid-template-columns: util.imp(repeat(#{$ind}, $ind_2 * $value));
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-grid-t-c-#{$ind}-#{$key}-#{$ind_2} {
-                    grid-template-columns: repeat(#{$ind}, $ind_2 * $value) #{$_imp};
+                    grid-template-columns: util.imp(repeat(#{$ind}, $ind_2 * $value));
                 }
             }
         }

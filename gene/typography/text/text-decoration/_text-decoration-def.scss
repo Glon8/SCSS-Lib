@@ -2,11 +2,10 @@
 @use '../../../../core/util';
 
 $_text-deco: text.$text-deco;
-$_imp: util.$important;
 
 .text-d {
-    text-decoration-line: var(--t-d, underline) #{$_imp};
-    text-decoration-thickness: var(--t-d-t, 1px) #{$_imp};
-    text-decoration-style: var(--t-d-s, solid) #{$_imp};
-    text-decoration-color: var(--t-d-c, black) #{$_imp};
+    text-decoration-line: util.imp(var(--t-d, underline));
+    text-decoration-thickness: util.imp(var(--t-d-t, 1px));
+    text-decoration-style: util.imp(var(--t-d-s, solid));
+    text-decoration-color: util.imp(var(--t-d-c, black));
 }

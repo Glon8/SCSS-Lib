@@ -6,28 +6,27 @@
 
 $_px: map.get(volumes.$values, 'px');
 $_directions: directions.$directions;
-$_imp: util.$important;
 
 @for $ind from 0 through 9 {
     .p-#{$ind} {
-        padding: calc(#{$ind} * #{$_px}) #{$_imp};
+        padding: util.imp(calc(#{$ind} * #{$_px}));
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-p-#{$ind} {
-            padding: calc(#{$ind} * #{$_px}) #{$_imp};
+            padding: util.imp(calc(#{$ind} * #{$_px}));
         }
     }
 
     @each $dir, $props in $_directions {
         @each $prop in $props {
             .p-#{$dir}-#{$ind} {
-                padding-#{$prop}: calc(#{$ind} * #{$_px}) #{$_imp};
+                padding-#{$prop}: util.imp(calc(#{$ind} * #{$_px}));
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-p-#{$dir}-#{$ind} {
-                    padding-#{$prop}: calc(#{$ind} * #{$_px}) #{$_imp};
+                    padding-#{$prop}: util.imp(calc(#{$ind} * #{$_px}));
                 }
             }
         }

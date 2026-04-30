@@ -2,20 +2,19 @@
 @use '../../core/util';
 
 $_colors: colors.$colors;
-$_imp: util.$important;
 
 @each $key, $col in $_colors {
     .c-#{"" + $key} {
         --c: #{util.rgb-values($col)};
 
-        color: util.color-scheme(--c, --c-sh-i, --c-sh-t, --c-op) #{$_imp};
+        color: util.imp(util.color-scheme(--c, --c-sh-i, --c-sh-t, --c-op));
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-c-#{"" + $key} {
             --c: #{util.rgb-values($col)};
 
-            color: util.color-scheme(--c, --c-sh-i, --c-sh-t, --c-op) #{$_imp};
+            color: util.imp(util.color-scheme(--c, --c-sh-i, --c-sh-t, --c-op));
         }
     }
 }

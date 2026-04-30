@@ -4,16 +4,15 @@
 @use '../../../core/util';
 
 $_px: map.get(volumes.$values, 'px');
-$_imp: util.$important;
 
 @for $ind from 1 through 9 {
     .r-gap-#{$ind} {
-        row-gap: calc(#{$ind} * #{$_px}) #{$_imp};
+        row-gap: util.imp(calc(#{$ind} * #{$_px}));
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-r-gap-#{$ind} {
-            row-gap: calc(#{$ind} * #{$_px}) #{$_imp};
+            row-gap: util.imp(calc(#{$ind} * #{$_px}));
         }
     }
 }

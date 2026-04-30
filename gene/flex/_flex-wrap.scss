@@ -1,17 +1,16 @@
 @use '../../core/tokens/flex';
 @use '../../core/util';
 
-$_imp: util.$important;
 $_wrap: flex.$flex-wrap;
 
 @each $key, $val in $_wrap {
     .flex-w-#{$key} {
-        flex-wrap: $val #{$_imp};
+        flex-wrap: util.imp($val);
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-flex-w-#{$key} {
-            flex-wrap: $val #{$_imp};
+            flex-wrap: util.imp($val);
         }
     }
 }

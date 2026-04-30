@@ -4,7 +4,6 @@
 @use '../../core/variables/volumes';
 @use '../../core/util';
 
-$_imp: util.$important;
 $_directions: directions.$directions;
 $_per: map.get(volumes.$values, 'per');
 
@@ -12,12 +11,12 @@ $_per: map.get(volumes.$values, 'per');
     @for $i from 0 through 20 {
         @if $key !=x and $key !=y {
             .#{$prop}-#{$i} {
-                #{$prop}: calc(#{$_per} * #{$i}) #{$_imp};
+                #{$prop}: util.imp(calc(#{$_per} * #{$i}));
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-#{$prop}-#{$i} {
-                    #{$prop}: calc(#{$_per} * #{$i}) #{$_imp};
+                    #{$prop}: util.imp(calc(#{$_per} * #{$i}));
                 }
             }
         }

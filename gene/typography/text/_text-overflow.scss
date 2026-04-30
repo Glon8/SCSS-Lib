@@ -1,17 +1,16 @@
 @use '../../../core/tokens/text';
 @use '../../../core/util';
 
-$_imp: util.$important;
 $_overflow: text.$text-overflow;
 
 @each $key, $value in $_overflow {
     .text-o-#{$key} {
-        text-overflow: $value #{$_imp};
+        text-overflow: util.imp($value);
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-o-#{$key} {
-            text-overflow: $value #{$_imp};
+            text-overflow: util.imp($value);
         }
     }
 }

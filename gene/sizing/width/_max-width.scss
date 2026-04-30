@@ -4,16 +4,15 @@
 @use '../../../core/util';
 
 $_per: map.get(volumes.$values, 'per');
-$_imp: util.$important;
 
 @for $ind from 0 through 20 {
     .max-w-#{$ind} {
-        max-width: calc($ind * $_per) #{$_imp};
+        max-width: util.imp(calc($ind * $_per));
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-max-w-#{$ind} {
-            max-width: calc($ind * $_per) #{$_imp};
+            max-width: util.imp(calc($ind * $_per));
         }
     }
 }

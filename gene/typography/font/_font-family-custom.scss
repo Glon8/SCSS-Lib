@@ -4,7 +4,6 @@
 @use '../../../core/util';
 
 $_fonts: fonts.$fonts-custom;
-$_imp: util.$important;
 
 @each $font in $_fonts {
     $name: #{map.get($font, "name")};
@@ -15,13 +14,12 @@ $_imp: util.$important;
     }
 
     .#{$name} {
-        font-family: $name #{$_imp};
+        font-family: util.imp($name);
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-#{$name} {
-            font-family: $name #{$_imp};
+            font-family: util.imp($name);
         }
     }
 }
-

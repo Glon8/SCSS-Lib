@@ -1,17 +1,16 @@
 @use '../../../core/tokens/font';
 @use '../../../core/util';
 
-$_imp: util.$important;
 $_font-style: font.$font-style;
 
 @each $key, $value in $_font-style {
     .font-st-#{$key} {
-        font-style: $value #{$_imp};
+        font-style: util.imp($value);
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-font-st-#{$key} {
-            font-style: $value #{$_imp};
+            font-style: util.imp($value);
         }
     }
 }

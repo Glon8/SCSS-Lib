@@ -4,16 +4,15 @@
 @use '../../core/util';
 
 $_per: map.get(volumes.$values, "per");
-$_imp: util.$important;
 
 @for $i from 0 through 20 {
     .line-h-#{$i} {
-        line-height: calc(100% + #{$i} * #{$_per}) #{$_imp};
+        line-height: util.imp(calc(100% + #{$i} * #{$_per}));
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-line-h-#{$i} {
-            line-height: calc(100% + #{$i} * #{$_per}) #{$_imp};
+            line-height: util.imp(calc(100% + #{$i} * #{$_per}));
         }
     }
 }
