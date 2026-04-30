@@ -5,12 +5,12 @@ $_images: background.$images;
 
 @each $name, $img in $_images {
     .bg-i-#{$name} {
-        background-image: util.imp($img);
+        --bg-i: $img;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-bg-i-#{$name} {
-            background-image: util.imp($img);
+            --bg-i: $img;
         }
     }
 }

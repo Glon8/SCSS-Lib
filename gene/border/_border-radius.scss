@@ -8,24 +8,24 @@ $unit-ns: b-r-unit;
 
 @for $ind from 0 through 100 {
     .r-#{$ind} {
-        --b-r: util.imp(util.units($ind, $unit-ns));
+        --b-r: util.units($ind, $unit-ns);
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-r-#{$ind} {
-            --b-r: util.imp(util.units($ind, $unit-ns));
+            --b-r: util.units($ind, $unit-ns);
         }
     }
 
     @each $key, $props in $_border-corns {
         @each $prop in $props {
             .r-#{$key}-#{$ind} {
-                --b-#{$prop}-r: util.imp(util.units($ind, $unit-ns));
+                --b-#{$prop}-r: util.units($ind, $unit-ns);
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-r-#{$key}-#{$ind} {
-                    --b-#{$prop}-r: util.imp(util.units($ind, $unit-ns));
+                    --b-#{$prop}-r: util.units($ind, $unit-ns);
                 }
             }
         }

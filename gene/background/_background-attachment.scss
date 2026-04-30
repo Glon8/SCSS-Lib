@@ -5,12 +5,12 @@ $_attach: background.$bg-att;
 
 @each $key, $val in $_attach {
     .bg-a-#{$key} {
-        background-attachment: util.imp($val);
+        --bg-a: $val;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-bg-a-#{$key} {
-            background-attachment: util.imp($val);
+            --bg-a: $val;
         }
     }
 }

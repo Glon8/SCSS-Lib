@@ -7,24 +7,24 @@ $_borders: decoration.$dec-style;
 
 @each $key in $_borders {
     .b-#{$key} {
-        --b-s: util.imp($key);
+        --b-s: $key;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-b-#{$key} {
-            --b-s: util.imp($key);
+            --b-s: $key;
         }
     }
 
     @each $dir, $props in $_directions {
         @each $prop in $props {
             .b-#{$dir}-#{$key} {
-                --b-#{$prop}-s: util.imp($key);
+                --b-#{$prop}-s: $key;
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-b-#{$dir}-#{$key} {
-                    --b-#{$prop}-s: util.imp($key);
+                    --b-#{$prop}-s: $key;
                 }
             }
         }

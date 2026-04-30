@@ -1,0 +1,16 @@
+@use "../../core/util";
+
+.bg {
+    // background color
+    background-color: util.imp(var(--bg-c, currentColor));
+    // background attachment
+    background-attachment: util.imp(var(--bg-a, scroll));
+    // background image
+    background-image: util.imp(var(--bg-i, none));
+    // background position
+    background-position: util.imp(var(--bg-p, center center));
+    // background repeat
+    background-repeat: util.imp(var(--bg-r, no-repeat));
+    // background size
+    background-size: var(--bg-s, 100%);
+}

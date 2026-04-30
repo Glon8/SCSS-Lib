@@ -5,12 +5,12 @@ $_position: background.$bg-pos;
 
 @each $key, $val in $_position {
     .bg-#{$key} {
-        background-position: util.imp($val);
+        --bg-p: $val;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-bg-#{$key} {
-            background-position: util.imp($val);
+            --bg-p: $val;
         }
     }
 }
