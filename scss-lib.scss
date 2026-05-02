@@ -33,8 +33,11 @@
 @forward './gene/display';
 
 // <           EFFECTS
+// <     BOX-SHADOW
 @forward './gene/effects/box-shadow';
-@forward './gene/effects/opacity';
+// <     OPACITY
+@forward './gene/effects/opacity/opacity-units';
+@forward './gene/effects/opacity/opacity';
 
 // <           FLEX
 @forward './gene/flex/flex-direction';

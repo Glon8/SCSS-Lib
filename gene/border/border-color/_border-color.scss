@@ -9,14 +9,14 @@ $_colors: colors.$colors;
     $color-base: #{util.rgb-values($col)};
     $color-scheme: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op);
 
-    .b-#{"" + $key} {
+    .b-c-#{"" + $key} {
         --b-c-b: $color-base;
 
         --b-c: $color-scheme;
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-b-#{"" + $key} {
+        .#{$bp}-b-c-#{"" + $key} {
             --b-c-b: $color-base;
 
             --b-c: $color-scheme;
@@ -25,14 +25,14 @@ $_colors: colors.$colors;
 
     @each $dir, $props in $_directions {
         @each $prop in $props {
-            .b-#{$dir}-#{"" + $key} {
+            .b-c-#{$dir}-#{"" + $key} {
                 --b-c-b: $color-base;
 
                 border-#{$prop}-color: $color-scheme;
             }
 
             @include util.responsive using ($bp) {
-                .#{$bp}-b-#{$dir}-#{"" + $key} {
+                .#{$bp}-b-c-#{$dir}-#{"" + $key} {
                     --b-c-b: $color-base;
 
                     border-#{$prop}-color: $color-scheme;

@@ -4,12 +4,12 @@
 $_repeat: background.$bg-rep;
 
 @each $key, $val in $_repeat {
-    .bg-#{$key} {
+    .bg-r-#{$key} {
         --bg-r: $val;
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-bg-#{$key} {
+        .#{$bp}-bg-r-#{$key} {
             --bg-r: $val;
         }
     }

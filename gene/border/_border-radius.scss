@@ -9,24 +9,24 @@ $_unit-ns: b-r-unit;
 @for $ind from 0 through 100 {
     $radius-units: util.units($ind, $_unit-ns);
 
-    .r-#{$ind} {
+    .b-r-#{$ind} {
         --b-r: $radius-units;
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-r-#{$ind} {
+        .#{$bp}-b-r-#{$ind} {
             --b-r: $radius-units;
         }
     }
 
     @each $key, $props in $_border-corns {
         @each $prop in $props {
-            .r-#{$key}-#{$ind} {
+            .b-r-#{$key}-#{$ind} {
                 --b-#{$prop}-r: $radius-units;
             }
 
             @include util.responsive using ($bp) {
-                .#{$bp}-r-#{$key}-#{$ind} {
+                .#{$bp}-b-r-#{$key}-#{$ind} {
                     --b-#{$prop}-r: $radius-units;
                 }
             }

@@ -6,24 +6,24 @@ $_directions: directions.$directions;
 $_borders: decoration.$dec-style;
 
 @each $key in $_borders {
-    .b-#{$key} {
+    .b-s-#{$key} {
         --b-s: $key;
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-b-#{$key} {
+        .#{$bp}-b-s-#{$key} {
             --b-s: $key;
         }
     }
 
     @each $dir, $props in $_directions {
         @each $prop in $props {
-            .b-#{$dir}-#{$key} {
+            .b-s-#{$dir}-#{$key} {
                 --b-#{$prop}-s: $key;
             }
 
             @include util.responsive using ($bp) {
-                .#{$bp}-b-#{$dir}-#{$key} {
+                .#{$bp}-b-s-#{$dir}-#{$key} {
                     --b-#{$prop}-s: $key;
                 }
             }

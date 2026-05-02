@@ -8,24 +8,24 @@ $_unit-ns: b-w-unit;
 @for $ind from 0 through 100 {
     $border-units: util.units($ind, $_unit-ns);
 
-    .b-#{$ind} {
+    .b-w-#{$ind} {
         --b-w: $border-units;
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-b-#{$ind} {
+        .#{$bp}-b-w-#{$ind} {
             --b-w: $border-units;
         }
     }
 
     @each $key, $props in $_directions {
         @each $prop in $props {
-            .b-#{$key}-#{$ind} {
+            .b-w-#{$key}-#{$ind} {
                 --b-#{$prop}-w: $border-units;
             }
 
             @include util.responsive using ($bp) {
-                .#{$bp}-b-#{$key}-#{$ind} {
+                .#{$bp}-b-w-#{$key}-#{$ind} {
                     --b-#{$prop}-w: $border-units;
                 }
             }

@@ -4,12 +4,12 @@
 $_position: background.$bg-pos;
 
 @each $key, $val in $_position {
-    .bg-#{$key} {
+    .bg-p-#{$key} {
         --bg-p: $val;
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-bg-#{$key} {
+        .#{$bp}-bg-p-#{$key} {
             --bg-p: $val;
         }
     }
