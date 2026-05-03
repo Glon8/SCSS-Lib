@@ -1,12 +1,9 @@
-@use 'sass:map';
-
-@use '../../../core/variables/volumes';
 @use '../../../core/util';
 
-$_per: map.get(volumes.$values, 'per');
+$_unit-ns: max-h-unit;
 
-@for $ind from 0 through 20 {
-    $height: util.imp(calc($ind * $_per));
+@for $ind from 0 through 100 {
+    $height: util.units($ind, $_unit-ns, 1%);
 
     .max-h-#{$ind} {
         --max-h: $height;

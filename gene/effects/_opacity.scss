@@ -1,9 +1,12 @@
+@use "sass:map";
+
+@use "../../../core/variables/volumes";
 @use '../../core/util';
 
-$_unit-ns: o-unit;
+$_per: map.get(volumes.$values, "per");
 
 @for $ind from 0 through 100 {
-    $op: util.units($ind, $_unit-ns, 1%);
+    $op: util.imp(calc($ind * $_per));
 
     .o-#{$ind} {
         opacity: $op;

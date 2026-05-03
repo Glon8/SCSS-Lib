@@ -1,9 +1,7 @@
 @use '../../core/variables/colors';
 @use '../../core/util';
 
-$_colors: colors.$colors;
-
-@each $key, $col in $_colors {
+@each $key, $col in colors.$colors {
     $color-base: #{util.rgb-values($col)};
     $color-scheme: util.color-scheme(--c, --c-sh-i, --c-sh-t, --c-op);
 

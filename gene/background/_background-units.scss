@@ -1,9 +1,7 @@
 @use "../../core/variables/volumes";
 @use "../../core/util";
 
-$_values: volumes.$values;
-
-@each $ns, $val in $_values {
+@each $ns, $val in volumes.$values {
     .bg-s-unit-#{$ns} {
         --bg-s-unit: $val;
     }

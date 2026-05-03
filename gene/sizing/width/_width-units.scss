@@ -1,0 +1,30 @@
+@use '../../../core/variables/volumes';
+@use '../../../core/util';
+
+@each $ns, $val in volumes.$values {
+    .w-unit-#{$ns} {
+        --w-unit: $val;
+    }
+
+    .max-w-unit-#{$ns} {
+        --max-w-unit: $val;
+    }
+
+    .min-w-unit-#{$ns} {
+        --min-w-unit: $val;
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-w-unit-#{$ns} {
+            --w-unit: $val;
+        }
+
+        .#{$bp}-max-w-unit-#{$ns} {
+            --max-w-unit: $val;
+        }
+
+        .#{$bp}-min-w-unit-#{$ns} {
+            --min-w-unit: $val;
+        }
+    }
+}

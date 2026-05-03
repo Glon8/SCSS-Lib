@@ -1,14 +1,11 @@
-@use 'sass:map';
-
 @use '../../core/tokens/directions';
-@use '../../core/variables/volumes';
 @use '../../core/util';
 
-$_px: map.get(volumes.$values, 'px');
 $_directions: directions.$directions;
+$_unit-ns: p-unit;
 
-@for $ind from 0 through 9 {
-    $padding: util.imp(calc(#{$ind} * #{$_px}));
+@for $ind from 0 through 100 {
+    $padding: util.units($ind, $_unit-ns);
 
     .p-#{$ind} {
         padding: $padding;

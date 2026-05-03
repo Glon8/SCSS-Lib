@@ -1,20 +1,17 @@
-@use '../../../core/variables/volumes';
 @use '../../../core/util';
 
-$_values: volumes.$values;
+$_unit-ns: h-unit;
 
-@for $ind from 0 through 20 {
-    @each $key, $value in $_values {
-        $height: util.imp(calc($ind * $value));
+@for $ind from 0 through 100 {
+    $height: util.units($ind, $_unit-ns);
 
-        .h-#{$key}-#{$ind} {
+    .h-#{$ind} {
+        --h: $height;
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-h-#{$ind} {
             --h: $height;
-        }
-
-        @include util.responsive using ($bp) {
-            .#{$bp}-h-#{$key}-#{$ind} {
-                --h: $height;
-            }
         }
     }
 }

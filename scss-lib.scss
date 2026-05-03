@@ -34,10 +34,9 @@
 
 // <           EFFECTS
 // <     BOX-SHADOW
-@forward './gene/effects/box-shadow';
+@forward './gene/effects/box-shadow/box-shadow';
 // <     OPACITY
-@forward './gene/effects/opacity/opacity-units';
-@forward './gene/effects/opacity/opacity';
+@forward './gene/effects/opacity';
 
 // <           FLEX
 @forward './gene/flex/flex-direction';
@@ -59,6 +58,7 @@
 // <           SIZING
 // <     HEIGHT
 @forward './gene/sizing/height/height-def';
+@forward './gene/sizing/height/height-units';
 @forward './gene/sizing/height/height';
 @forward './gene/sizing/height/max-height';
 @forward './gene/sizing/height/min-height';
@@ -66,11 +66,16 @@
 @forward './gene/sizing/width/max-width';
 @forward './gene/sizing/width/min-width';
 @forward "./gene/sizing/width/width-def";
+@forward './gene/sizing/width/width-units';
 @forward './gene/sizing/width/width';
 
 // <           SPACING
-@forward './gene/spacing/margin';
-@forward './gene/spacing/padding';
+// <     MARGIN
+@forward './gene/spacing/margin/margin-units';
+@forward './gene/spacing/margin/margin';
+// <     PADDING
+@forward './gene/spacing/padding/padding-units';
+@forward './gene/spacing/padding/padding';
 
 // <           TYPOGRAPHY
 // <     FONT

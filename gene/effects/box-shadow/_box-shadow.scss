@@ -1,7 +1,7 @@
 @use 'sass:list';
 
-@use '../../core/tokens/sizes';
-@use '../../core/util';
+@use '../../../core/tokens/sizes';
+@use '../../../core/util';
 
 $_sizes: sizes.$sizes;
 

@@ -1,0 +1,14 @@
+@use '../../../core/variables/volumes';
+@use '../../../core/util';
+
+@each $ns, $val in volumes.$values {
+    .dir-unit-#{$ns} {
+        --dir-unit: $val;
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-dir-unit-#{$ns} {
+            --dir-unit: $val;
+        }
+    }
+}

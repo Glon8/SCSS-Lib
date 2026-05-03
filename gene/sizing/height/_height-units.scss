@@ -1,0 +1,30 @@
+@use '../../../core/variables/volumes';
+@use '../../../core/util';
+
+@each $ns, $val in volumes.$values {
+    .h-unit-#{$ns} {
+        --h-unit: $val;
+    }
+
+    .max-h-unit-#{$ns} {
+        --max-h-unit: $val;
+    }
+
+    .min-h-unit-#{$ns} {
+        --min-h-unit: $val;
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-h-unit-#{$ns} {
+            --h-unit: $val;
+        }
+
+        .#{$bp}-max-h-unit-#{$ns} {
+            --max-h-unit: $val;
+        }
+
+        .#{$bp}-min-h-unit-#{$ns} {
+            --min-h-unit: $val;
+        }
+    }
+}
