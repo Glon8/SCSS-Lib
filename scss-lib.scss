@@ -52,7 +52,10 @@
 @forward './gene/grid/grid-template-rows';
 
 // <           POSITION
-@forward './gene/position/directions';
+// <     DIRECTIONS
+@forward './gene/position/directions/directions-units';
+@forward './gene/position/directions/directions';
+// <     POSITION
 @forward './gene/position/position';
 
 // <           SIZING
