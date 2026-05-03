@@ -1,12 +1,9 @@
-@use 'sass:map';
-
-@use '../../../core/variables/volumes';
 @use '../../../core/util';
 
-$_px: map.get(volumes.$values, 'px');
+$_unit-ns: font-s-unit;
 
-@for $ind from 0 through 20 {
-    $font-size: util.imp(calc(#{$ind} * #{$_px}));
+@for $ind from 0 through 100 {
+    $font-size: util.units($ind, $_unit-ns);
 
     .font-s-#{$ind} {
         font-size: $font-size;

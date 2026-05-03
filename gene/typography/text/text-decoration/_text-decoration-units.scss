@@ -1,0 +1,14 @@
+@use '../../../../core/util';
+@use '../../../../core/variables/volumes';
+
+@each $ns, $val in volumes.$values {
+    .text-d-t-unit-#{$ns} {
+        --t-d-t-unit: $val;
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-text-d-t-unit-#{$ns} {
+            --t-d-t-unit: $val;
+        }
+    }
+}

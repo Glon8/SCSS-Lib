@@ -29,9 +29,6 @@
 @forward './gene/color/color-shades';
 @forward './gene/color/color-opacity';
 
-// <           DISPLAY
-@forward './gene/display';
-
 // <           EFFECTS
 // <     BOX-SHADOW
 @forward './gene/effects/box-shadow/box-shadow';
@@ -86,11 +83,8 @@
 @forward './gene/typography/font/font-family';
 @forward './gene/typography/font/font-size';
 @forward './gene/typography/font/font-style';
+@forward './gene/typography/font/font-units';
 @forward './gene/typography/font/font-weight';
-// <     LETTER SPACING
-@forward './gene/typography/letter-spacing';
-// <     LINE HEIGHT
-@forward './gene/typography/line-height';
 // <     TEXT
 @forward './gene/typography/text/text-align';
 @forward './gene/typography/text/text-decoration/text-decoration-def';
@@ -102,5 +96,12 @@
 @forward './gene/typography/text/text-decoration/text-decoration';
 @forward './gene/typography/text/text-overflow';
 @forward './gene/typography/text/text-transform';
+// <     LETTER SPACING
+@forward './gene/typography/letter-spacing';
+// <     LINE HEIGHT
+@forward './gene/typography/line-height';
 // <     WHITE SPACE
 @forward './gene/typography/white-space';
+
+// <           DISPLAY
+@forward './gene/display';

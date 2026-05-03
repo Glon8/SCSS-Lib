@@ -1,11 +1,9 @@
-@use '../../../../core/variables/volumes';
 @use '../../../../core/util';
 
-$_values: volumes.$values;
+$_unit-ns: t-d-t-unit;
 
-@for $i from 0 through 20 {
-    @each $key, $value in $_values {
-        $text-thickness: calc(#{$i} * #{$value});
+@for $i from 0 through 100 {
+        $text-thickness: util.units($i, $_unit-ns);
 
         .text-d-t-#{$key}-#{$i} {
             --t-d-t: $text-thickness;
@@ -16,5 +14,5 @@ $_values: volumes.$values;
                 --t-d-t: $text-thickness;
             }
         }
-    }
+    
 }

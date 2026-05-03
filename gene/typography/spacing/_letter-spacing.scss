@@ -1,7 +1,9 @@
-@use '../../core/util';
+@use '../../../core/util';
 
-@for $i from 1 through 10 {
-    $spacing: util.imp(calc(#{$i} * 1px));
+$_unit-ns: letter-s-unit;
+
+@for $i from 1 through 100 {
+    $spacing: util.units($i, $_unit-ns);
 
     .letter-s-#{$i} {
         letter-spacing: $spacing;
