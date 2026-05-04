@@ -1,15 +1,13 @@
 @use '../../core/tokens/background';
 @use '../../core/util';
 
-$_position: background.$bg-pos;
-
-@each $key, $val in $_position {
-    .bg-p-#{$key} {
+@each $ns, $val in background.$bg-pos {
+    .bg-p-#{$ns} {
         --bg-p: $val;
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-bg-p-#{$key} {
+        .#{$bp}-bg-p-#{$ns} {
             --bg-p: $val;
         }
     }

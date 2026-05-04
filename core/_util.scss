@@ -38,5 +38,5 @@ $breakpoints: volumes.$breakpoints;
 }
 
 @function units($val, $units-name, $def: 1px) {
-    @return imp(calc($val * var(--#{$units-name}, #{$def})));
+    @return imp(calc(#{$val} * var(--#{$units-name}, #{$def})));
 }

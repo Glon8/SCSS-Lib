@@ -1,15 +1,13 @@
 @use '../../core/tokens/background';
 @use '../../core/util';
 
-$_repeat: background.$bg-rep;
-
-@each $key, $val in $_repeat {
-    .bg-r-#{$key} {
+@each $ns, $val in background.$bg-rep {
+    .bg-r-#{$ns} {
         --bg-r: $val;
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-bg-r-#{$key} {
+        .#{$bp}-bg-r-#{$ns} {
             --bg-r: $val;
         }
     }

@@ -1,9 +1,7 @@
 @use '../../core/tokens/background';
 @use '../../core/util';
 
-$_attach: background.$bg-att;
-
-@each $key, $val in $_attach {
+@each $key, $val in background.$bg-att {
     .bg-a-#{$key} {
         --bg-a: $val;
     }

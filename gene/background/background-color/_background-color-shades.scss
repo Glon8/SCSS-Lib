@@ -1,18 +1,16 @@
 @use '../../../core/variables/colors';
 @use '../../../core/util';
 
-$_shades: colors.$color-shades;
-
-@each $name, $shade in $_shades {
-    .bg-c-sh-#{"" + $name} {
-        --bg-c-sh-i: #{$shade};
-        --bg-c-sh-t: #{$name};
+@each $ns, $val in colors.$color-shades {
+    .bg-c-sh-#{"" + $ns} {
+        --bg-c-sh-i: $val;
+        --bg-c-sh-t: $ns;
     }
 
     @include util.responsive using ($bp) {
-        .bg-c-sh-#{"" + $name} {
-            --bg-c-sh-i: #{$shade};
-            --bg-c-sh-t: #{$name};
+        .bg-c-sh-#{"" + $ns} {
+            --bg-c-sh-i: $val;
+            --bg-c-sh-t: $ns;
         }
     }
 }

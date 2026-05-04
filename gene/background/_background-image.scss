@@ -1,16 +1,14 @@
 @use '../../core/variables/background';
 @use '../../core/util';
 
-$_images: background.$images;
-
-@each $name, $img in $_images {
-    .bg-i-#{$name} {
-        --bg-i: $img;
+@each $ns, $val in background.$images {
+    .bg-i-#{$ns} {
+        --bg-i: $val;
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-bg-i-#{$name} {
-            --bg-i: $img;
+        .#{$bp}-bg-i-#{$ns} {
+            --bg-i: $val;
         }
     }
 }
