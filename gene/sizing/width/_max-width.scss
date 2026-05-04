@@ -3,7 +3,7 @@
 $_unit-ns: max-w-unit;
 
 @for $ind from 0 through 100 {
-    $width: util.units($ind, $_unit-ns);
+    $width: util.units($ind, $_unit-ns, 1%);
 
     .max-w-#{$ind} {
         --max-w: #{$width};
