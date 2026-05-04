@@ -6,12 +6,12 @@ $_unit-ns: w-unit;
     $width: util.units($ind, $_unit-ns);
 
     .w-#{$ind} {
-        --w: $width;
+        --w: #{$width};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-w-#{$ind} {
-            --w: $width;
+            --w: #{$width};
         }
     }
 
