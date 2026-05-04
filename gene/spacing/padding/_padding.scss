@@ -1,5 +1,5 @@
-@use '../../core/tokens/directions';
-@use '../../core/util';
+@use '../../../core/tokens/directions';
+@use '../../../core/util';
 
 $_directions: directions.$directions;
 $_unit-ns: p-unit;
