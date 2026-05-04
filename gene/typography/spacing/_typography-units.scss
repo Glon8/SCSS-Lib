@@ -3,20 +3,20 @@
 
 @each $ns, $val in volumes.$values {
     .letter-s-unit-#{$ns} {
-        --font-s-unit: $val;
+        --font-s-unit: #{$val};
     }
 
     .line-h-unit-#{$ns} {
-        --font-s-unit: $val;
+        --font-s-unit: #{$val};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-letter-s-unit-#{$ns} {
-            --font-s-unit: $val;
+            --font-s-unit: #{$val};
         }
 
         .#{$bp}-line-h-unit-#{$ns} {
-            --font-s-unit: $val;
+            --font-s-unit: #{$val};
         }
     }
 }

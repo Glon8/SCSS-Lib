@@ -3,12 +3,12 @@
 
 @each $ns, $val in volumes.$values {
     .bg-s-unit-#{$ns} {
-        --bg-s-unit: $val;
+        --bg-s-unit: #{$val};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-bg-s-unit-#{$ns} {
-            --bg-s-unit: $val;
+            --bg-s-unit: #{$val};
         }
     }
 }

@@ -3,20 +3,20 @@
 
 @each $ns, $val in volumes.$values {
     .b-w-unit-#{$ns} {
-        --b-w-unit: $val;
+        --b-w-unit: #{$val};
     }
 
     .b-r-unit-#{$ns} {
-        --b-r-unit: $val;
+        --b-r-unit: #{$val};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-b-w-unit-#{$ns} {
-            --b-w-unit: $val;
+            --b-w-unit: #{$val};
         }
 
         .#{$bp}-b-r-unit-#{$ns} {
-            --b-r-unit: $val;
+            --b-r-unit: #{$val};
         }
     }
 }

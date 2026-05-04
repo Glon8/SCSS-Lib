@@ -3,12 +3,12 @@
 
 @each $ns, $val in volumes.$values {
     .p-unit-#{$ns} {
-        --p-unit: $val;
+        --p-unit: #{$val};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-p-unit-#{$ns} {
-            --p-unit: $val;
+            --p-unit: #{$val};
         }
     }
 }

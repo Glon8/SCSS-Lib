@@ -3,12 +3,12 @@
 
 @each $ns, $val in volumes.$values {
     .font-s-unit-#{$ns} {
-        --font-s-unit: $val;
+        --font-s-unit: #{$val};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-font-s-unit-#{$ns} {
-            --font-s-unit: $val;
+            --font-s-unit: #{$val};
         }
     }
 }
