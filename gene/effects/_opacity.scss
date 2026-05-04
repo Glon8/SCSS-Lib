@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@use "../../../core/variables/volumes";
+@use "../../core/variables/volumes";
 @use '../../core/util';
 
 $_per: map.get(volumes.$values, "per");
