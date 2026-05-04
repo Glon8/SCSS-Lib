@@ -10,7 +10,15 @@ $use_important: map.get(config.$config, "important");
 $breakpoints: volumes.$breakpoints;
 
 @function imp($value) {
-    @return $value #{if(sass($use_important): "!important"; else: "")};
+    @if $use_important {
+        @return #{$value}+unquote(" !important");
+    }
+
+    @else {
+        @return $value;
+    }
+
+    //@return $value #{if(sass($use_important): "!important"; else: "")};
 }
 
 @mixin responsive {
@@ -38,5 +46,5 @@ $breakpoints: volumes.$breakpoints;
 }
 
 @function units($val, $units-name, $def: 1px) {
-    @return imp(calc(#{$val} * var(--#{$units-name}, #{$def})));
+    @return imp(calc($val * var(--#{$units-name}, #{$def})));
 }
