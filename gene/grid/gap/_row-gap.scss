@@ -6,12 +6,12 @@ $_unit-ns: r-gap-unit;
     $gap: util.units($ind, $_unit-ns);
 
     .r-gap-#{$ind} {
-        row-gap: $gap;
+        row-gap: #{$gap};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-r-gap-#{$ind} {
-            row-gap: $gap;
+            row-gap: #{$gap};
         }
     }
 }

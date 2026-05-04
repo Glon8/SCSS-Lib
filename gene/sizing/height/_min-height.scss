@@ -6,12 +6,12 @@ $_unit-ns: min-h-unit;
     $height: util.units($ind, $_unit-ns, 1%);
 
     .min-h-#{$ind} {
-        --min-h: $height;
+        --min-h: #{$height};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-min-h-#{$ind} {
-            --min-h: $height;
+            --min-h: #{$height};
         }
     }
 }

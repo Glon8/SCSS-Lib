@@ -1,16 +1,14 @@
 @use '../../../core/tokens/text';
 @use '../../../core/util';
 
-$_transform: text.$text-transform;
-
-@each $key, $value in $_transform {
-    .text-t-#{$key} {
-        text-transform: util.imp($value);
+@each $ns, $val in text.$text-transform {
+    .text-t-#{$ns} {
+        text-transform: util.imp($val);
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-text-t-#{$key} {
-            text-transform: util.imp($value);
+        .#{$bp}-text-t-#{$ns} {
+            text-transform: util.imp($val);
         }
     }
 }

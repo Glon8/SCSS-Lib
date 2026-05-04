@@ -1,16 +1,14 @@
 @use '../../../core/variables/colors';
 @use '../../../core/util';
 
-$_opacity: colors.$color-opacity;
-
-@each $name, $opac in $_opacity {
-    .b-op-#{$name} {
-        --b-op: #{$opac};
+@each $ns, $val in colors.$color-opacity {
+    .b-op-#{$ns} {
+        --b-op: #{$val};
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-b-op-#{$name} {
-            --b-op: #{$opac};
+        .#{$bp}-b-op-#{$ns} {
+            --b-op: #{$val};
         }
     }
 }

@@ -2,40 +2,37 @@
 @use '../../../core/variables/colors';
 @use '../../../core/util';
 
-$_directions: directions.$directions;
-$_colors: colors.$colors;
-
-@each $key, $col in $_colors {
-    $color-base: #{util.rgb-values($col)};
+@each $key, $value in colors.$colors {
+    $color-base: #{util.rgb-values($value)};
     $color-scheme: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op);
 
     .b-c-#{"" + $key} {
-        --b-c-b: $color-base;
+        --b-c-b: #{$color-base};
 
-        --b-c: $color-scheme;
+        --b-c: #{$color-scheme};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-b-c-#{"" + $key} {
-            --b-c-b: $color-base;
+            --b-c-b: #{$color-base};
 
-            --b-c: $color-scheme;
+            --b-c: #{$color-scheme};
         }
     }
 
-    @each $dir, $props in $_directions {
-        @each $prop in $props {
-            .b-c-#{$dir}-#{"" + $key} {
-                --b-c-b: $color-base;
+    @each $ns, $val in directions.$directions {
+        @each $prop in $val {
+            .b-c-#{$ns}-#{"" + $key} {
+                --b-c-b: #{$color-base};
 
-                border-#{$prop}-color: $color-scheme;
+                border-#{$prop}-color: #{$color-scheme};
             }
 
             @include util.responsive using ($bp) {
-                .#{$bp}-b-c-#{$dir}-#{"" + $key} {
-                    --b-c-b: $color-base;
+                .#{$bp}-b-c-#{$ns}-#{"" + $key} {
+                    --b-c-b: #{$color-base};
 
-                    border-#{$prop}-color: $color-scheme;
+                    border-#{$prop}-color: #{$color-scheme};
                 }
             }
         }

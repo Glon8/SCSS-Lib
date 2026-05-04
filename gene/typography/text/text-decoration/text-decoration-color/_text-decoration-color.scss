@@ -1,18 +1,16 @@
 @use '../../../../../core/variables/colors';
 @use '../../../../../core/util';
 
-$_c: colors.$colors;
+@each $ns, $val in colors.$colors {
+    $text-color: util.color-scheme(util.rgb-values($val), --t-c-sh-i, --t-c-sh-t, --t-c-op);
 
-@each $key, $value in $_c {
-    $text-color: util.color-scheme(rgb-values($value), --t-c-sh-i, --t-c-sh-t, --t-c-op);
-
-    .text-d-c-#{"" + $key} {
-        --t-d-c: $text-color;
+    .text-d-c-#{"" + $ns} {
+        --t-d-c: #{$text-color};
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-text-d-c-#{"" + $key} {
-            --t-d-c: $text-color;
+        .#{$bp}-text-d-c-#{"" + $ns} {
+            --t-d-c: #{$text-color};
         }
     }
 }

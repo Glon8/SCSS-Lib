@@ -7,12 +7,12 @@ $_unit-ns: bg-s-unit;
     $bg-size-units: util.units($i, $_unit-ns, 1%);
 
     .bg-s-#{$i} {
-        --bg-s: $bg-size-units;
+        --bg-s: #{$bg-size-units};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-bg-s-#{$i} {
-            --bg-s: $bg-size-units;
+            --bg-s: #{$bg-size-units};
         }
     }
 }

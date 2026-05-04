@@ -1,16 +1,14 @@
 @use '../../../../../core/variables/colors';
 @use '../../../../../core/util';
 
-$_opacity: colors.$color-opacity;
- 
-@each $name, $opac in $_opacity {
-    .text-d-c-op-#{$name} {
-        --t-c-op: #{$opac};
+@each $ns, $val in colors.$color-opacity {
+    .text-d-c-op-#{$ns} {
+        --t-c-op: $val;
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-text-d-c-op-#{$name} {
-            --t-c-op: #{$opac};
+        .#{$bp}-text-d-c-op-#{$ns} {
+            --t-c-op: $val;
         }
     }
 }

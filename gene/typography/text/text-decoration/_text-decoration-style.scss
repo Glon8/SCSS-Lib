@@ -1,16 +1,14 @@
 @use '../../../../core/tokens/decoration';
 @use '../../../../core/util';
 
-$_text-deco: decoration.$dec-style;
-
-@each $key in $_text-deco {
+@each $key in decoration.$dec-style {
     .text-d-s-#{$key} {
-        --t-d-s: #{$key};
+        --t-d-s: $key;
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-d-s-#{key} {
-            --t-d-s: #{$key};
+            --t-d-s: $key;
         }
     }
 }

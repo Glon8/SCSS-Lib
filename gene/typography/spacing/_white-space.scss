@@ -1,9 +1,7 @@
 @use '../../../core/tokens/white-space';
 @use '../../../core/util';
 
-$_white-space: white-space.$white-space;
-
-@each $value in $_white-space {
+@each $value in white-space.$white-space {
     .w-space-#{$value} {
         white-space: util.imp($value);
     }

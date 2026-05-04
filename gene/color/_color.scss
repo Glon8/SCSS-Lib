@@ -1,21 +1,21 @@
 @use '../../core/variables/colors';
 @use '../../core/util';
 
-@each $key, $col in colors.$colors {
-    $color-base: #{util.rgb-values($col)};
-    $color-scheme: util.color-scheme(--c, --c-sh-i, --c-sh-t, --c-op);
+@each $ns, $val in colors.$colors {
+    $color-base: #{util.rgb-values($val)};
+    $color-scheme: util.color-scheme(--c-b, --c-sh-i, --c-sh-t, --c-op);
 
-    .c-#{"" + $key} {
-        --c: $color-base;
+    .c-#{"" + $ns} {
+        --c-b: #{$color-base};
 
-        color: $color-scheme;
+        color: #{$color-scheme};
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-c-#{"" + $key} {
-            --c: $color-base;
+        .#{$bp}-c-#{"" + $ns} {
+            --c-b: #{$color-base};
 
-            color: $color-scheme;
+            color: #{$color-scheme};
         }
     }
 }

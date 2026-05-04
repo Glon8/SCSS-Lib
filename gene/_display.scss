@@ -1,9 +1,7 @@
 @use '../core/tokens/display';
 @use '../core/util';
 
-$_displays: display.$displays;
-
-@each $key in $_displays {
+@each $key in display.$displays {
     .#{$key} {
         display: util.imp($key);
     }

@@ -1,32 +1,30 @@
 @use '../../core/tokens/directions';
 @use '../../core/util';
 
-$_directions: directions.$directions;
-
 $_unit-ns: b-w-unit;
 
 @for $ind from 0 through 100 {
     $border-units: util.units($ind, $_unit-ns);
 
     .b-w-#{$ind} {
-        --b-w: $border-units;
+        --b-w: #{$border-units};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-b-w-#{$ind} {
-            --b-w: $border-units;
+            --b-w: #{$border-units};
         }
     }
 
-    @each $key, $props in $_directions {
+    @each $key, $props in directions.$directions {
         @each $prop in $props {
             .b-w-#{$key}-#{$ind} {
-                --b-#{$prop}-w: $border-units;
+                --b-#{$prop}-w: #{$border-units};
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-b-w-#{$key}-#{$ind} {
-                    --b-#{$prop}-w: $border-units;
+                    --b-#{$prop}-w: #{$border-units};
                 }
             }
         }

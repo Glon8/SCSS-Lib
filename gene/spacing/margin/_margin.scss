@@ -1,31 +1,30 @@
 @use '../../../core/tokens/directions';
 @use '../../../core/util';
 
-$_directions: directions.$directions;
 $_unit-ns: m-unit;
 
 @for $ind from 0 through 100 {
     $margin: util.units($ind, $_unit-ns);
 
     .m-#{$ind} {
-        margin: $margin;
+        margin: #{$margin};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-m-#{$ind} {
-            margin: $margin;
+            margin: #{$margin};
         }
     }
 
-    @each $dir, $props in $_directions {
-        @each $prop in $props {
-            .m-#{$dir}-#{$ind} {
-                margin-#{$prop}: $margin;
+    @each $key, $value in directions.$directions {
+        @each $val in $value {
+            .m-#{$key}-#{$ind} {
+                margin-#{$val}: #{$margin};
             }
 
             @include util.responsive using ($bp) {
-                .#{$bp}-m-#{$dir}-#{$ind} {
-                    margin-#{$prop}: $margin;
+                .#{$bp}-m-#{$key}-#{$ind} {
+                    margin-#{$val}: #{$margin};
                 }
             }
         }

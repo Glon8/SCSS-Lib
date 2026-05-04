@@ -6,12 +6,12 @@ $_unit-ns: max-h-unit;
     $height: util.units($ind, $_unit-ns, 1%);
 
     .max-h-#{$ind} {
-        --max-h: $height;
+        --max-h: #{$height};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-max-h-#{$ind} {
-            --max-h: $height;
+            --max-h: #{$height};
         }
     }
 }

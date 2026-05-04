@@ -3,10 +3,8 @@
 @use '../../../core/variables/fonts';
 @use '../../../core/util';
 
-$_fonts: fonts.$fonts-custom;
-
-@each $font in $_fonts {
-    $name: #{map.get($font, "name")};
+@each $font in fonts.$fonts-custom {
+    $name: map.get($font, "name");
 
     @font-face {
         font-family: $name;

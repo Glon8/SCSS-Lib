@@ -6,12 +6,12 @@ $_unit-ns: max-w-unit;
     $width: util.units($ind, $_unit-ns);
 
     .max-w-#{$ind} {
-        --max-w: $width;
+        --max-w: #{$width};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-max-w-#{$ind} {
-            --max-w: $width;
+            --max-w: #{$width};
         }
     }
 }

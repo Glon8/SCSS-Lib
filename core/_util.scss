@@ -1,6 +1,7 @@
 @use 'sass:meta';
 @use 'sass:map';
 @use 'sass:color';
+@use 'sass:string';
 
 @use './variables/config';
 @use './variables/volumes';
@@ -11,14 +12,12 @@ $breakpoints: volumes.$breakpoints;
 
 @function imp($value) {
     @if $use_important {
-        @return #{$value}+unquote(" !important");
+        @return #{$value}+string.unquote(" !important");
     }
 
     @else {
         @return $value;
     }
-
-    //@return $value #{if(sass($use_important): "!important"; else: "")};
 }
 
 @mixin responsive {

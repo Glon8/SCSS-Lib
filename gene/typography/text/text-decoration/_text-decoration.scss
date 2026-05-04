@@ -1,16 +1,14 @@
 @use '../../../../core/tokens/text';
 @use '../../../../core/util';
 
-$_text-deco: text.$text-deco;
-
-@each $name, $spec in $_text-deco {
-    .text-d-#{$name} {
-        --t-d: #{$spec};
+@each $ns, $val in text.$text-deco {
+    .text-d-#{$ns} {
+        --t-d: $val;
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-text-d-#{$name} {
-            --t-d: #{$spec};
+        .#{$bp}-text-d-#{$ns} {
+            --t-d: $val;
         }
     }
 }

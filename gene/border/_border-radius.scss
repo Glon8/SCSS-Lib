@@ -2,32 +2,30 @@
 @use '../../core/variables/volumes';
 @use '../../core/util';
 
-$_border-corns: border.$border-corns;
-
 $_unit-ns: b-r-unit;
 
 @for $ind from 0 through 100 {
     $radius-units: util.units($ind, $_unit-ns);
 
     .b-r-#{$ind} {
-        --b-r: $radius-units;
+        --b-r: #{$radius-units};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-b-r-#{$ind} {
-            --b-r: $radius-units;
+            --b-r: #{$radius-units};
         }
     }
 
-    @each $key, $props in $_border-corns {
+    @each $key, $props in border.$border-corns {
         @each $prop in $props {
             .b-r-#{$key}-#{$ind} {
-                --b-#{$prop}-r: $radius-units;
+                --b-#{$prop}-r: #{$radius-units};
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-b-r-#{$key}-#{$ind} {
-                    --b-#{$prop}-r: $radius-units;
+                    --b-#{$prop}-r: #{$radius-units};
                 }
             }
         }

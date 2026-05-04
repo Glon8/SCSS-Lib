@@ -6,12 +6,12 @@ $_unit-ns: min-w-unit;
     $width: util.units($ind, $_unit-ns, 1%);
 
     .min-w-#{$ind} {
-        --min-w: $width;
+        --min-w: #{$width};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-min-w-#{$ind} {
-            --min-w: $width;
+            --min-w: #{$width};
         }
     }
 }

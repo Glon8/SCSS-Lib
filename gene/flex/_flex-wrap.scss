@@ -1,9 +1,7 @@
 @use '../../core/tokens/flex';
 @use '../../core/util';
 
-$_wrap: flex.$flex-wrap;
-
-@each $key, $val in $_wrap {
+@each $key, $val in flex.$flex-wrap {
     .flex-w-#{$key} {
         flex-wrap: util.imp($val);
     }

@@ -3,16 +3,16 @@
 $_unit-ns: t-d-t-unit;
 
 @for $i from 0 through 100 {
-        $text-thickness: util.units($i, $_unit-ns);
+    $text-thickness: util.units($i, $_unit-ns);
 
-        .text-d-t-#{$i} {
-            --t-d-t: $text-thickness;
-        }
+    .text-d-t-#{$i} {
+        --t-d-t: #{$text-thickness};
+    }
 
-        @include util.responsive using ($bp) {
-            #{$bp}-text-d-t-#{$i} {
-                --t-d-t: $text-thickness;
-            }
+    @include util.responsive using ($bp) {
+        #{$bp}-text-d-t-#{$i} {
+            --t-d-t: #{$text-thickness};
         }
-    
+    }
+
 }

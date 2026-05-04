@@ -6,12 +6,12 @@ $_unit-ns: font-s-unit;
     $font-size: util.units($ind, $_unit-ns);
 
     .font-s-#{$ind} {
-        font-size: $font-size;
+        font-size: #{$font-size};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-font-s-#{$ind} {
-            font-size: $font-size;
+            font-size: #{$font-size};
         }
     }
 }

@@ -1,9 +1,7 @@
 @use '../../core/tokens/flex';
 @use '../../core/util';
 
-$_flex-dir: flex.$flex-dir;
-
-@each $key, $val in $_flex-dir {
+@each $key, $val in flex.$flex-dir {
     .flex-#{$key} {
         flex-direction: util.imp($val);
     }

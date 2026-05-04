@@ -6,12 +6,12 @@ $_unit-ns: line-h-unit;
     $height: util.units($i, $_unit-ns);
 
     .line-h-#{$i} {
-        line-height: $height;
+        line-height: #{$height};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-line-h-#{$i} {
-            line-height: $height;
+            line-height: #{$height};
         }
     }
 }

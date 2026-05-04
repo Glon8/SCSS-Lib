@@ -1,16 +1,14 @@
 @use '../../../core/tokens/positions';
 @use '../../../core/util';
 
-$_pos-hor: positions.$pos-hor;
-
-@each $key, $pos in $_pos-hor {
-    .text-a-#{$key} {
-        text-align: util.imp(#{$pos});
+@each $ns, $val in positions.$pos-hor {
+    .text-a-#{$ns} {
+        text-align: util.imp($val);
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-text-a-#{$key} {
-            text-align: util.imp(#{$pos});
+        .#{$bp}-text-a-#{$ns} {
+            text-align: util.imp($val);
         }
     }
 }

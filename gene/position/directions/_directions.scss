@@ -1,21 +1,20 @@
 @use '../../../core/tokens/directions';
 @use '../../../core/util';
 
-$_directions: directions.$directions;
 $_unit-ns: dir-unit;
 
-@each $key, $prop in $_directions {
+@each $ns, $val in directions.$directions {
     @for $i from 0 through 100 {
-        @if $key !=x and $key !=y {
+        @if $ns !=x and $ns !=y {
             $dir: util.units($i, $_unit-ns);
 
-            .#{$prop}-#{$i} {
-                #{$prop}: $dir;
+            .#{$val}-#{$i} {
+                #{$val}: #{$dir};
             }
 
             @include util.responsive using ($bp) {
-                .#{$bp}-#{$prop}-#{$i} {
-                    #{$prop}: $dir;
+                .#{$bp}-#{$val}-#{$i} {
+                    #{$val}: #{$dir};
                 }
             }
         }

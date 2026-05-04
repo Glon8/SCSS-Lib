@@ -6,12 +6,12 @@ $_unit-ns: letter-s-unit;
     $spacing: util.units($i, $_unit-ns);
 
     .letter-s-#{$i} {
-        letter-spacing: $spacing;
+        letter-spacing: #{$spacing};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-letter-s-#{$i} {
-            letter-spacing: $spacing;
+            letter-spacing: #{$spacing};
         }
     }
 }

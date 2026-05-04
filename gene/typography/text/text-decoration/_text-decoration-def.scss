@@ -1,7 +1,4 @@
-@use '../../../../core/tokens/text';
 @use '../../../../core/util';
-
-$_text-deco: text.$text-deco;
 
 .text-d {
     text-decoration-line: util.imp(var(--t-d, underline));
