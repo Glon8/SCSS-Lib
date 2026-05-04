@@ -1,12 +1,9 @@
-@use 'sass:map';
-
-@use '../../../core/variables/volumes';
 @use '../../../core/util';
 
-$_px: map.get(volumes.$values, 'px');
+$_unit-ns: c-gap-unit;
 
 @for $ind from 0 through 100 {
-    $gap: util.imp(calc(#{$ind} * #{$_px}));
+    $gap: util.units($ind, $_unit-ns);
 
     .c-gap-#{$ind} {
         column-gap: $gap;

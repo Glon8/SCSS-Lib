@@ -1,0 +1,31 @@
+@use '../../../core/util';
+@use '../../../core/variables/volumes';
+
+@each $ns, $val in volumes.$values {
+    .c-gap-unit-#{$ns} {
+        --c-gap-unit: $val;
+    }
+
+    .gap-unit-#{$ns} {
+        --gap-unit: $val;
+    }
+
+    .r-gap-unit-#{$ns} {
+        --r-gap-unit: $val;
+    }
+
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-c-gap-unit-#{$ns} {
+            --c-gap-unit: $val;
+        }
+
+        .#{$bp}-gap-unit-#{$ns} {
+            --gap-unit: $val;
+        }
+
+        .#{$bp}-r-gap-unit-#{$ns} {
+            --r-gap-unit: $val;
+        }
+    }
+}
