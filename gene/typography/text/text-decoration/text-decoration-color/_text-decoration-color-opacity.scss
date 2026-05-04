@@ -3,12 +3,12 @@
 
 @each $ns, $val in colors.$color-opacity {
     .text-d-c-op-#{$ns} {
-        --t-c-op: $val;
+        --t-c-op: #{$val};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-d-c-op-#{$ns} {
-            --t-c-op: $val;
+            --t-c-op: #{$val};
         }
     }
 }

@@ -3,12 +3,12 @@
 
 @each $ns, $val in colors.$color-opacity {
     .bg-c-op-#{$ns} {
-        --bg-c-op: $val;
+        --bg-c-op: #{$val};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-bg-c-op-#{$ns} {
-            --bg-c-op: $val;
+            --bg-c-op: #{$val};
         }
     }
 }
