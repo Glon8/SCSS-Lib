@@ -1,8 +1,8 @@
 $directions: (
-    t: (t),
-    b: (b),
-    r: (r),
-    l: (l),
-    x: (l, r),
-    y: (t, b)
+    t: (top),
+    b: (bottom),
+    r: (right),
+    l: (left),
+    x: (left, right),
+    y: (top, bottom)
 );
