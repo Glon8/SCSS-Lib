@@ -3,12 +3,12 @@
 
 @each $value in white-space.$white-space {
     .w-space-#{$value} {
-        white-space: util.imp($value);
+        --w-space: #{$value};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-w-space-#{$value} {
-            white-space: util.imp($value);
+            --w-space: #{$value};
         }
     }
 }
