@@ -6,12 +6,12 @@ $_unit-ns: t-d-t-unit;
     $text-thickness: util.units($i, $_unit-ns);
 
     .text-d-t-#{$i} {
-        --t-d-t: #{$text-thickness};
+        --text-d-t: #{$text-thickness};
     }
 
     @include util.responsive using ($bp) {
         #{$bp}-text-d-t-#{$i} {
-            --t-d-t: #{$text-thickness};
+            --text-d-t: #{$text-thickness};
         }
     }
 

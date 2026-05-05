@@ -2,10 +2,10 @@
 
 .text {
     // text decoration config
-    text-decoration-color: util.imp(var(--t-d-c, currentColor));
-    text-decoration-style: util.imp(var(--t-d-s, solid));
-    text-decoration-thickness: util.imp(var(--t-d-t, auto));
-    text-decoration-line: util.imp(var(--t-d, none));
+    text-decoration-color: util.imp(var(--text-d-c, currentColor));
+    text-decoration-style: util.imp(var(--text-d-s, solid));
+    text-decoration-thickness: util.imp(var(--text-d-t, auto));
+    text-decoration-line: util.imp(var(--text-d, none));
     // text config
     text-align: util.imp(var(--text-a, inherit));
     text-overflow: util.imp(var(--text-o, clip));

@@ -3,12 +3,12 @@
 
 @each $key in decoration.$dec-style {
     .text-d-s-#{$key} {
-        --t-d-s: #{$key};
+        --text-d-s: #{$key};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-d-s-#{key} {
-            --t-d-s: #{$key};
+            --text-d-s: #{$key};
         }
     }
 }
