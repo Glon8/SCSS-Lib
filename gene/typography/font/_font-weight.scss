@@ -1,7 +1,7 @@
 @use '../../../core/util';
 
 @for $ind from 1 through 9 {
-    #{$weight}: calc($ind * 100);
+    $weight: calc($ind * 100);
 
     .font-w-#{$ind} {
         --font-w: #{$weight};
