@@ -1,8 +1,0 @@
-@use '../../../../core/util';
-
-.text-d {
-    text-decoration-line: util.imp(var(--t-d, underline));
-    text-decoration-thickness: util.imp(var(--t-d-t, 1px));
-    text-decoration-style: util.imp(var(--t-d-s, solid));
-    text-decoration-color: util.imp(var(--t-d-c, black));
-}

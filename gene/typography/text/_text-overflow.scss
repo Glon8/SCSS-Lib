@@ -3,12 +3,12 @@
 
 @each $ns, $val in text.$text-overflow {
     .text-o-#{$ns} {
-        text-overflow: util.imp($val);
+        --text-o: #{$val};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-o-#{$ns} {
-            text-overflow: util.imp($val);
+            --text-o: #{$val};
         }
     }
 }

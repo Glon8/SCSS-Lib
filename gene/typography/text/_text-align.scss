@@ -3,12 +3,12 @@
 
 @each $ns, $val in positions.$pos-hor {
     .text-a-#{$ns} {
-        text-align: util.imp($val);
+        --text-a: #{$val};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-a-#{$ns} {
-            text-align: util.imp($val);
+            --text-a: #{$val};
         }
     }
 }

@@ -3,12 +3,12 @@
 
 @each $ns, $val in text.$text-transform {
     .text-t-#{$ns} {
-        text-transform: util.imp($val);
+        --text-t: #{$val};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-t-#{$ns} {
-            text-transform: util.imp($val);
+            --text-t: #{$val};
         }
     }
 }

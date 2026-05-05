@@ -3,12 +3,12 @@
 
 @each $ns, $val in fonts.$fonts {
     .font-#{$ns} {
-        font-family: util.imp($val);
+        --font-f: #{$val};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-font-#{$ns} {
-            font-family: util.imp($val);
+            --font-f: #{$val};
         }
     }
 }
