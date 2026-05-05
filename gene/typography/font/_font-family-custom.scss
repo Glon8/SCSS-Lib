@@ -7,7 +7,7 @@
     $name: map.get($font, "name");
 
     @font-face {
-        font-family: $name;
+        font-family: #{$name};
         src: url('./fonts/#{map.get($font, "dest")}') format('#{map.get($font, "format")}');
     }
 

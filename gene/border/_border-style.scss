@@ -4,24 +4,24 @@
 
 @each $key in decoration.$dec-style {
     .b-s-#{$key} {
-        --b-s: $key;
+        --b-s: #{$key};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-b-s-#{$key} {
-            --b-s: $key;
+            --b-s: #{$key};
         }
     }
 
     @each $dir, $props in directions.$directions {
         @each $prop in $props {
             .b-s-#{$dir}-#{$key} {
-                --b-#{$prop}-s: $key;
+                --b-#{$prop}-s: #{$key};
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-b-s-#{$dir}-#{$key} {
-                    --b-#{$prop}-s: $key;
+                    --b-#{$prop}-s: #{$key};
                 }
             }
         }

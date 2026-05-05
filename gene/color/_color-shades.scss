@@ -3,14 +3,14 @@
 
 @each $ns, $val in colors.$color-shades {
     .c-sh-#{"" + $ns} {
-        --c-sh-i: $val;
-        --c-sh-t: $ns;
+        --c-sh-i: #{$val};
+        --c-sh-t: #{$ns};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-c-sh-#{"" + $ns} {
-            --c-sh-i: $val;
-            --c-sh-t: $ns;
+            --c-sh-i: #{$val};
+            --c-sh-t: #{$ns};
         }
     }
 }

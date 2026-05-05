@@ -3,12 +3,12 @@
 
 @each $ns, $val in background.$bg-pos {
     .bg-p-#{$ns} {
-        --bg-p: $val;
+        --bg-p: #{$val};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-bg-p-#{$ns} {
-            --bg-p: $val;
+            --bg-p: #{$val};
         }
     }
 }

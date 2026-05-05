@@ -3,12 +3,12 @@
 
 @each $ns, $val in text.$text-deco {
     .text-d-#{$ns} {
-        --t-d: $val;
+        --t-d: #{$val};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-d-#{$ns} {
-            --t-d: $val;
+            --t-d: #{$val};
         }
     }
 }

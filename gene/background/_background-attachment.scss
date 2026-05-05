@@ -3,12 +3,12 @@
 
 @each $key, $val in background.$bg-att {
     .bg-a-#{$key} {
-        --bg-a: $val;
+        --bg-a: #{$val};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-bg-a-#{$key} {
-            --bg-a: $val;
+            --bg-a: #{$val};
         }
     }
 }

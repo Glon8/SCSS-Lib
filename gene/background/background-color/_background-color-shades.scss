@@ -3,14 +3,14 @@
 
 @each $ns, $val in colors.$color-shades {
     .bg-c-sh-#{"" + $ns} {
-        --bg-c-sh-i: $val;
-        --bg-c-sh-t: $ns;
+        --bg-c-sh-i: #{$val};
+        --bg-c-sh-t: #{$ns};
     }
 
     @include util.responsive using ($bp) {
         .bg-c-sh-#{"" + $ns} {
-            --bg-c-sh-i: $val;
-            --bg-c-sh-t: $ns;
+            --bg-c-sh-i: #{$val};
+            --bg-c-sh-t: #{$ns};
         }
     }
 }
