@@ -2,14 +2,19 @@
 @use '../../../../../core/util';
 
 @each $ns, $val in colors.$colors {
-    $text-color: util.color-scheme(util.rgb-values($val), --t-c-sh-i, --t-c-sh-t, --t-c-op);
+    $color-base: #{util.rgb-values($val)};
+    $text-color: util.color-scheme(--t-d-c-b, --t-c-sh-i, --t-c-sh-t, --t-c-op);
 
     .text-d-c-#{"" + $ns} {
+        --t-d-c-b: #{$color-base};
+
         --t-d-c: #{$text-color};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-d-c-#{"" + $ns} {
+            --t-d-c-b: #{$color-base};
+
             --t-d-c: #{$text-color};
         }
     }
