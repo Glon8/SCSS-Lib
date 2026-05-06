@@ -1,0 +1,13 @@
+@use '../../core/util';
+
+@for $ind from 0 through 10 {
+    .flex-g-#{$ind} {
+        --flex-g: #{$ind};
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-flex-g-#{$ind} {
+            --flex-g: #{$ind};
+        }
+    }
+}

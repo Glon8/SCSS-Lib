@@ -1,0 +1,17 @@
+@use '../../core/util';
+
+$_unit-ns: flex-s-unit;
+
+@for $ind from 0 through 100 {
+    $size: util.units($ind, $_unit-ns);
+
+    .flex-b-#{$ind} {
+        --flex-b: #{$size};
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-flex-b-#{$ind} {
+            --flex-b: #{$size};
+        }
+    }
+}
