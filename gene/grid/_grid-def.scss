@@ -1,0 +1,19 @@
+@use '../../core/util';
+
+.grid {
+    grid-template-columns: util.imp(var(--grid-t-c, auto));
+    grid-template-rows: util.imp(var(--grid-t-r, auto));
+    //grid gap
+    gap: util.imp(var(--gap, 0));
+    row-gap: util.imp(var(--r-gap, var(--gap, 0)));
+    column-gap: util.imp(var(--c-gap, var(--gap, 0)));
+}
+
+.grid-item {
+    grid-area: var(--grid-a, auto);
+    grid-column-end: var(--grid-c-e, auto);
+    grid-column-start: var(--grid-c-s, auto);
+    order: var(--grid-o, 0);
+    grid-row-end: var(--grid-r-e, auto);
+    grid-row-start: var(--grid-r-s, auto);
+}

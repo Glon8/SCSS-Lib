@@ -36,7 +36,11 @@
 @forward './gene/effects/opacity';
 
 // <           FLEX
+@forward './gene/flex/flex-basis';
+@forward './gene/flex/flex-dif';
 @forward './gene/flex/flex-direction';
+@forward './gene/flex/flex-grow';
+@forward './gene/flex/flex-shrink';
 @forward './gene/flex/flex-wrap';
 
 // <           GRID
@@ -44,7 +48,15 @@
 @forward './gene/grid/gap/column-gap';
 @forward './gene/grid/gap/gap';
 @forward './gene/grid/gap/row-gap';
+// <     GRID ITEM
+@forward './gene/grid/grid-item/grid-area';
+@forward './gene/grid/grid-item/grid-column-end';
+@forward './gene/grid/grid-item/grid-column-start';
+@forward './gene/grid/grid-item/grid-order';
+@forward './gene/grid/grid-item/grid-row-end';
+@forward './gene/grid/grid-item/grid-row-start';
 // <     TEMPLATES
+@forward './gene/grid/grid-def';
 @forward './gene/grid/grid-template-columns';
 @forward './gene/grid/grid-template-rows';
 

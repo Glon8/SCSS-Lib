@@ -1,19 +1,19 @@
-@use '../../core/variables/volumes';
 @use '../../core/util';
 
+$_unit-ns: grid-t-r-unit;
+
 @for $ind from 1 through 9 {
-    @for $ind_2 from 1 through 20 {
-        @each $ns, $val in volumes.$values {
-            $row-temp: util.imp(repeat(#{$ind}, $ind_2 * $val));
+    @for $ind_2 from 1 through 100 {
+        $row-base: util.units($ind_2, $_unit-ns);
+        $row-temp: repeat(#{$ind}, #{$row-base});
 
-            .grid-t-r-#{$ind}-#{$ns}-#{$ind_2} {
-                grid-template-rows: $row-temp;
-            }
+        .grid-t-r-#{$ind}-#{$ind_2} {
+            --grid-t-r: #{$row-temp};
+        }
 
-            @include util.responsive using ($bp) {
-                .#{$bp}-grid-t-r-#{$ind}-#{$ns}-#{$ind_2} {
-                    grid-template-rows: $row-temp;
-                }
+        @include util.responsive using ($bp) {
+            .#{$bp}-grid-t-r-#{$ind}-#{$ind_2} {
+                --grid-t-r: #{$row-temp};
             }
         }
     }
