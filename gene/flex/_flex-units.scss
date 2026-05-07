@@ -1,0 +1,14 @@
+@use "../../core/variables/volumes";
+@use '../../core/util';
+
+@each $ns, $val in volumes.$values {
+    .flex-b-unit-#{$ns} {
+        --flex-b-unit: #{$val};
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-flex-b-unit-#{$ns} {
+            --flex-b-unit: #{$val};
+        }
+    }
+}

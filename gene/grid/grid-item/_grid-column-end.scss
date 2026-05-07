@@ -1,0 +1,13 @@
+@use '../../../core/util';
+
+@for $ind from 1 through 9 {
+    .grid-c-e-#{$ind} {
+        --grid-c-e: #{ind};
+    }
+
+    @include util.responsive using($bp) {
+        .#{$bp}-grid-c-e-#{$ind} {
+            --grid-c-e: #{ind};
+        }
+    }
+}

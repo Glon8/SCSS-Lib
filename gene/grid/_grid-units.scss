@@ -2,6 +2,8 @@
 @use '../../../core/variables/volumes';
 
 @each $ns, $val in volumes.$values {
+
+    // grid gap
     .c-gap-unit-#{$ns} {
         --c-gap-unit: #{$val};
     }
@@ -14,8 +16,18 @@
         --r-gap-unit: #{$val};
     }
 
+    // grid main
+    .grid-t-c-unit-#{$ns} {
+        --grid-t-c-unit: #{$val};
+    }
+
+    .grid-t-r-unit-#{$ns} {
+        --grid-t-r-unit: #{$val};
+    }
 
     @include util.responsive using ($bp) {
+
+        // grid gap
         .#{$bp}-c-gap-unit-#{$ns} {
             --c-gap-unit: #{$val};
         }
@@ -26,6 +38,15 @@
 
         .#{$bp}-r-gap-unit-#{$ns} {
             --r-gap-unit: #{$val};
+        }
+
+        //grid main
+        .#{$bp}-grid-t-c-unit-#{$ns} {
+            --grid-t-c-unit: #{$val};
+        }
+
+        .#{$bp}-grid-t-r-unit-#{$ns} {
+            --grid-t-r-unit: #{$val};
         }
     }
 }

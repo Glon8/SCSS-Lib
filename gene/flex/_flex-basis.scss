@@ -1,6 +1,6 @@
 @use '../../core/util';
 
-$_unit-ns: flex-s-unit;
+$_unit-ns: flex-b-unit;
 
 @for $ind from 0 through 100 {
     $size: util.units($ind, $_unit-ns);
