@@ -2,11 +2,11 @@
 
 .b {
     //border width
-    border-width: var(--b-w, 0);
-    border-top-width: var(--b-t-w, var(--b-w));
-    border-bottom-width: var(--b-b-w, var(--b-w));
-    border-left-width: var(--b-l-w, var(--b-w));
-    border-right-width: var(--b-r-w, var(--b-w));
+    border-width: util.imp(var(--b-w, 0));
+    border-top-width: util.imp(var(--b-t-w, var(--b-w)));
+    border-bottom-width: util.imp(var(--b-b-w, var(--b-w)));
+    border-left-width: util.imp(var(--b-l-w, var(--b-w)));
+    border-right-width: util.imp(var(--b-r-w, var(--b-w)));
     //border style
     border-style: util.imp(var(--b-s, solid));
     border-top-style: util.imp(var(--b-t-s, var(--b-s)));
@@ -16,11 +16,11 @@
     //border color
     border-color: util.imp(var(--b-c, currentColor));
     //border radius
-    border-radius: var(--b-r, 0);
-    border-top-left-radius: var(--b-tl-r, var(--b-r));
-    border-top-right-radius: var(--b-tr-r, var(--b-r));
-    border-bottom-left-radius: var(--b-bl-r, var(--b-r));
-    border-bottom-right-radius: var(--b-br-r, var(--b-r));
+    border-radius: util.imp(var(--b-r, 0));
+    border-top-left-radius: util.imp(var(--b-tl-r, var(--b-r)));
+    border-top-right-radius: util.imp(var(--b-tr-r, var(--b-r)));
+    border-bottom-left-radius: util.imp(var(--b-bl-r, var(--b-r)));
+    border-bottom-right-radius: util.imp(var(--b-br-r, var(--b-r)));
 }
 
 .b-def {

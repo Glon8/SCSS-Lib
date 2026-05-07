@@ -12,5 +12,5 @@
     // background repeat
     background-repeat: util.imp(var(--bg-r, no-repeat));
     // background size
-    background-size: var(--bg-s, auto);
+    background-size: util.imp(var(--bg-s, auto));
 }

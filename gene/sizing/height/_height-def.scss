@@ -1,8 +1,10 @@
+@use '../../../core/util';
+
 .h {
     // height
-    height: var(--h, 100%);
+    height: util.imp(var(--h, 100%));
     // max-height
-    max-height: var(--max-h, auto);
+    max-height: util.imp(var(--max-h, auto));
     //min-height
-    min-height: var(--min-h, auto);
+    min-height: util.imp(var(--min-h, auto));
 }

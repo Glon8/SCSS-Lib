@@ -2,7 +2,7 @@
 @use '../../core/util';
 
 @each $ns, $val in colors.$colors {
-    $color-base: #{util.rgb-values($val)};
+    $color-base: util.rgb-values($val);
     $color-scheme: util.color-scheme(--c-b, --c-sh-i, --c-sh-t, --c-op);
 
     .c-#{"" + $ns} {

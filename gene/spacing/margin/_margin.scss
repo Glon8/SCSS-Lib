@@ -4,7 +4,7 @@
 $_unit-ns: m-unit;
 
 @for $ind from 0 through 100 {
-    $margin: util.units($ind, $_unit-ns);
+    $margin: util.imp(util.units($ind, $_unit-ns));
 
     .m-#{$ind} {
         margin: #{$margin};

@@ -10,10 +10,10 @@
 }
 
 .grid-item {
-    grid-area: var(--grid-a, auto);
-    grid-column-end: var(--grid-c-e, auto);
-    grid-column-start: var(--grid-c-s, auto);
-    order: var(--grid-o, 0);
-    grid-row-end: var(--grid-r-e, auto);
-    grid-row-start: var(--grid-r-s, auto);
+    grid-area: util.imp(var(--grid-a, auto));
+    grid-column-end: util.imp(var(--grid-c-e, auto));
+    grid-column-start: util.imp(var(--grid-c-s, auto));
+    order: util.imp(var(--grid-o, 0));
+    grid-row-end: util.imp(var(--grid-r-e, auto));
+    grid-row-start: util.imp(var(--grid-r-s, auto));
 }

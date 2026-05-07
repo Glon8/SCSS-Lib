@@ -3,7 +3,7 @@
 .flex {
     flex-direction: util.imp(var(--flex-d, row));
     flex-wrap: util.imp(var(--flex-w, nowrap));
-    flex-basis: var(--flex-b, auto);
+    flex-basis: util.imp(var(--flex-b, auto));
     flex-grow: util.imp(var(--flex-g, 0));
     flex-shrink: util.imp(var(--flex-s, 1));
 }
