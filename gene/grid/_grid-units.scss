@@ -1,5 +1,5 @@
-@use '../../../core/util';
-@use '../../../core/variables/volumes';
+@use '../../core/util';
+@use '../../core/variables/volumes';
 
 @each $ns, $val in volumes.$values {
 
