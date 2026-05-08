@@ -1,8 +1,12 @@
 @use '../../../core/util';
 
 .font {
+    --font-f: inherit;
     font-family: util.imp(var(--font-f, inherit));
+    --font-s: 1rem;
     font-size: util.imp(var(--font-s, 1rem));
+    --font-st: normal;
     font-style: util.imp(var(--font-st, normal));
+    --font-w: 400;
     font-weight: util.imp(var(--font-w, 400));
 }

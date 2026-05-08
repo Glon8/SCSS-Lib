@@ -2,24 +2,40 @@
 
 .b {
     //border width
+    --b-w: 0;
     border-width: util.imp(var(--b-w, 0));
+    --b-t-w: 0;
     border-top-width: util.imp(var(--b-t-w, var(--b-w)));
+    --b-b-w: 0;
     border-bottom-width: util.imp(var(--b-b-w, var(--b-w)));
+    --b-l-w: 0;
     border-left-width: util.imp(var(--b-l-w, var(--b-w)));
+    --b-r-w: 0;
     border-right-width: util.imp(var(--b-r-w, var(--b-w)));
     //border style
+    --b-s: solid;
     border-style: util.imp(var(--b-s, solid));
+    --b-t-s: solid;
     border-top-style: util.imp(var(--b-t-s, var(--b-s)));
+    --b-b-s: solid;
     border-bottom-style: util.imp(var(--b-b-s, var(--b-s)));
+    --b-l-s: solid;
     border-left-style: util.imp(var(--b-l-s, var(--b-s)));
+    --b-r-s: solid;
     border-right-style: util.imp(var(--b-r-s, var(--b-s)));
     //border color
+    --b-c: currentColor;
     border-color: util.imp(var(--b-c, currentColor));
     //border radius
+    --b-r: 0;
     border-radius: util.imp(var(--b-r, 0));
+    --b-tl-r: 0;
     border-top-left-radius: util.imp(var(--b-tl-r, var(--b-r)));
+    --b-tr-r: 0;
     border-top-right-radius: util.imp(var(--b-tr-r, var(--b-r)));
+    --b-bl-r: 0;
     border-bottom-left-radius: util.imp(var(--b-bl-r, var(--b-r)));
+    --b-br-r: 0;
     border-bottom-right-radius: util.imp(var(--b-br-r, var(--b-r)));
 }
 

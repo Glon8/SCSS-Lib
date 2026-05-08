@@ -2,9 +2,12 @@
 
 .h {
     // height
+    --h: 100%;
     height: util.imp(var(--h, 100%));
     // max-height
+    --max-h: auto;
     max-height: util.imp(var(--max-h, auto));
     //min-height
+    --min-h: auto;
     min-height: util.imp(var(--min-h, auto));
 }

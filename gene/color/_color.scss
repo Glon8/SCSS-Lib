@@ -2,6 +2,10 @@
 @use '../../core/util';
 
 @each $ns, $val in colors.$colors {
+    --c-sh-i: 100%;
+    --c-sh-t: white;
+    --c-op: 1;
+
     $color-base: util.rgb-values($val);
     $color-scheme: util.color-scheme(--c-b, --c-sh-i, --c-sh-t, --c-op);
 

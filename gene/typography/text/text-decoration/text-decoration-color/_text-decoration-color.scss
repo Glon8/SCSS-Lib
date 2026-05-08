@@ -2,8 +2,13 @@
 @use '../../../../../core/util';
 
 @each $ns, $val in colors.$colors {
+    --text-d-c-b: rgb-values(black);
+    --text-d-c-sh-i: 100%;
+    --text-d-c-sh-t: white;
+    --text-d-c-op: 1;
+
     $color-base: #{util.rgb-values($val)};
-    $text-color: util.color-scheme(--text-d-c-b, --text-c-sh-i, --text-c-sh-t, --text-c-op);
+    $text-color: util.color-scheme(--text-d-c-b, --text-d-c-sh-i, --text-d-c-sh-t, --text-d-c-op);
 
     .text-d-c-#{"" + $ns} {
         --text-d-c-b: #{$color-base};

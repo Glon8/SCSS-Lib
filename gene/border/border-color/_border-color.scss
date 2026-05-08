@@ -3,6 +3,11 @@
 @use '../../../core/util';
 
 @each $key, $value in colors.$colors {
+    --b-c-b: rgb-values(black);
+    --b-sh-i: 100%;
+    --b-sh-t: white;
+    --b-op: 1;
+
     $color-base: #{util.rgb-values($value)};
     $color-scheme: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op);
 

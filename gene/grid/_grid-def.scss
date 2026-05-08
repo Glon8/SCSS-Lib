@@ -1,19 +1,30 @@
 @use '../../core/util';
 
 .grid {
+    --grid-t-c: auto;
     grid-template-columns: util.imp(var(--grid-t-c, auto));
+    --grid-t-r: auto;
     grid-template-rows: util.imp(var(--grid-t-r, auto));
     //grid gap
+    --gap: 0;
     gap: util.imp(var(--gap, 0));
+    --r-gap: 0;
     row-gap: util.imp(var(--r-gap, var(--gap, 0)));
+    --c-gap: 0;
     column-gap: util.imp(var(--c-gap, var(--gap, 0)));
 }
 
 .grid-item {
+    --grid-a: auto;
     grid-area: util.imp(var(--grid-a, auto));
+    --grid-c-e: auto;
     grid-column-end: util.imp(var(--grid-c-e, auto));
+    --grid-c-s: auto;
     grid-column-start: util.imp(var(--grid-c-s, auto));
+    --grid-o: auto;
     order: util.imp(var(--grid-o, 0));
+    --grid-r-e: auto;
     grid-row-end: util.imp(var(--grid-r-e, auto));
+    --grid-r-s: auto;
     grid-row-start: util.imp(var(--grid-r-s, auto));
 }

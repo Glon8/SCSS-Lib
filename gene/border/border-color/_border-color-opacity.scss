@@ -2,13 +2,13 @@
 @use '../../../core/util';
 
 @each $ns, $val in colors.$color-opacity {
-    .b-op-#{$ns} {
-        --b-op: #{$val};
+    .b-c-op-#{$ns} {
+        --b-c-op: #{$val};
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-b-op-#{$ns} {
-            --b-op: #{$val};
+        .#{$bp}-b-c-op-#{$ns} {
+            --b-c-op: #{$val};
         }
     }
 }

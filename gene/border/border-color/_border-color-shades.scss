@@ -2,15 +2,15 @@
 @use '../../../core/util';
 
 @each $ns, $val in colors.$color-shades {
-    .b-sh-#{"" + $ns} {
-        --b-sh-i: #{$val};
-        --b-sh-t: #{$ns};
+    .b-c-sh-#{"" + $ns} {
+        --b-c-sh-i: #{$val};
+        --b-c-sh-t: #{$ns};
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-b-sh-#{"" + $ns} {
-            --b-sh-i: #{$val};
-            --b-sh-t: #{$ns};
+        .#{$bp}-b-c-sh-#{"" + $ns} {
+            --b-c-sh-i: #{$val};
+            --b-c-sh-t: #{$ns};
         }
     }
 }

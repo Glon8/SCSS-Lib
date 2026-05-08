@@ -1,7 +1,10 @@
 @use '../../../core/util';
 
 .spacing {
+    --letter-s: normal;
     letter-spacing: util.imp(var(--letter-s, normal));
+    --line-h: 1.5;
     line-height: util.imp(var(--line-h, 1.5));
+    --w-space: normal;
     white-space: util.imp(var(--w-space, normal));
 }
