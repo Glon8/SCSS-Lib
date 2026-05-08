@@ -3,7 +3,7 @@
 @use '../../../core/util';
 
 @each $key, $value in colors.$colors {
-    --b-c-b: rgb-values(black);
+    --b-c-b: util.rgb-values(black);
     --b-sh-i: 100%;
     --b-sh-t: white;
     --b-op: 1;

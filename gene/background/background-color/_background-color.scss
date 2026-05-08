@@ -2,7 +2,7 @@
 @use '../../../core/util';
 
 @each $ns, $val in colors.$colors {
-    --bg-c-b: rgb-values(black);
+    --bg-c-b: util.rgb-values(black);
     --bg-c-sh-i: 100%;
     --bg-c-sh-t: white;
     --bg-c-op: 1;
