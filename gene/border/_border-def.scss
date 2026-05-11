@@ -1,6 +1,6 @@
 @use '../../core/util';
 
-@mixin res {
+@mixin def-res {
     //border width
     --b-w: 0;
     --b-t-w: 0;
@@ -24,7 +24,7 @@
 }
 
 .b {
-    @include res();
+    @include def-res();
 
     //border width
     border-width: util.imp(var(--b-w, 0));

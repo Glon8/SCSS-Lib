@@ -30,6 +30,6 @@
 
 .text {
     // text - spacing
-    @include spacing-def.res();
+    @include spacing-def.def-res();
     @include spacing-def.space();
 }

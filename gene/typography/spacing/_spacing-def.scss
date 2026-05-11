@@ -1,6 +1,6 @@
 @use '../../../core/util';
 
-@mixin res {
+@mixin def-res {
     --letter-s: normal;
     --line-h: 1.5;
     --w-space: normal;
@@ -13,6 +13,6 @@
 }
 
 .spacing {
-    @include res();
+    @include def-res();
     @include space();
 }

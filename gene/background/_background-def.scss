@@ -1,6 +1,6 @@
 @use "../../core/util";
 
-@mixin res {
+@mixin def-res {
     --bg-c: transparent;
     --bg-a: scroll;
     --bg-i: none;
@@ -10,7 +10,7 @@
 }
 
 .bg {
-    @include res();
+    @include def-res();
 
     background-color: util.imp(var(--bg-c, transparent));
     background-attachment: util.imp(var(--bg-a, scroll));

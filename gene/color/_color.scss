@@ -1,7 +1,7 @@
 @use '../../core/variables/colors';
 @use '../../core/util';
 
-@mixin res {
+@mixin c-res {
     --c-sh-i: 100%;
     --c-sh-t: white;
     --c-op: 1;
@@ -12,7 +12,7 @@
     $color-scheme: util.color-scheme(--c-b, --c-sh-i, --c-sh-t, --c-op);
 
     .c-#{"" + $ns} {
-        @include res();
+        @include c-res();
 
         --c-b: #{$color-base};
 
@@ -21,7 +21,7 @@
 
     @include util.responsive using ($bp) {
         .#{$bp}-c-#{"" + $ns} {
-            @include res();
+            @include c-res();
 
             --c-b: #{$color-base};
 

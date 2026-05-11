@@ -1,7 +1,7 @@
 @use '../../../../../core/variables/colors';
 @use '../../../../../core/util';
 
-@mixin res {
+@mixin c-res {
     --text-d-c-sh-i: 100%;
     --text-d-c-sh-t: white;
     --text-d-c-op: 1;
@@ -12,7 +12,7 @@
     $text-color: util.color-scheme(--text-d-c-b, --text-d-c-sh-i, --text-d-c-sh-t, --text-d-c-op);
 
     .text-d-c-#{"" + $ns} {
-        @include res();
+        @include c-res();
 
         --text-d-c-b: #{$color-base};
 
@@ -21,7 +21,7 @@
 
     @include util.responsive using ($bp) {
         .#{$bp}-text-d-c-#{"" + $ns} {
-            @include res();
+            @include c-res();
 
             --text-d-c-b: #{$color-base};
 

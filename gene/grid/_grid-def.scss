@@ -1,6 +1,6 @@
 @use '../../core/util';
 
-@mixin res() {
+@mixin def-res() {
     --grid-t-c: auto;
     --grid-t-r: auto;
     //grid gap
@@ -19,7 +19,7 @@
 }
 
 .grid {
-    @include res();
+    @include def-res();
 
     grid-template-columns: util.imp(var(--grid-t-c, auto));
     grid-template-rows: util.imp(var(--grid-t-r, auto));
