@@ -2,8 +2,20 @@
 @use '../../core/tokens/alignment';
 @use '../../core/util';
 
-@each $key, $value in positions.$pos-ver {
-    @each $ns, $val in alignment.$just-ali {
+@each $ns, $val in alignment.$just-ali {
+    @each $key, $value in positions.$pos-ver {
+        .align-#{$ns}-#{$key} {
+            align-#{$val}: util.imp($value);
+        }
+
+        @include util.responsive using ($bp) {
+            .#{$bp}-align-#{$ns}-#{$key} {
+                align-#{$val}: util.imp($value);
+            }
+        }
+    }
+
+    @each $key, $value in positions.$aligment {
         .align-#{$ns}-#{$key} {
             align-#{$val}: util.imp($value);
         }

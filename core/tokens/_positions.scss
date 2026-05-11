@@ -1,11 +1,17 @@
 $pos-ver: (
-     s: start,
-     e: end,
-     c: center
+    s: start,
+    e: end,
+    c: center
 );
 
 $pos-hor: (
     l: left,
     r: right,
     c: center
+);
+
+$aligment: (
+    btw: space-between,
+    ard: space-around,
+    evn: space-evenly
 );
