@@ -1,31 +1,35 @@
 @use '../../../core/util';
+@use '../spacing/spacing-def';
+
+@mixin res {
+    // text decoration config
+    --text-d-c: currentColor;
+    --text-d-s: solid;
+    --text-d-t: auto;
+    --text-d: none;
+    // text config
+    --text-a: inherit;
+    --text-o: clip;
+    --text-t: none;
+}
 
 .uno-text,
 .text {
+    @include res();
+
     // text decoration config
-    --text-d-c: currentColor;
     text-decoration-color: util.imp(var(--text-d-c, currentColor));
-    --text-d-s: solid;
     text-decoration-style: util.imp(var(--text-d-s, solid));
-    --text-d-t: auto;
     text-decoration-thickness: util.imp(var(--text-d-t, auto));
-    --text-d: none;
     text-decoration-line: util.imp(var(--text-d, none));
     // text config
-    --text-a: inherit;
     text-align: util.imp(var(--text-a, inherit));
-    --text-o: clip;
     text-overflow: util.imp(var(--text-o, clip));
-    --text-t: none;
     text-transform: util.imp(var(--text-t, none));
 }
 
 .text {
     // text - spacing
-    --letter-s: normal;
-    letter-spacing: util.imp(var(--letter-s, normal));
-    --line-h: 1.5;
-    line-height: util.imp(var(--line-h, 1.5));
-    --w-space: normal;
-    white-space: util.imp(var(--w-space, normal));
+    @include spacing-def.res();
+    @include spacing-def.space();
 }

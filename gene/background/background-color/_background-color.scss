@@ -1,16 +1,19 @@
 @use '../../../core/variables/colors';
 @use '../../../core/util';
 
-@each $ns, $val in colors.$colors {
-    --bg-c-b: #{util.rgb-values(#000000)};
+@mixin res {
     --bg-c-sh-i: 100%;
     --bg-c-sh-t: white;
     --bg-c-op: 1;
+}
 
+@each $ns, $val in colors.$colors {
     $color-base: util.rgb-values($val);
     $color-scheme: util.color-scheme(--bg-c-b, --bg-c-sh-i, --bg-c-sh-t, --bg-c-op);
 
     .bg-c-#{"" + $ns} {
+        @include res();
+
         --bg-c-b: #{$color-base};
 
         --bg-c: #{$color-scheme};
@@ -18,6 +21,8 @@
 
     @include util.responsive using ($bp) {
         .#{$bp}-bg-c-#{"" + $ns} {
+            @include res();
+
             --bg-c-b: #{$color-base};
 
             --bg-c: #{$color-scheme};

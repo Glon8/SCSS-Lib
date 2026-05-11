@@ -1,14 +1,19 @@
 @use '../../core/util';
 
-.flex {
+@mixin res {
     --flex-d: row;
-    flex-direction: util.imp(var(--flex-d, row));
     --flex-w: nowrap;
-    flex-wrap: util.imp(var(--flex-w, nowrap));
     --flex-b: auto;
-    flex-basis: util.imp(var(--flex-b, auto));
     --flex-g: 0;
-    flex-grow: util.imp(var(--flex-g, 0));
     --flex-s: 1;
+}
+
+.flex {
+    @include res();
+
+    flex-direction: util.imp(var(--flex-d, row));
+    flex-wrap: util.imp(var(--flex-w, nowrap));
+    flex-basis: util.imp(var(--flex-b, auto));
+    flex-grow: util.imp(var(--flex-g, 0));
     flex-shrink: util.imp(var(--flex-s, 1));
 }

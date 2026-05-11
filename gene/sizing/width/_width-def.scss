@@ -1,13 +1,15 @@
 @use '../../../core/util';
 
-.w {
-    // width
+@mixin res {
     --w: 100%;
-    width: util.imp(var(--w, 100%));
-    // max-width
     --max-w: auto;
-    max-width: util.imp(var(--max-w, auto));
-    //min-width
     --min-w: auto;
+}
+
+.w {
+    @include res();
+
+    width: util.imp(var(--w, 100%));
+    max-width: util.imp(var(--max-w, auto));
     min-width: util.imp(var(--min-w, auto));
 }

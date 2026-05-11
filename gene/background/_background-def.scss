@@ -1,22 +1,21 @@
 @use "../../core/util";
 
-.bg {
-    // background color
+@mixin res {
     --bg-c: transparent;
-    background-color: util.imp(var(--bg-c, transparent));
-    // background attachment
     --bg-a: scroll;
-    background-attachment: util.imp(var(--bg-a, scroll));
-    // background image
     --bg-i: none;
-    background-image: util.imp(var(--bg-i, none));
-    // background position
     --bg-p: 0% 0%;
-    background-position: util.imp(var(--bg-p, 0% 0%));
-    // background repeat
     --bg-r: no-repeat;
-    background-repeat: util.imp(var(--bg-r, no-repeat));
-    // background size
     --bg-s: auto;
+}
+
+.bg {
+    @include res();
+
+    background-color: util.imp(var(--bg-c, transparent));
+    background-attachment: util.imp(var(--bg-a, scroll));
+    background-image: util.imp(var(--bg-i, none));
+    background-position: util.imp(var(--bg-p, 0% 0%));
+    background-repeat: util.imp(var(--bg-r, no-repeat));
     background-size: util.imp(var(--bg-s, auto));
 }
