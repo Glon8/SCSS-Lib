@@ -1,6 +1,6 @@
 @use '../../core/util';
 
-@mixin def-res {
+@mixin f-def-res {
     --flex-d: row;
     --flex-w: nowrap;
     --flex-b: auto;
@@ -9,7 +9,7 @@
 }
 
 .flex {
-    @include def-res();
+    @include f-def-res();
 
     flex-direction: util.imp(var(--flex-d, row));
     flex-wrap: util.imp(var(--flex-w, nowrap));

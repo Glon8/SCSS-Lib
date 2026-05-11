@@ -1,13 +1,13 @@
 @use '../../../core/util';
 
-@mixin def-res {
+@mixin w-def-res {
     --w: 100%;
     --max-w: auto;
     --min-w: auto;
 }
 
 .w {
-    @include def-res();
+    @include w-def-res();
 
     width: util.imp(var(--w, 100%));
     max-width: util.imp(var(--max-w, auto));

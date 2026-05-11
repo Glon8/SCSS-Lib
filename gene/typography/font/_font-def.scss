@@ -1,6 +1,6 @@
 @use '../../../core/util';
 
-@mixin def-res {
+@mixin font-def-res {
     --font-f: inherit;
     --font-s: 1rem;
     --font-st: normal;
@@ -8,7 +8,7 @@
 }
 
 .font {
-    @include def-res();
+    @include font-def-res();
 
     font-family: util.imp(var(--font-f, inherit));
     font-size: util.imp(var(--font-s, 1rem));
