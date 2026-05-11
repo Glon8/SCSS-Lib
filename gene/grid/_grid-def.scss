@@ -40,8 +40,8 @@
     grid-area: util.imp(var(--grid-a, auto));
     grid-column-end: util.imp(var(--grid-c-e, auto));
     grid-column-start: util.imp(var(--grid-c-s, auto));
-    grid-column: util.imp(var(--grid-c, 1));
+    grid-column: util.imp(var(--grid-c, auto));
     grid-row-end: util.imp(var(--grid-r-e, auto));
     grid-row-start: util.imp(var(--grid-r-s, auto));
-    grid-row: util.imp(var(--grid-r, 1));
+    grid-row: util.imp(var(--grid-r, auto));
 }

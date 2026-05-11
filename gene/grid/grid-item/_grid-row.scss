@@ -1,12 +1,12 @@
 @use '../../../core/util';
 
 @for $ind from 1 through 10 {
-    .grid-r {
+    .grid-r-#{$ind} {
         --grid-r: #{$ind};
     }
 
     @include util.responsive using ($bp) {
-        .#{$bp}-grid-r {
+        .#{$bp}-grid-r-#{$ind} {
             --grid-r: #{$ind};
         }
     }
