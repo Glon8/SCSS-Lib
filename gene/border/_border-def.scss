@@ -3,24 +3,22 @@
 @mixin b-res-conf {
     //border width
     --b-w: 0;
-    --b-t-w: 0;
-    --b-b-w: 0;
-    --b-l-w: 0;
-    --b-r-w: 0;
+    --b-t-w: util.imp(var(--b-t-w, var(--b-w)));
+    --b-b-w: util.imp(var(--b-b-w, var(--b-w)));
+    --b-l-w: util.imp(var(--b-l-w, var(--b-w)));
+    --b-r-w: util.imp(var(--b-r-w, var(--b-w)));
     //border style
     --b-s: solid;
-    --b-t-s: solid;
-    --b-b-s: solid;
-    --b-l-s: solid;
-    --b-r-s: solid;
-    //border color
-    --b-c: currentColor;
+    --b-t-s: util.imp(var(--b-t-s, var(--b-s)));
+    --b-b-s: util.imp(var(--b-b-s, var(--b-s)));
+    --b-l-s: util.imp(var(--b-l-s, var(--b-s)));
+    --b-r-s: util.imp(var(--b-r-s, var(--b-s)));
     //border radius
     --b-r: 0;
-    --b-tl-r: 0;
-    --b-tr-r: 0;
-    --b-bl-r: 0;
-    --b-br-r: 0;
+    --b-tl-r: util.imp(var(--b-tl-r, var(--b-r)));
+    --b-tr-r: util.imp(var(--b-tr-r, var(--b-r)));
+    --b-bl-r: util.imp(var(--b-bl-r, var(--b-r)));
+    --b-br-r: util.imp(var(--b-br-r, var(--b-r)));
 }
 
 .b-res {

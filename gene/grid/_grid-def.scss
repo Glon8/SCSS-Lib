@@ -5,8 +5,8 @@
     --grid-t-r: auto;
     //grid gap
     --gap: 0;
-    --r-gap: 0;
-    --c-gap: 0;
+    --r-gap: util.imp(var(--r-gap, var(--gap, 0)));
+    --c-gap: util.imp(var(--c-gap, var(--gap, 0)));
 }
 
 @mixin i-res-conf() {
