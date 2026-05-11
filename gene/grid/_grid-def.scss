@@ -1,6 +1,6 @@
 @use '../../core/util';
 
-@mixin g-def-res() {
+@mixin g-res-conf() {
     --grid-t-c: auto;
     --grid-t-r: auto;
     //grid gap
@@ -9,7 +9,7 @@
     --c-gap: 0;
 }
 
-@mixin i-res() {
+@mixin i-res-conf() {
     --grid-a: auto;
     --grid-c-e: auto;
     --grid-c-s: auto;
@@ -18,9 +18,15 @@
     --grid-r-s: auto;
 }
 
-.grid {
-    @include g-def-res();
+.g-res {
+    @include g-res-conf();
+}
 
+.g-i-res {
+    @include i-res-conf();
+}
+
+.grid {
     grid-template-columns: util.imp(var(--grid-t-c, auto));
     grid-template-rows: util.imp(var(--grid-t-r, auto));
     //grid gap
@@ -30,8 +36,6 @@
 }
 
 .grid-item {
-    @include i-res();
-
     grid-area: util.imp(var(--grid-a, auto));
     grid-column-end: util.imp(var(--grid-c-e, auto));
     grid-column-start: util.imp(var(--grid-c-s, auto));

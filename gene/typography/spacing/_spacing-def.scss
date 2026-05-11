@@ -1,6 +1,6 @@
 @use '../../../core/util';
 
-@mixin spc-def-res {
+@mixin spc-res-conf {
     --letter-s: normal;
     --line-h: 1.5;
     --w-space: normal;
@@ -12,7 +12,10 @@
     white-space: util.imp(var(--w-space, normal));
 }
 
+.spc-res {
+    @include spc-res-conf();
+}
+
 .spacing {
-    @include spc-def-res();
     @include space();
 }

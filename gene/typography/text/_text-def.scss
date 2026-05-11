@@ -1,7 +1,7 @@
 @use '../../../core/util';
 @use '../spacing/spacing-def';
 
-@mixin t-res {
+@mixin t-res-conf {
     // text decoration config
     --text-d-c: currentColor;
     --text-d-s: solid;
@@ -13,10 +13,17 @@
     --text-t: none;
 }
 
+.uno-t-res {
+    @include t-res-conf();
+}
+
+.t-res {
+    @include t-res-conf();
+    @include spacing-def.spc-res-conf();
+}
+
 .uno-text,
 .text {
-    @include t-res();
-
     // text decoration config
     text-decoration-color: util.imp(var(--text-d-c, currentColor));
     text-decoration-style: util.imp(var(--text-d-s, solid));
@@ -30,6 +37,5 @@
 
 .text {
     // text - spacing
-    @include spacing-def.spc-def-res();
     @include spacing-def.space();
 }

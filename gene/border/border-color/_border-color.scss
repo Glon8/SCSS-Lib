@@ -2,10 +2,14 @@
 @use '../../../core/variables/colors';
 @use '../../../core/util';
 
-@mixin b-c-res {
+@mixin b-c-res-conf {
     --b-sh-i: 100%;
     --b-sh-t: white;
     --b-op: 1;
+}
+
+.b-c-res{
+    @include b-c-res-conf();
 }
 
 @each $key, $value in colors.$colors {
@@ -13,8 +17,6 @@
     $color-scheme: util.color-scheme(--b-c-b, --b-sh-i, --b-sh-t, --b-op);
 
     .b-c-#{"" + $key} {
-        @include b-c-res();
-
         --b-c-b: #{$color-base};
 
         --b-c: #{$color-scheme};
@@ -22,8 +24,6 @@
 
     @include util.responsive using ($bp) {
         .#{$bp}-b-c-#{"" + $key} {
-            @include b-c-res();
-
             --b-c-b: #{$color-base};
 
             --b-c: #{$color-scheme};
@@ -33,8 +33,6 @@
     @each $ns, $val in directions.$directions {
         @each $prop in $val {
             .b-c-#{$ns}-#{"" + $key} {
-                @include b-c-res();
-
                 --b-c-b: #{$color-base};
 
                 border-#{$prop}-color: #{$color-scheme};
@@ -42,8 +40,6 @@
 
             @include util.responsive using ($bp) {
                 .#{$bp}-b-c-#{$ns}-#{"" + $key} {
-                    @include b-c-res();
-
                     --b-c-b: #{$color-base};
 
                     border-#{$prop}-color: #{$color-scheme};

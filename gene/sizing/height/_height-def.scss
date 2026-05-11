@@ -1,14 +1,16 @@
 @use '../../../core/util';
 
-@mixin h-def-res {
+@mixin h-res-conf {
     --h: 100%;
     --max-h: auto;
     --min-h: auto;
 }
 
-.h {
-    @include h-def-res();
+.h-res {
+    @include h-res-conf();
+}
 
+.h {
     height: util.imp(var(--h, 100%));
     max-height: util.imp(var(--max-h, auto));
     min-height: util.imp(var(--min-h, auto));
