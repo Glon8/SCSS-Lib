@@ -3,10 +3,6 @@
 @mixin g-res-conf() {
     --grid-t-c: auto;
     --grid-t-r: auto;
-    //grid gap
-    --gap: 0;
-    --r-gap: util.imp(var(--r-gap, var(--gap, 0)));
-    --c-gap: util.imp(var(--c-gap, var(--gap, 0)));
 }
 
 @mixin i-res-conf() {
@@ -30,10 +26,6 @@
 .grid {
     grid-template-columns: util.imp(var(--grid-t-c, auto));
     grid-template-rows: util.imp(var(--grid-t-r, auto));
-    //grid gap
-    gap: util.imp(var(--gap, 0));
-    row-gap: util.imp(var(--r-gap, var(--gap, 0)));
-    column-gap: util.imp(var(--c-gap, var(--gap, 0)));
 }
 
 .grid-item {
