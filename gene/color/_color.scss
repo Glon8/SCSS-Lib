@@ -1,7 +1,7 @@
 //@use '../../core/variables/colors';
 @use '../../core/util';
 
-@include util.c-conf-reset();
+@include util.c-conf-reset('');
 
 /*@mixin c-res-conf {
     --c-sh-i: 100%;
@@ -13,7 +13,7 @@
     @include c-res-conf();
 }*/
 
-@include util.color-gen(color);
+@include util.color-gen(color, '');
 
 /*@each $ns, $val in colors.$colors {
     $color-base: util.rgb-values($val);

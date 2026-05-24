@@ -49,7 +49,7 @@ $breakpoints: volumes.$breakpoints;
     @return calc(#{$val} * var(--#{$units-name}, #{$def}));
 }
 
-@mixin color-gen($property, $prefix, $class-name) {
+@mixin color-gen($property, $prefix) {
     $var-pref: if($prefix ==null or $prefix =='', 'c', '#{$prefix}-c');
 
     @each $ns, $val in colors.$colors {
