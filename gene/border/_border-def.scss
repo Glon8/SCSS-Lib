@@ -39,7 +39,7 @@
     border-left-style: util.imp(var(--b-l-s, var(--b-s)));
     border-right-style: util.imp(var(--b-r-s, var(--b-s)));
     //border color
-    //border-color: util.imp(var(--b-c, currentColor));
+    border-color: util.imp(var(--b-c, currentColor));
     //border radius
     border-radius: util.imp(var(--b-r, 0));
     border-top-left-radius: util.imp(var(--b-tl-r, var(--b-r)));

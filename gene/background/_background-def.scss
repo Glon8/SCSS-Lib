@@ -9,7 +9,7 @@
 }
 
 .bg {
-    //background-color: util.imp(var(--bg-c, transparent));
+    background-color: util.imp(var(--bg-c, transparent));
     background-attachment: util.imp(var(--bg-a, scroll));
     background-image: util.imp(var(--bg-i, none));
     background-position: util.imp(var(--bg-p, 0% 0%));

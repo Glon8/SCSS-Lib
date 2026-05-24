@@ -32,7 +32,7 @@ $breakpoints: volumes.$breakpoints;
 }
 
 @function rgb-values($col) {
-    @if meta.type-of($col) != 'color' {
+    @if meta.type-of($col) !='color' {
         @return null;
     }
 
@@ -49,19 +49,19 @@ $breakpoints: volumes.$breakpoints;
     @return calc(#{$val} * var(--#{$units-name}, #{$def}));
 }
 
-@mixin color-gen($property, $prefix) {
-    $var-pref: if($prefix == null or $prefix == '', 'c', '#{$prefix}-c');
+@mixin color-gen($prefix) {
+    $var-pref: if(sass($prefix ==null or $prefix ==''): 'c'; else: '#{$prefix}-c');
 
     @each $ns, $val in colors.$colors {
         $color-final: color-scheme(#{rgb-values($val)}, --#{$var-pref}-sh-i, --#{$var-pref}-sh-t, --#{$var-pref}-op);
 
         .#{$var-pref}-#{"" + $ns} {
-            #{$property}: #{$color-final};
+            --#{$var-pref}: $color-final;
         }
 
         @include responsive using ($bp) {
             .#{$bp}-#{$var-pref}-#{"" + $ns} {
-                #{$property}: #{$color-final};
+                --#{$var-pref}: $color-final;
             }
         }
     }
@@ -74,7 +74,7 @@ $breakpoints: volumes.$breakpoints;
 }
 
 @mixin c-conf-reset($prefix) {
-    $var-pref: if($prefix == null or $prefix == '', 'c', '#{$prefix}-c');
+    $var-pref: if(sass($prefix ==null or $prefix ==''): 'c'; else: '#{$prefix}-c');
 
     .#{$var-pref}-res {
         @include c-conf-default($var-pref);
