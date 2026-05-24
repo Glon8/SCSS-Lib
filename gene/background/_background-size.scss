@@ -1,6 +1,8 @@
 @use '../../core/variables/volumes';
 @use '../../core/util';
 
+// util.basic-range-var-gen(class/var name, units ns);
+
 $_unit-ns: bg-s-unit;
 
 @for $i from 0 through 100 {

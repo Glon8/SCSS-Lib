@@ -1,7 +1,9 @@
-@use '../../../../../core/variables/colors';
+//@use '../../../../../core/variables/colors';
 @use '../../../../../core/util';
 
-@mixin t-c-res-conf {
+@include util.c-conf-reset(text-d);
+
+/*@mixin t-c-res-conf {
     --text-d-c-sh-i: 100%;
     --text-d-c-sh-t: white;
     --text-d-c-op: 1;
@@ -9,9 +11,11 @@
 
 .t-c-res{
     @include t-c-res-conf();
-}
+}*/
 
-@each $ns, $val in colors.$colors {
+@include util.color-gen(text-decoration-color, text-d);
+
+/*@each $ns, $val in colors.$colors {
     $color-base: #{util.rgb-values($val)};
     $text-color: util.color-scheme(--text-d-c-b, --text-d-c-sh-i, --text-d-c-sh-t, --text-d-c-op);
 
@@ -28,4 +32,4 @@
             --text-d-c: #{$text-color};
         }
     }
-}
+}*/

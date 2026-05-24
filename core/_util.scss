@@ -5,6 +5,7 @@
 
 @use './variables/config';
 @use './variables/volumes';
+@use './variables/colors';
 
 $use_breakpoints: map.get(config.$config, "breakpoints");
 $use_important: map.get(config.$config, "important");
@@ -46,4 +47,36 @@ $breakpoints: volumes.$breakpoints;
 
 @function units($val, $units-name, $def: 1px) {
     @return calc(#{$val} * var(--#{$units-name}, #{$def}));
+}
+
+@mixin color-gen($property, $prefix, $class-name) {
+    $var-pref: if($prefix ==null or $prefix =='', 'c', '#{$prefix}-c');
+
+    @each $ns, $val in colors.$colors {
+        $color-final: color-scheme(#{rgb-values($val)}, --#{$var-pref}-sh-i, --#{$var-pref}-sh-t, --#{$var-pref}-op);
+
+        .#{$var-pref}-#{"" + $ns} {
+            #{$property}: #{$color-final};
+        }
+
+        @include responsive using ($bp) {
+            .#{$bp}-#{$var-pref}-#{"" + $ns} {
+                #{$property}: #{$color-final};
+            }
+        }
+    }
+}
+
+@mixin c-conf-default ($prefix) {
+    --#{$prefix}-sh-i: 100%;
+    --#{$prefix}-sh-t: white;
+    --#{$prefix}-op: 1;
+}
+
+@mixin c-conf-reset($prefix) {
+    $var-pref: if($prefix ==null or $prefix =='', 'c', '#{$prefix}-c');
+
+    .#{$var-pref}-res {
+        @include c-conf-default($var-pref);
+    }
 }

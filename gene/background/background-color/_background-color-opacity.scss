@@ -1,6 +1,8 @@
 @use '../../../core/variables/colors';
 @use '../../../core/util';
 
+// util.basic-var-gen(class/var name, list);
+
 @each $ns, $val in colors.$color-opacity {
     .bg-c-op-#{$ns} {
         --bg-c-op: #{$val};

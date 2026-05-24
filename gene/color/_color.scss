@@ -1,7 +1,9 @@
-@use '../../core/variables/colors';
+//@use '../../core/variables/colors';
 @use '../../core/util';
 
-@mixin c-res-conf {
+@include util.c-conf-reset();
+
+/*@mixin c-res-conf {
     --c-sh-i: 100%;
     --c-sh-t: white;
     --c-op: 1;
@@ -9,9 +11,11 @@
 
 .c-res {
     @include c-res-conf();
-}
+}*/
 
-@each $ns, $val in colors.$colors {
+@include util.color-gen(color);
+
+/*@each $ns, $val in colors.$colors {
     $color-base: util.rgb-values($val);
     $color-scheme: util.color-scheme(--c-b, --c-sh-i, --c-sh-t, --c-op);
 
@@ -28,4 +32,4 @@
             color: #{$color-scheme};
         }
     }
-}
+}*/

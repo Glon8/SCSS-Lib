@@ -24,7 +24,7 @@
 .uno-text,
 .text {
     // text decoration config
-    text-decoration-color: util.imp(var(--text-d-c, currentColor));
+    //text-decoration-color: util.imp(var(--text-d-c, currentColor));
     text-decoration-style: util.imp(var(--text-d-s, solid));
     text-decoration-thickness: util.imp(var(--text-d-t, auto));
     text-decoration-line: util.imp(var(--text-d, none));
