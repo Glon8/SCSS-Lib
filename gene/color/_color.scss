@@ -4,14 +4,17 @@
 @include util.c-conf-reset('');
 
 @each $ns, $val in colors.$colors {
-    $color-scheme: util.color-scheme(#{util.rgb-values($val)}, --c-sh-i, --c-sh-t, --c-op);
+    $color-base: util.rgb-values($val);
+    $color-scheme: util.color-scheme(--c-b, --c-sh-i, --c-sh-t, --c-op);
 
     .c-#{"" + $ns} {
+        --c-b: #{$color-base};
         color: #{$color-scheme};
     }
 
     @include util.responsive using ($bp) {
         .#{$bp}-c-#{"" + $ns} {
+            --c-b: #{$color-base};
             color: #{$color-scheme};
         }
     }

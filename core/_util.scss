@@ -53,14 +53,17 @@ $breakpoints: volumes.$breakpoints;
     $var-pref: if(sass($prefix ==null or $prefix ==''): 'c'; else: '#{$prefix}-c');
 
     @each $ns, $val in colors.$colors {
-        $color-final: color-scheme(#{rgb-values($val)}, --#{$var-pref}-sh-i, --#{$var-pref}-sh-t, --#{$var-pref}-op);
+        $color-base: rgb-values($val);
+        $color-final: color-scheme(--#{$var-pref}-b, --#{$var-pref}-sh-i, --#{$var-pref}-sh-t, --#{$var-pref}-op);
 
         .#{$var-pref}-#{"" + $ns} {
+            --#{$var-pref}-b: #{$color-base};
             --#{$var-pref}: #{$color-final};
         }
 
         @include responsive using ($bp) {
             .#{$bp}-#{$var-pref}-#{"" + $ns} {
+                --#{$var-pref}-b: #{$color-base};
                 --#{$var-pref}: #{$color-final};
             }
         }

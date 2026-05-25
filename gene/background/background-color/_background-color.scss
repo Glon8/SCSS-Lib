@@ -1,5 +1,25 @@
+//@use '../../../core/variables/colors';
 @use '../../../core/util';
 
 @include util.c-conf-reset(bg);
 
 @include util.color-gen(bg);
+
+/*@each $ns, $val in colors.$colors {
+    $color-base: util.rgb-values($val);
+    $color-scheme: util.color-scheme(--bg-c-b, --bg-c-sh-i, --bg-c-sh-t, --bg-c-op);
+
+    .bg-c-#{"" + $ns} {
+        --bg-c-b: #{$color-base};
+
+        --bg-c: #{$color-scheme}; // new> background-color: --bg-c
+    }
+
+    @include util.responsive using ($bp) {
+        .#{$bp}-bg-c-#{"" + $ns} {
+            --bg-c-b: #{$color-base};
+
+            --bg-c: #{$color-scheme};
+        }
+    }
+}*/

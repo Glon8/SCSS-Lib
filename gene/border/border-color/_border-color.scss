@@ -7,16 +7,20 @@
 @include util.color-gen(b);
 
 @each $key, $value in colors.$colors {
-    $color-scheme: util.color-scheme(#{util.rgb-values($value)}, --b-sh-i, --b-sh-t, --b-op);
+    $color-base: util.rgb-values($value);
 
     @each $ns, $val in directions.$directions {
+        $color-scheme: util.color-scheme(--b-c-#{$ns}-#{"" + $key}-b, --b-sh-i, --b-sh-t, --b-op);
+
         @each $prop in $val {
             .b-c-#{$ns}-#{"" + $key} {
+                --b-c-#{$ns}-#{"" + $key}-b: #{$color-base};
                 border-#{$prop}-color: #{$color-scheme};
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-b-c-#{$ns}-#{"" + $key} {
+                    --b-c-#{$ns}-#{"" + $key}-b: #{$color-base};
                     border-#{$prop}-color: #{$color-scheme};
                 }
             }
