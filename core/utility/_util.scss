@@ -1,9 +1,9 @@
 @use 'sass:map';
 @use 'sass:string';
 
-@use './variables/config';
-@use './variables/volumes';
-@use './variables/colors';
+@use '../variables/config';
+@use '../variables/volumes';
+@use '../variables/colors';
 
 $use_breakpoints: map.get(config.$config, "breakpoints");
 $use_important: map.get(config.$config, "important");
