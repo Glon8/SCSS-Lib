@@ -1,0 +1,21 @@
+@use './util';
+
+@function units($val, $units-name, $def: 1px) {
+    @return calc(#{$val} * var(--#{$units-name}, #{$def}));
+}
+
+@mixin sizing-util ($property, $prefix, $unit-ns, $def-unit, $min-val: 0, $max-val: 100) {
+    @for $ind from $min-val through $max-val {
+        $unit: units($ind, $unit-ns, $def-unit);
+
+        .#{$prefix}-#{$ind} {
+            #{$property}: #{$unit};
+        }
+
+        @include util.responsive using ($bp) {
+            .#{$bp}-#{$prefix}-#{$ind} {
+                #{$property}: #{$unit};
+            }
+        }
+    }
+}

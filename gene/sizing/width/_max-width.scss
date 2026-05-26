@@ -1,4 +1,4 @@
-@use '../../../core/utility/util';
+/*@use '../../../core/utility/util';
 
 $_unit-ns: max-w-unit;
 
@@ -14,4 +14,8 @@ $_unit-ns: max-w-unit;
             --max-w: #{$width};
         }
     }
-}
+}*/
+
+@use '../../../core/utility/unified-sizing-util';
+
+@include unified-sizing-util.sizing-util(max-width, max-w, max-w-unit, 1%);
