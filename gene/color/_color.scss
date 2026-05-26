@@ -1,5 +1,5 @@
 @use '../../core/variables/colors';
-@use '../../core/util';
+@use '../../core/utility/util';
 @use '../../core/utility/color-util';
 
 @include color-util.c-conf-reset('');
