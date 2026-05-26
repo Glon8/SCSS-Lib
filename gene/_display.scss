@@ -1,5 +1,5 @@
 @use '../core/tokens/display';
-@use '../core/util';
+@use '../core/utility/util';
 
 @each $key in display.$displays {
     .#{$key} {
