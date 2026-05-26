@@ -1,20 +1,3 @@
-@use '../../core/variables/volumes';
-@use '../../core/utility/util';
+@use '../../core/utility/sizing-util';
 
-// util.basic-range-var-gen(class/var name, units ns);
-
-$_unit-ns: bg-s-unit;
-
-@for $i from 0 through 100 {
-    $bg-size-units: util.units($i, $_unit-ns, 1%);
-
-    .bg-s-#{$i} {
-        --bg-s: #{$bg-size-units};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-bg-s-#{$i} {
-            --bg-s: #{$bg-size-units};
-        }
-    }
-}
+@include sizing-util.unit-range-gen(background-size, bg-s, bg-s-unit, 1%);

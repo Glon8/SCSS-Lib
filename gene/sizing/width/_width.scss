@@ -1,24 +1,3 @@
-//@use '../../../core/utility/util';
+@use '../../../core/utility/sizing-util';
 
-/*$_unit-ns: w-unit;
-
-@for $ind from 0 through 100 {
-    //$width: util.units($ind, $_unit-ns);
-    $unit: util.units($ind, $_unit-ns);
-
-    .w-#{$ind} {
-        //--w: #{$width};
-        width: #{$unit};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-w-#{$ind} {
-            //--w: #{$width};
-            width: #{$unit};
-        }
-    }
-}*/
-
-@use '../../../core/utility/unified-sizing-util';
-
-@include unified-sizing-util.sizing-util(width, w, w-unit);
+@include sizing-util.unit-range-gen(width, w, w-unit);

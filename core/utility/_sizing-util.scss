@@ -4,7 +4,7 @@
     @return calc(#{$val} * var(--#{$units-name}, #{$def}));
 }
 
-@mixin sizing-util ($property, $prefix, $unit-ns, $def-unit, $min-val: 0, $max-val: 100) {
+@mixin unit-range-gen ($property, $prefix, $unit-ns, $def-unit, $min-val: 0, $max-val: 100) {
     @for $ind from $min-val through $max-val {
         $unit: units($ind, $unit-ns, $def-unit);
 

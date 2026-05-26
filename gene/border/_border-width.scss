@@ -1,30 +1,23 @@
 @use '../../core/tokens/directions';
 @use '../../core/utility/util';
+@use '../../core/utility/sizing-util';
+
+@include sizing-util.unit-range-gen(border-width, b-w, b-w-unit);
 
 $_unit-ns: b-w-unit;
 
 @for $ind from 0 through 100 {
-    $border-units: util.units($ind, $_unit-ns);
-
-    .b-w-#{$ind} {
-        --b-w: #{$border-units};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-b-w-#{$ind} {
-            --b-w: #{$border-units};
-        }
-    }
+    $border-units: sizing-util.units($ind, $_unit-ns);
 
     @each $key, $props in directions.$directions {
         @each $prop in $props {
             .b-w-#{$key}-#{$ind} {
-                --b-#{$prop}-w: #{$border-units};
+                border-#{$prop}-width: #{$border-units};
             }
 
             @include util.responsive using ($bp) {
                 .#{$bp}-b-w-#{$key}-#{$ind} {
-                    --b-#{$prop}-w: #{$border-units};
+                    border-#{$prop}-width: #{$border-units};
                 }
             }
         }
