@@ -1,35 +1,8 @@
 @use 'sass:meta';
-@use 'sass:map';
 @use 'sass:color';
-@use 'sass:string';
 
-@use './variables/config';
-@use './variables/volumes';
-@use './variables/colors';
-
-$use_breakpoints: map.get(config.$config, "breakpoints");
-$use_important: map.get(config.$config, "important");
-$breakpoints: volumes.$breakpoints;
-
-@function imp($value) {
-    @if $use_important {
-        @return #{$value}+string.unquote(" !important");
-    }
-
-    @else {
-        @return $value;
-    }
-}
-
-@mixin responsive {
-    @if $use_breakpoints {
-        @each $key, $val in $breakpoints {
-            @media(min-width: $val) {
-                @content($key);
-            }
-        }
-    }
-}
+@use './util';
+@use '../variables/colors';
 
 @function rgb-values($col) {
     @if meta.type-of($col) !='color' {
@@ -45,10 +18,6 @@ $breakpoints: volumes.$breakpoints;
     @return rgb(from color-mix(in srgb, rgb(var(#{$c})) var(#{$sh-i}, 100%), var(#{$sh-t}, white)) r g b / var(#{$op}, 1));
 }
 
-@function units($val, $units-name, $def: 1px) {
-    @return calc(#{$val} * var(--#{$units-name}, #{$def}));
-}
-
 @mixin color-gen($prefix) {
     $var-pref: if(sass($prefix ==null or $prefix ==''): 'c'; else: '#{$prefix}-c');
 
@@ -61,7 +30,7 @@ $breakpoints: volumes.$breakpoints;
             --#{$var-pref}: #{$color-final};
         }
 
-        @include responsive using ($bp) {
+        @include util.responsive using ($bp) {
             .#{$bp}-#{$var-pref}-#{"" + $ns} {
                 --#{$var-pref}-b: #{$color-base};
                 --#{$var-pref}: #{$color-final};

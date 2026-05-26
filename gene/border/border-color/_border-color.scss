@@ -1,16 +1,17 @@
 @use '../../../core/tokens/directions';
 @use '../../../core/variables/colors';
 @use '../../../core/util';
+@use '../../../core/utility/color-util';
 
-@include util.c-conf-reset(b);
+@include color-util.c-conf-reset(b);
 
-@include util.color-gen(b);
+@include color-util.color-gen(b);
 
 @each $key, $value in colors.$colors {
-    $color-base: util.rgb-values($value);
+    $color-base: color-util.rgb-values($value);
 
     @each $ns, $val in directions.$directions {
-        $color-scheme: util.color-scheme(--b-c-#{$ns}-#{"" + $key}-b, --b-sh-i, --b-sh-t, --b-op);
+        $color-scheme: color-util.color-scheme(--b-c-#{$ns}-#{"" + $key}-b, --b-sh-i, --b-sh-t, --b-op);
 
         @each $prop in $val {
             .b-c-#{$ns}-#{"" + $key} {

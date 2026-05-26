@@ -1,6 +1,6 @@
 @use '../../core/tokens/positions';
 @use '../../core/tokens/alignment';
-@use '../../core/util';
+@use '../../core/utility/util';
 
 @each $ns, $val in alignment.$just-ali {
     @each $key, $value in positions.$pos-ver {

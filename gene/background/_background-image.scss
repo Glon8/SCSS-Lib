@@ -1,5 +1,5 @@
 @use '../../core/variables/background';
-@use '../../core/util';
+@use '../../core/utility/util';
 
 @each $ns, $val in background.$images {
     .bg-i-#{$ns} {

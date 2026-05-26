@@ -1,4 +1,4 @@
-@use '../../../core/util';
+@use '../../../core/utility/util';
 
 @for $ind from 1 through 9 {
     $weight: calc($ind * 100);

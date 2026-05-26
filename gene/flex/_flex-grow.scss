@@ -1,4 +1,4 @@
-@use '../../core/util';
+@use '../../core/utility/util';
 
 @for $ind from 0 through 10 {
     .flex-g-#{$ind} {

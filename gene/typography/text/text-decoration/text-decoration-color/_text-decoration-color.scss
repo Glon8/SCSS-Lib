@@ -1,5 +1,5 @@
-@use '../../../../../core/util';
+@use '../../../../../core/utility/color-util';
 
-@include util.c-conf-reset(text-d);
+@include color-util.c-conf-reset(text-d);
 
-@include util.color-gen(text-d);
+@include color-util.color-gen(text-d);

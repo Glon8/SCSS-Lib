@@ -1,6 +1,6 @@
 @use '../../core/tokens/directions';
 @use '../../core/tokens/decoration';
-@use '../../core/util';
+@use '../../core/utility/util';
 
 @each $key in decoration.$dec-style {
     .b-s-#{$key} {

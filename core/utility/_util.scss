@@ -1,0 +1,34 @@
+@use 'sass:map';
+@use 'sass:string';
+
+@use './variables/config';
+@use './variables/volumes';
+@use './variables/colors';
+
+$use_breakpoints: map.get(config.$config, "breakpoints");
+$use_important: map.get(config.$config, "important");
+$breakpoints: volumes.$breakpoints;
+
+@function imp($value) {
+    @if $use_important {
+        @return #{$value}+string.unquote(" !important");
+    }
+
+    @else {
+        @return $value;
+    }
+}
+
+@mixin responsive {
+    @if $use_breakpoints {
+        @each $key, $val in $breakpoints {
+            @media(min-width: $val) {
+                @content($key);
+            }
+        }
+    }
+}
+
+@function units($val, $units-name, $def: 1px) {
+    @return calc(#{$val} * var(--#{$units-name}, #{$def}));
+}

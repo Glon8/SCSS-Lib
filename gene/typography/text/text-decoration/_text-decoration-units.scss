@@ -1,4 +1,4 @@
-@use '../../../../core/util';
+@use '../../../../core/utility/util';
 @use '../../../../core/variables/volumes';
 
 @each $ns, $val in volumes.$values {

@@ -1,5 +1,5 @@
 @use '../../../core/tokens/white-space';
-@use '../../../core/util';
+@use '../../../core/utility/util';
 
 @each $value in white-space.$white-space {
     .w-space-#{$value} {

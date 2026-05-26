@@ -1,5 +1,5 @@
 @use '../../../core/variables/colors';
-@use '../../../core/util';
+@use '../../../core/utility/util';
 
 @each $ns, $val in colors.$color-shades {
     .bg-c-sh-#{"" + $ns} {

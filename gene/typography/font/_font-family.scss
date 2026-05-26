@@ -1,5 +1,5 @@
 @use '../../../core/variables/fonts';
-@use '../../../core/util';
+@use '../../../core/utility/util';
 
 @each $ns, $val in fonts.$fonts {
     .font-#{$ns} {

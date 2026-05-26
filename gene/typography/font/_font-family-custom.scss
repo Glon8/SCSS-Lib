@@ -1,7 +1,7 @@
 @use 'sass:map';
 
 @use '../../../core/variables/fonts';
-@use '../../../core/util';
+@use '../../../core/utility/util';
 
 @each $font in fonts.$fonts-custom {
     $name: map.get($font, "name");
