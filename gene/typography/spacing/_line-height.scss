@@ -1,17 +1,3 @@
-@use '../../../core/utility/util';
+@use '../../../core/utility/sizing-util';
 
-$_unit-ns: line-h-unit;
-
-@for $i from 0 through 100 {
-    $height: util.units($i, $_unit-ns);
-
-    .line-h-#{$i} {
-        --line-h: #{$height};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-line-h-#{$i} {
-            --line-h: #{$height};
-        }
-    }
-}
+@include sizing-util.unit-range-gen(line-height, line-h, line-h-unit);

@@ -1,20 +1,13 @@
 @use '../../../core/tokens/directions';
 @use '../../../core/utility/util';
+@use '../../../core/utility/sizing-util';
+
+@include sizing-util.unit-range-gen(margin, m, m-unit);
 
 $_unit-ns: m-unit;
 
 @for $ind from 0 through 100 {
     $margin: util.imp(util.units($ind, $_unit-ns));
-
-    .m-#{$ind} {
-        margin: #{$margin};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-m-#{$ind} {
-            margin: #{$margin};
-        }
-    }
 
     @each $key, $value in directions.$directions {
         @each $val in $value {

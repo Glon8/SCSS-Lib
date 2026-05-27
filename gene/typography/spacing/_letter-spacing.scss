@@ -1,17 +1,3 @@
 @use '../../../core/utility/util';
 
-$_unit-ns: letter-s-unit;
-
-@for $i from 1 through 100 {
-    $spacing: util.units($i, $_unit-ns);
-
-    .letter-s-#{$i} {
-        --letter-s: #{$spacing};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-letter-s-#{$i} {
-            --letter-s: #{$spacing};
-        }
-    }
-}
+@include sizing-util.unit-range-gen(letter-spacing, letter-s, letter-s-unit);

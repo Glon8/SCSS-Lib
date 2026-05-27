@@ -1,14 +1,10 @@
 @use '../../../core/utility/util';
 
 @mixin spc-res-conf {
-    --letter-s: normal;
-    --line-h: 1.5;
     --w-space: normal;
 }
 
 @mixin space {
-    letter-spacing: util.imp(var(--letter-s, normal));
-    line-height: util.imp(var(--line-h, 1.5));
     white-space: util.imp(var(--w-space, normal));
 }
 
