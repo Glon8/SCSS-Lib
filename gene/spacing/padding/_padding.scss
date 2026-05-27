@@ -7,7 +7,7 @@
 $_unit-ns: p-unit;
 
 @for $ind from 0 through 100 {
-    $padding: util.imp(util.units($ind, $_unit-ns));
+    $padding: util.imp(sizing-util.units($ind, $_unit-ns));
 
     @each $key, $value in directions.$directions {
         @each $val in $value {

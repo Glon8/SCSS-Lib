@@ -1,12 +1,13 @@
 @use '../../../core/tokens/directions';
 @use '../../../core/utility/util';
+@use '../../../core/utility/sizing-util';
 
 $_unit-ns: dir-unit;
 
 @each $ns, $val in directions.$directions {
     @for $i from 0 through 100 {
         @if $ns !=x and $ns !=y {
-            $dir: util.imp(util.units($i, $_unit-ns));
+            $dir: util.imp(sizing-util.units($i, $_unit-ns));
 
             .#{$val}-#{$i} {
                 #{$val}: #{$dir};

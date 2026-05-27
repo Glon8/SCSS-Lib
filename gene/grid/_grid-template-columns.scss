@@ -1,10 +1,11 @@
 @use '../../core/utility/util';
+@use '../../core/utility/sizing-util';
 
 $_unit-ns: grid-t-c-unit;
 
 @for $ind from 1 through 9 {
     @for $ind_2 from 1 through 100 {
-        $col-base: util.units($ind_2, $_unit-ns);
+        $col-base: sizing-util.units($ind_2, $_unit-ns);
         $col-temp: repeat(#{$ind}, #{$col-base});
 
         .grid-t-c-#{$ind}-#{$ind_2} {
