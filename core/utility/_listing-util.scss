@@ -1,0 +1,42 @@
+@use 'sass:list';
+
+@use '../utility/util';
+
+@mixin key-value-parser($properties, $prefixes, $list) {
+    @if list.length($properties)>0 and list.length($prefixes)>0 and list.length($properties)==list.length($prefixes) {
+        @for $ind from 1 through list.length($properties) {
+            $prefix: listh.nth($prefixes, $ind);
+            $property: list.nth($properties, $ind);
+
+            @each $key, $value in $list {
+                .#{$prefix}-#{$key} {
+                    #{$property}: #{$value};
+                }
+
+                @include util.responsive using ($bp) {
+                    .#{$bp}-#{$prefix}-#{$key} {
+                        #{$property}: #{$value};
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin var-key-value-parser($prefixes, $list) {
+    @if list.length($prefixes)>0 {
+        @each $pref in $prefixes {
+            @each $key, $value in $list {
+                .#{$pref}-#{$key} {
+                    --#{$pref}: #{$value};
+                }
+
+                @include util.responsive using ($bp) {
+                    .#{$bp}-#{$pref}-#{$key} {
+                        --#{$pref}: #{$value};
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,14 +1,4 @@
-@use '../../../core/utility/util';
 @use '../../../core/variables/volumes';
+@use '../../../core/utility/listing-util';
 
-@each $ns, $val in volumes.$values {
-    .m-unit-#{$ns} {
-        --m-unit: #{$val};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-m-unit-#{$ns} {
-            --m-unit: #{$val};
-        }
-    }
-}
+@include listing-util.var-key-value-parser((m-unit), volumes.$values);

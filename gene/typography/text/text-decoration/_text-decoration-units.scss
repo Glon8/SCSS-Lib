@@ -1,14 +1,4 @@
-@use '../../../../core/utility/util';
 @use '../../../../core/variables/volumes';
+@use '../../../core/utility/listing-util';
 
-@each $ns, $val in volumes.$values {
-    .text-d-t-unit-#{$ns} {
-        --text-d-t-unit: #{$val};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-text-d-t-unit-#{$ns} {
-            --text-d-t-unit: #{$val};
-        }
-    }
-}
+@include listing-util.var-key-value-parser((text-d-t-unit), volumes.$values);

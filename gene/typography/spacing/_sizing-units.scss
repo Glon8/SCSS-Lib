@@ -1,22 +1,4 @@
-@use '../../../core/utility/util';
 @use '../../../core/variables/volumes';
+@use '../../../core/utility/listing-util';
 
-@each $ns, $val in volumes.$values {
-    .letter-s-unit-#{$ns} {
-        --letter-s-unit: #{$val};
-    }
-
-    .line-h-unit-#{$ns} {
-        --line-h-unit: #{$val};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-letter-s-unit-#{$ns} {
-            --letter-s-unit: #{$val};
-        }
-
-        .#{$bp}-line-h-unit-#{$ns} {
-            --line-h-unit: #{$val};
-        }
-    }
-}
+@include listing-util.var-key-value-parser((letter-s-unit, line-h-unit), volumes.$values);

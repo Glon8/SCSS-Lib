@@ -1,14 +1,4 @@
 @use "../../core/variables/volumes";
-@use "../../core/utility/util";
+@use '../../core/utility/listing-util';
 
-@each $ns, $val in volumes.$values {
-    .bg-s-unit-#{$ns} {
-        --bg-s-unit: #{$val};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-bg-s-unit-#{$ns} {
-            --bg-s-unit: #{$val};
-        }
-    }
-}
+@include listing-util.var-key-value-parser((bg-s-unit), volumes.$values);

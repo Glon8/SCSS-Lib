@@ -20,6 +20,7 @@
     }
 }
 
+// should be able to recieve a func option, if none then use a ind
 @mixin range-gen($property, $prefix, $max: 10, $min: 1) {
     @for $ind from $min through $max {
         .#{$prefix}-#{$ind} {

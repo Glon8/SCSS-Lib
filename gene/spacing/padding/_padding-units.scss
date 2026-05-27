@@ -1,14 +1,4 @@
-@use '../../../core/utility/util';
 @use '../../../core/variables/volumes';
+@use '../../../core/utility/listing-util';
 
-@each $ns, $val in volumes.$values {
-    .p-unit-#{$ns} {
-        --p-unit: #{$val};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-p-unit-#{$ns} {
-            --p-unit: #{$val};
-        }
-    }
-}
+@include listing-util.var-key-value-parser((p-unit), volumes.$values);
