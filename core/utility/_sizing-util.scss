@@ -4,8 +4,8 @@
     @return calc(#{$val} * var(--#{$units-name}, #{$def}));
 }
 
-@mixin unit-range-gen ($property, $prefix, $unit-ns, $def-unit: 1px, $min-val: 0, $max-val: 100) {
-    @for $ind from $min-val through $max-val {
+@mixin unit-range-gen ($property, $prefix, $unit-ns, $def-unit: 1px, $max: 100, $min: 0) {
+    @for $ind from $min through $max {
         $unit: units($ind, $unit-ns, $def-unit);
 
         .#{$prefix}-#{$ind} {
@@ -15,6 +15,20 @@
         @include util.responsive using ($bp) {
             .#{$bp}-#{$prefix}-#{$ind} {
                 #{$property}: #{$unit};
+            }
+        }
+    }
+}
+
+@mixin range-gen($property, $prefix, $max: 10, $min: 1) {
+    @for $ind from $min through $max {
+        .#{$prefix}-#{$ind} {
+            #{$property}: #{$ind};
+        }
+
+        @include util.responsive using ($bp) {
+            .#{$bp}-#{$prefix}-#{$ind} {
+                #{$property}: #{$ind};
             }
         }
     }

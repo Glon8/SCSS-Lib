@@ -1,13 +1,3 @@
-@use '../../../core/utility/util';
+@use '../../../core/utility/sizing-util';
 
-@for $ind from 1 through 10 {
-    .grid-c-#{$ind} {
-        --grid-c: #{$ind};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-grid-c-#{$ind} {
-            --grid-c: #{$ind};
-        }
-    }
-}
+@include sizing-util.range-gen(grid-column, grid-c);

@@ -3,8 +3,6 @@
 @mixin f-res-conf {
     --flex-d: row;
     --flex-w: nowrap;
-    --flex-g: 0;
-    --flex-s: 1;
 }
 
 .f-res {
@@ -14,6 +12,4 @@
 .flex {
     flex-direction: util.imp(var(--flex-d, row));
     flex-wrap: util.imp(var(--flex-w, nowrap));
-    flex-grow: util.imp(var(--flex-g, 0));
-    flex-shrink: util.imp(var(--flex-s, 1));
 }

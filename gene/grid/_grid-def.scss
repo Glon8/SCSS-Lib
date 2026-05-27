@@ -5,35 +5,11 @@
     --grid-t-r: auto;
 }
 
-@mixin i-res-conf() {
-    --grid-a: auto;
-    --grid-c-e: auto;
-    --grid-c-s: auto;
-    --grid-c: auto;
-    --grid-r-e: auto;
-    --grid-r-s: auto;
-    --grid-r: auto;
-}
-
 .g-res {
     @include g-res-conf();
-}
-
-.g-i-res {
-    @include i-res-conf();
 }
 
 .grid {
     grid-template-columns: util.imp(var(--grid-t-c, auto));
     grid-template-rows: util.imp(var(--grid-t-r, auto));
-}
-
-.grid-item {
-    grid-area: util.imp(var(--grid-a, auto));
-    grid-column-end: util.imp(var(--grid-c-e, auto));
-    grid-column-start: util.imp(var(--grid-c-s, auto));
-    grid-column: util.imp(var(--grid-c, auto));
-    grid-row-end: util.imp(var(--grid-r-e, auto));
-    grid-row-start: util.imp(var(--grid-r-s, auto));
-    grid-row: util.imp(var(--grid-r, auto));
 }
