@@ -1,4 +1,4 @@
 @use '../../../core/variables/colors';
-@use '../../../core/utility/sizing-util';
+@use '../../../core/utility/listing-util';
 
-@include sizing-util.var-key-value-parser(b-c-op, colors.$color-opacity);
+@include listing-util.var-key-value-parser(b-c-op, colors.$color-opacity);
