@@ -1,25 +1,5 @@
 @use '../../core/tokens/border';
-@use '../../core/utility/util';
 @use '../../core/utility/sizing-util';
 
 @include sizing-util.unit-range-gen(border-radius, b-r, b-r-unit);
-
-$_unit-ns: b-r-unit;
-
-@for $ind from 0 through 100 {
-    $radius-units: sizing-util.units($ind, $_unit-ns);
-
-    @each $key, $props in border.$border-corns {
-        @each $prop in $props {
-            .b-r-#{$key}-#{$ind} {
-                border-#{$prop}-radius: #{$radius-units};
-            }
-
-            @include util.responsive using ($bp) {
-                .#{$bp}-b-r-#{$key}-#{$ind} {
-                    border-#{$prop}-radius: #{$radius-units};
-                }
-            }
-        }
-    }
-}
+@include sizing-util.border-unit-range-gen-adv(radius, b-r, b-r-unit, border.$border-corns);

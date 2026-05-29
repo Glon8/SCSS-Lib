@@ -4,14 +4,8 @@
 
 @mixin value-prefix-parser($property, $list) {
     @each $value in $list {
-        .#{$value} {
+        @include util.responsive-class('#{$value}') {
             #{$property}: #{$value};
-        }
-
-        @include util.responsive using ($bp) {
-            .#{$bp}-#{$value} {
-                #{$property}: #{$value};
-            }
         }
     }
 }
@@ -23,14 +17,8 @@
             $property: list.nth($properties, $ind);
 
             @each $value in $list {
-                .#{$prefix}-#{$value} {
+                @include util.responsive-class('#{$prefix}-#{$value}') {
                     #{$property}: #{$value};
-                }
-
-                @include util.responsive using ($bp) {
-                    .#{$bp}-#{$prefix}-#{$value} {
-                        #{$property}: #{$value};
-                    }
                 }
             }
         }
@@ -44,14 +32,8 @@
             $property: list.nth($properties, $ind);
 
             @each $key, $value in $list {
-                .#{$prefix}-#{$key} {
+                @include util.responsive-class('#{$prefix}-#{$key}') {
                     #{$property}: #{$value};
-                }
-
-                @include util.responsive using ($bp) {
-                    .#{$bp}-#{$prefix}-#{$key} {
-                        #{$property}: #{$value};
-                    }
                 }
             }
         }
@@ -62,14 +44,8 @@
     @if list.length($prefixes)>0 {
         @each $pref in $prefixes {
             @each $key, $value in $list {
-                .#{$pref}-#{$key} {
+                @include util.responsive-class('#{$pref}-#{$key}') {
                     --#{$pref}: #{$value};
-                }
-
-                @include util.responsive using ($bp) {
-                    .#{$bp}-#{$pref}-#{$key} {
-                        --#{$pref}: #{$value};
-                    }
                 }
             }
         }

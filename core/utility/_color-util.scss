@@ -25,16 +25,9 @@
         $color-base: rgb-values($value);
         $color-final: color-scheme(--#{$var-pref}-b, --#{$var-pref}-sh-i, --#{$var-pref}-sh-t, --#{$var-pref}-op);
 
-        .#{$var-pref}-#{"" + $key} {
+        @include util.responsive-class('#{$var-pref}-#{"" + $key}') {
             --#{$var-pref}-b: #{$color-base};
             --#{$var-pref}: #{$color-final};
-        }
-
-        @include util.responsive using ($bp) {
-            .#{$bp}-#{$var-pref}-#{"" + $key} {
-                --#{$var-pref}-b: #{$color-base};
-                --#{$var-pref}: #{$color-final};
-            }
         }
     }
 }
@@ -57,16 +50,9 @@
     $var-pref: if(sass($prefix ==null or $prefix ==''): 'c'; else: '#{$prefix}-c');
 
     @each $key, $value in colors.$color-shades {
-        .#{$var-pref}-sh-#{"" + $key} {
+        @include util.responsive-class('#{$var-pref}-sh-#{"" + $key}') {
             --#{$var-pref}-sh-i: #{$value};
             --#{$var-pref}-sh-t: #{$key};
-        }
-
-        @include util.responsive using ($bp) {
-            .#{$bp}-#{$var-pref}-sh-#{"" + $key} {
-                --#{$var-pref}-sh-i: #{$value};
-                --#{$var-pref}-sh-t: #{$key};
-            }
         }
     }
 }

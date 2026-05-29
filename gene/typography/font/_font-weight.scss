@@ -3,13 +3,7 @@
 @for $ind from 1 through 9 {
     $weight: calc($ind * 100);
 
-    .font-w-#{$ind} {
+    @include util.responsive-class('font-w-#{$ind}') {
         --font-w: #{$weight};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-font-w-#{$ind} {
-            --font-w: #{$weight};
-        }
     }
 }

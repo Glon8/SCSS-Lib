@@ -4,26 +4,14 @@
 
 @each $ns, $val in alignment.$just-ali {
     @each $key, $value in positions.$pos-hor {
-        .justify-#{$ns}-#{$key} {
+        @include util.responsive-class('justify-#{$ns}-#{$key}') {
             justify-#{$val}: util.imp($value);
-        }
-
-        @include util.responsive using ($bp) {
-            .#{$bp}-justify-#{$ns}-#{$key} {
-                justify-#{$val}: util.imp($value);
-            }
         }
     }
 
     @each $key, $value in positions.$aligment {
-        .justify-#{$ns}-#{$key} {
+        @include util.responsive-class('justify-#{$ns}-#{$key}') {
             justify-#{$val}: util.imp($value);
-        }
-
-        @include util.responsive using ($bp) {
-            .#{$bp}-justify-#{$ns}-#{$key} {
-                justify-#{$val}: util.imp($value);
-            }
         }
     }
 }

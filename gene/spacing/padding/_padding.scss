@@ -2,4 +2,4 @@
 @use '../../../core/utility/sizing-util';
 
 @include sizing-util.unit-range-gen(padding, p, p-unit);
-@include sizing-util.unit-range-gen-adv(padding, p, p-unit, directions.$directions);
+@include sizing-util.spc-unit-range-gen-adv(padding, p, p-unit, directions.$directions);

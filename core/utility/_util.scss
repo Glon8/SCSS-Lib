@@ -28,3 +28,16 @@ $breakpoints: volumes.$breakpoints;
         }
     }
 }
+
+// @include util.responsive-class('') {}
+@mixin responsive-class ($selector) {
+    .#{$selector} {
+        @content;
+    }
+
+    @include responsive using ($bp) {
+        .#{$bp}-#{$selector} {
+            @content;
+        }
+    }
+}

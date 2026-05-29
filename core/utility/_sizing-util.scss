@@ -8,49 +8,44 @@
     @for $ind from $min through $max {
         $unit: units($ind, $unit-ns, $def-unit);
 
-        .#{$prefix}-#{$ind} {
+        @include util.responsive-class('#{$prefix}-#{$ind}') {
             #{$property}: #{$unit};
-        }
-
-        @include util.responsive using ($bp) {
-            .#{$bp}-#{$prefix}-#{$ind} {
-                #{$property}: #{$unit};
-            }
         }
     }
 }
 
-@mixin unit-range-gen-adv($property, $prefix, $unit-ns, $list, $def-unit: 1px, $max: 100, $min: 0) {
+// @include adv-range-body($property, $prefix, $unit-ns, $list, $def-unit, $max, $min) using ($property, $prefix, $ind, $key, $value, $unit){}
+@mixin adv-range-body($property, $prefix, $unit-ns, $list, $def-unit: 1px, $max: 100, $min: 0) {
     @for $ind from $min through $max {
         $unit: units($ind, $unit-ns, $def-unit);
 
         @each $key, $values in $list {
             @each $value in $values {
-                .#{$prefix}-#{$key}-#{$ind} {
-                    #{$property}-#{$value}: #{$unit};
-                }
-
-                @include util.responsive using ($bp) {
-                    .#{$bp}-#{$prefix}-#{$key}-#{$ind} {
-                        #{$property}-#{$value}: #{$unit};
-                    }
+                @include util.responsive-class('#{$prefix}-#{$key}-#{$ind}') {
+                    @content($property, $prefix, $ind, $key, $value, $unit);
                 }
             }
         }
+    }
+}
+
+@mixin spc-unit-range-gen-adv($property, $prefix, $unit-ns, $list, $def-unit: 1px, $max: 100, $min: 0) {
+    @include adv-range-body($property, $prefix, $unit-ns, $list, $def-unit, $max, $min) using ($property, $prefix, $ind, $key, $value, $unit) {
+        #{$property}-#{$value}: #{$unit};
+    }
+}
+
+@mixin border-unit-range-gen-adv($property, $prefix, $unit-ns, $list, $def-unit: 1px, $max: 100, $min: 0) {
+    @include adv-range-body($property, $prefix, $unit-ns, $list, $def-unit, $max, $min) using ($property, $prefix, $ind, $key, $value, $unit) {
+        border-#{$value}-#{$property}: #{$unit};
     }
 }
 
 // should be able to recieve a func option, if none then use a ind
 @mixin range-gen($property, $prefix, $max: 10, $min: 1) {
     @for $ind from $min through $max {
-        .#{$prefix}-#{$ind} {
+        @include util.responsive-class('#{$prefix}-#{$ind}') {
             #{$property}: #{$ind};
-        }
-
-        @include util.responsive using ($bp) {
-            .#{$bp}-#{$prefix}-#{$ind} {
-                #{$property}: #{$ind};
-            }
         }
     }
 }
