@@ -1,14 +1,4 @@
 @use '../../core/tokens/background';
-@use '../../core/utility/util';
+@use '../../core/utility/listing-util';
 
-@each $key, $val in background.$bg-att {
-    .bg-a-#{$key} {
-        --bg-a: #{$val};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-bg-a-#{$key} {
-            --bg-a: #{$val};
-        }
-    }
-}
+@include listing-util.key-value-parser((background-attachment), (bg-a), background.$bg-att);

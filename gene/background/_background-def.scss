@@ -1,20 +1,5 @@
 @use "../../core/utility/util";
 
-@mixin bg-res-conf {
-    --bg-a: scroll;
-    --bg-i: none;
-    --bg-p: 0% 0%;
-    --bg-r: no-repeat;
-}
-
 .bg {
     background-color: util.imp(var(--bg-c, transparent));
-    background-attachment: util.imp(var(--bg-a, scroll));
-    background-image: util.imp(var(--bg-i, none));
-    background-position: util.imp(var(--bg-p, 0% 0%));
-    background-repeat: util.imp(var(--bg-r, no-repeat));
-}
-
-.bg-res {
-    @include bg-res-conf();
 }

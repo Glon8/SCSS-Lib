@@ -1,14 +1,4 @@
 @use '../../core/variables/background';
-@use '../../core/utility/util';
+@use '../../core/utility/listing-util';
 
-@each $ns, $val in background.$images {
-    .bg-i-#{$ns} {
-        --bg-i: #{$val};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-bg-i-#{$ns} {
-            --bg-i: #{$val};
-        }
-    }
-}
+@include listing-util.key-value-parser((background-image), (bg-i), background.$images);
