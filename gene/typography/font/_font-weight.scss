@@ -2,6 +2,6 @@
 
 @for $ind from 1 through 9 {
     @include util.responsive-class('font-w-#{$ind}') {
-        --font-w: calc($ind * 100);
+        --font-w: #{calc($ind * 100)};
     }
 }
