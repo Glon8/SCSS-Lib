@@ -1,16 +1,3 @@
-@use '../../../core/variables/colors';
-@use '../../../core/utility/util';
+@use '../../../core/utility/color-util';
 
-@each $ns, $val in colors.$color-shades {
-    .b-c-sh-#{"" + $ns} {
-        --b-c-sh-i: #{$val};
-        --b-c-sh-t: #{$ns};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-b-c-sh-#{"" + $ns} {
-            --b-c-sh-i: #{$val};
-            --b-c-sh-t: #{$ns};
-        }
-    }
-}
+@include color-util.color-sha-gen(b);

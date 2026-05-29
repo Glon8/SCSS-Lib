@@ -21,17 +21,17 @@
 @mixin color-gen($prefix) {
     $var-pref: if(sass($prefix ==null or $prefix ==''): 'c'; else: '#{$prefix}-c');
 
-    @each $ns, $val in colors.$colors {
-        $color-base: rgb-values($val);
+    @each $key, $value in colors.$colors {
+        $color-base: rgb-values($value);
         $color-final: color-scheme(--#{$var-pref}-b, --#{$var-pref}-sh-i, --#{$var-pref}-sh-t, --#{$var-pref}-op);
 
-        .#{$var-pref}-#{"" + $ns} {
+        .#{$var-pref}-#{"" + $key} {
             --#{$var-pref}-b: #{$color-base};
             --#{$var-pref}: #{$color-final};
         }
 
         @include util.responsive using ($bp) {
-            .#{$bp}-#{$var-pref}-#{"" + $ns} {
+            .#{$bp}-#{$var-pref}-#{"" + $key} {
                 --#{$var-pref}-b: #{$color-base};
                 --#{$var-pref}: #{$color-final};
             }
@@ -50,5 +50,23 @@
 
     .#{$var-pref}-res {
         @include c-conf-default($var-pref);
+    }
+}
+
+@mixin color-sha-gen($prefix) {
+    $var-pref: if(sass($prefix ==null or $prefix ==''): 'c'; else: '#{$prefix}-c');
+
+    @each $key, $value in colors.$color-shades {
+        .#{$var-pref}-sh-#{"" + $key} {
+            --#{$var-pref}-sh-i: #{$value};
+            --#{$var-pref}-sh-t: #{$key};
+        }
+
+        @include util.responsive using ($bp) {
+            .#{$bp}-#{$var-pref}-sh-#{"" + $key} {
+                --#{$var-pref}-sh-i: #{$value};
+                --#{$var-pref}-sh-t: #{$key};
+            }
+        }
     }
 }
