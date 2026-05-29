@@ -5,7 +5,7 @@
 @mixin key-value-parser($properties, $prefixes, $list) {
     @if list.length($properties)>0 and list.length($prefixes)>0 and list.length($properties)==list.length($prefixes) {
         @for $ind from 1 through list.length($properties) {
-            $prefix: listh.nth($prefixes, $ind);
+            $prefix: list.nth($prefixes, $ind);
             $property: list.nth($properties, $ind);
 
             @each $key, $value in $list {
