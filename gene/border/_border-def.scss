@@ -17,7 +17,7 @@
     border-top-style: util.imp(var(--b-t-s, solid));
     border-bottom-style: util.imp(var(--b-b-s, solid));
     border-left-style: util.imp(var(--b-l-s, solid));
-    border-right-style: util.imp(var(--b-r-s, solidsolid));
+    border-right-style: util.imp(var(--b-r-s, solid));
     //border color
     border-color: util.imp(var(--b-c, currentColor));
 }
@@ -25,5 +25,5 @@
 .b-def {
     border-radius: 5px;
     border-width: 1px;
-    --b-s: solid;
+    border-style: solid;
 }

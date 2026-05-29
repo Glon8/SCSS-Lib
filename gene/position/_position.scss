@@ -1,14 +1,4 @@
 @use '../../core/tokens/position';
-@use '../../core/utility/util';
+@use '../core/utility/listing-util';
 
-@each $prop in position.$pos {
-    .#{$prop} {
-        position: util.imp($prop);
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-#{$prop} {
-            position: util.imp($prop);
-        }
-    }
-}
+@include listing-util.value-prefix-parser(position, position.$pos);

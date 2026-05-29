@@ -1,14 +1,4 @@
 @use '../core/tokens/display';
-@use '../core/utility/util';
+@use '../core/utility/listing-util';
 
-@each $key in display.$displays {
-    .#{$key} {
-        display: util.imp($key);
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-#{$key} {
-            display: util.imp($key);
-        }
-    }
-}
+@include listing-util.value-prefix-parser(display, display.$displays);
