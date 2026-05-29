@@ -7,16 +7,8 @@ $_unit-ns: dir-unit;
 @each $ns, $val in directions.$directions {
     @for $i from 0 through 100 {
         @if $ns !=x and $ns !=y {
-            $dir: util.imp(sizing-util.units($i, $_unit-ns));
-
-            .#{$val}-#{$i} {
-                #{$val}: #{$dir};
-            }
-
-            @include util.responsive using ($bp) {
-                .#{$bp}-#{$val}-#{$i} {
-                    #{$val}: #{$dir};
-                }
+            @include util.responsive-class ('#{$val}-#{$i}') {
+                #{$val}: util.imp(sizing-util.units($i, $_unit-ns));
             }
         }
     }

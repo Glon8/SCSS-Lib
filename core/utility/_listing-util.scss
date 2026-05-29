@@ -51,3 +51,17 @@
         }
     }
 }
+
+@mixin list-crossing-parser ($property, $prefix, $main-list, $sub-lists) {
+    @if list.length($sub-lists)>0 {
+        @each $key, $value in $main-list {
+            @each $list in $sublists {
+                @each $ns, $var in $list {
+                    @include util.responsive-class('#{$prefix}-#{$key}-#{$ns}') {
+                        #{$property}-#{$value}: util.imp($var);
+                    }
+                }
+            }
+        }
+    }
+}

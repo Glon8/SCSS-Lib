@@ -6,9 +6,7 @@
 $_per: map.get(volumes.$values, "per");
 
 @for $ind from 0 through 100 {
-    $op: calc($ind * $_per);
-
     @include util.responsive-class('o-#{$ind}') {
-        opacity: $op;
+        opacity: calc($ind * $_per);
     }
 }

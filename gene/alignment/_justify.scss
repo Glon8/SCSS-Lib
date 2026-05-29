@@ -1,17 +1,5 @@
 @use '../../core/tokens/positions';
 @use '../../core/tokens/alignment';
-@use '../../core/utility/util';
+@use '../../core/utility/listing-util';
 
-@each $ns, $val in alignment.$just-ali {
-    @each $key, $value in positions.$pos-hor {
-        @include util.responsive-class('justify-#{$ns}-#{$key}') {
-            justify-#{$val}: util.imp($value);
-        }
-    }
-
-    @each $key, $value in positions.$aligment {
-        @include util.responsive-class('justify-#{$ns}-#{$key}') {
-            justify-#{$val}: util.imp($value);
-        }
-    }
-}
+@include listing-util.list-crossing-parser (justify, justify, alignment.$just-ali, (positions.$pos-hor, positions.$aligment));
