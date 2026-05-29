@@ -1,25 +1,5 @@
 @use '../../../core/tokens/directions';
-@use '../../../core/utility/util';
 @use '../../../core/utility/sizing-util';
 
 @include sizing-util.unit-range-gen(padding, p, p-unit);
-
-$_unit-ns: p-unit;
-
-@for $ind from 0 through 100 {
-    $padding: util.imp(sizing-util.units($ind, $_unit-ns));
-
-    @each $key, $value in directions.$directions {
-        @each $val in $value {
-            .p-#{$key}-#{$ind} {
-                padding-#{$val}: #{$padding};
-            }
-
-            @include util.responsive using ($bp) {
-                .#{$bp}-p-#{$key}-#{$ind} {
-                    padding-#{$val}: #{$padding};
-                }
-            }
-        }
-    }
-}
+@include sizing-util.unit-range-gen-adv(padding, p, p-unit, directions.$directions);

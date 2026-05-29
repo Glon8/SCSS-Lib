@@ -20,6 +20,26 @@
     }
 }
 
+@mixin unit-range-gen-adv($property, $prefix, $unit-ns, $list, $def-unit: 1px, $max: 100, $min: 0) {
+    @for $ind from $min through $max {
+        $unit: units($ind, $unit-ns);
+
+        @each $key, $values in $list {
+            @each $value in $values {
+                .#{$prefix}-#{$key}-#{$ind} {
+                    #{$property}-#{$value}: #{$unit};
+                }
+
+                @include util.responsive using ($bp) {
+                    .#{$bp}-#{$prefix}-#{$key}-#{$ind} {
+                        #{$property}-#{$value}: #{$unit};
+                    }
+                }
+            }
+        }
+    }
+}
+
 // should be able to recieve a func option, if none then use a ind
 @mixin range-gen($property, $prefix, $max: 10, $min: 1) {
     @for $ind from $min through $max {

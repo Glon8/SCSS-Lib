@@ -1,6 +1,5 @@
 @use '../../../core/utility/util';
 
 .text {
-    // text decoration config
     text-decoration-color: util.imp(var(--text-d-c, currentColor));
 }
