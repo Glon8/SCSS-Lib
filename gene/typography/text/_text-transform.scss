@@ -1,14 +1,4 @@
 @use '../../../core/tokens/text';
-@use '../../../core/utility/util';
+@use '../../../core/utility/listing-util';
 
-@each $ns, $val in text.$text-transform {
-    .text-t-#{$ns} {
-        --text-t: #{$val};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-text-t-#{$ns} {
-            --text-t: #{$val};
-        }
-    }
-}
+@include listing-util.key-value-parser((text-transform), (text-t), text.$text-transform);

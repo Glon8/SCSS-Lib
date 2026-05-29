@@ -1,14 +1,4 @@
 @use '../../../core/variables/fonts';
-@use '../../../core/utility/util';
+@use '../../../core/utility/listing-util';
 
-@each $ns, $val in fonts.$fonts {
-    .font-#{$ns} {
-        --font-f: #{$val};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-font-#{$ns} {
-            --font-f: #{$val};
-        }
-    }
-}
+@include listing-util.key-value-parser((font-family), (font-f), fonts.$fonts);

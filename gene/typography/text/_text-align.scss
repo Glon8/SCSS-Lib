@@ -1,14 +1,4 @@
 @use '../../../core/tokens/positions';
-@use '../../../core/utility/util';
+@use '../../../core/utility/listing-util';
 
-@each $ns, $val in positions.$pos-hor {
-    .text-a-#{$ns} {
-        --text-a: #{$val};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-text-a-#{$ns} {
-            --text-a: #{$val};
-        }
-    }
-}
+@include listing-util.key-value-parser((text-align), (text-a), positions.$pos-hor);

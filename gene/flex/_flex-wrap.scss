@@ -1,14 +1,4 @@
 @use '../../core/tokens/flex';
-@use '../../core/utility/util';
+@use '../../core/utility/listing-util';
 
-@each $key, $val in flex.$flex-wrap {
-    .flex-w-#{$key} {
-        --flex-w: #{$val};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-flex-w-#{$key} {
-            --flex-w: #{$val};
-        }
-    }
-}
+@include listing-util.key-value-parser((flex-wrap), (flex-w), flex.$flex-wrap);

@@ -1,14 +1,4 @@
 @use '../../core/tokens/flex';
-@use '../../core/utility/util';
+@use '../../core/utility/listing-util';
 
-@each $key, $val in flex.$flex-dir {
-    .flex-d-#{$key} {
-        --flex-d: #{$val};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-flex-d-#{$key} {
-            --flex-d: #{$val};
-        }
-    }
-}
+@include listing-util.key-value-parser((flex-direction), (flex-d), flex.$flex-dir);

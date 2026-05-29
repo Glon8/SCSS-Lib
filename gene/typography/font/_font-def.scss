@@ -1,17 +1,13 @@
 @use '../../../core/utility/util';
 
 @mixin font-res-conf {
-    --font-f: inherit;
-    --font-st: normal;
     --font-w: 400;
 }
 
-.font-res{
+.font-res {
     @include font-res-conf();
 }
 
 .font {
-    font-family: util.imp(var(--font-f, inherit));
-    font-style: util.imp(var(--font-st, normal));
     font-weight: util.imp(var(--font-w, 400));
 }

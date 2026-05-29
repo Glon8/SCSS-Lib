@@ -1,23 +1,11 @@
-@use 'sass:map';
-
-@use '../../../core/variables/fonts';
 @use '../../../core/utility/util';
 
-@each $font in fonts.$fonts-custom {
-    $name: map.get($font, "name");
+.font-f-cus {
+    font-family: --font-f-cus;
+}
 
-    @font-face {
-        font-family: #{$name};
-        src: url('./fonts/#{map.get($font, "dest")}') format('#{map.get($font, "format")}');
-    }
-
-    .#{$name} {
-        font-family: util.imp($name);
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-#{$name} {
-            font-family: util.imp($name);
-        }
+@include util.responsive using ($bp) {
+    .#{$bp}-font-f-cus {
+        font-family: --font-f-cus;
     }
 }

@@ -1,14 +1,4 @@
 @use '../../../core/tokens/font';
-@use '../../../core/utility/util';
+@use '../../../core/utility/listing-util';
 
-@each $ns, $val in font.$font-style {
-    .font-st-#{$ns} {
-        --font-st: #{$val};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-font-st-#{$ns} {
-            --font-st: #{$val};
-        }
-    }
-}
+@include listing-util.key-value-parser((font-style), (font-st), font.$font-style);

@@ -4,11 +4,6 @@
 @mixin t-res-conf {
     // text decoration config
     --text-d-s: solid;
-    --text-d: none;
-    // text config
-    --text-a: inherit;
-    --text-o: clip;
-    --text-t: none;
 }
 
 .uno-t-res {
@@ -25,11 +20,6 @@
     // text decoration config
     text-decoration-color: util.imp(var(--text-d-c, currentColor));
     text-decoration-style: util.imp(var(--text-d-s, solid));
-    text-decoration-line: util.imp(var(--text-d, none));
-    // text config
-    text-align: util.imp(var(--text-a, inherit));
-    text-overflow: util.imp(var(--text-o, clip));
-    text-transform: util.imp(var(--text-t, none));
 }
 
 .text {
