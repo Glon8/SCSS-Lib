@@ -1,14 +1,4 @@
 @use '../../../core/variables/colors';
-@use '../../../core/utility/util';
+@use '../../../core/utility/sizing-util';
 
-@each $ns, $val in colors.$color-opacity {
-    .b-c-op-#{$ns} {
-        --b-c-op: #{$val};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-b-c-op-#{$ns} {
-            --b-c-op: #{$val};
-        }
-    }
-}
+@include sizing-util.var-key-value-parser(b-c-op, colors.$color-opacity);

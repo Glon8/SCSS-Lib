@@ -1,14 +1,4 @@
 @use '../../../../../core/variables/colors';
-@use '../../../../../core/utility/util';
+@use '../../../core/utility/sizing-util';
 
-@each $ns, $val in colors.$color-opacity {
-    .text-d-c-op-#{$ns} {
-        --text-d-c-op: #{$val};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-text-d-c-op-#{$ns} {
-            --text-d-c-op: #{$val};
-        }
-    }
-}
+@include sizing-util.var-key-value-parser(text-d-c-op, colors.$color-opacity);

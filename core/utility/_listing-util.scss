@@ -1,6 +1,6 @@
 @use 'sass:list';
 
-@use '../utility/util';
+@use './util';
 
 @mixin key-value-parser($properties, $prefixes, $list) {
     @if list.length($properties)>0 and list.length($prefixes)>0 and list.length($properties)==list.length($prefixes) {
