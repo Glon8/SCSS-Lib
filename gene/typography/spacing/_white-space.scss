@@ -1,14 +1,4 @@
 @use '../../../core/tokens/white-space';
-@use '../../../core/utility/util';
+@use '../../../core/utility/listing-util';
 
-@each $value in white-space.$white-space {
-    .w-space-#{$value} {
-        --w-space: #{$value};
-    }
-
-    @include util.responsive using ($bp) {
-        .#{$bp}-w-space-#{$value} {
-            --w-space: #{$value};
-        }
-    }
-}
+@include listing-util.value-parser((white-space), (w-space), white-space.$white-space);

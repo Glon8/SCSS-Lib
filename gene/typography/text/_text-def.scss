@@ -1,28 +1,6 @@
 @use '../../../core/utility/util';
-@use '../spacing/spacing-def';
 
-@mixin t-res-conf {
-    // text decoration config
-    --text-d-s: solid;
-}
-
-.uno-t-res {
-    @include t-res-conf();
-}
-
-.t-res {
-    @include t-res-conf();
-    @include spacing-def.spc-res-conf();
-}
-
-.uno-text,
 .text {
     // text decoration config
     text-decoration-color: util.imp(var(--text-d-c, currentColor));
-    text-decoration-style: util.imp(var(--text-d-s, solid));
-}
-
-.text {
-    // text - spacing
-    @include spacing-def.space();
 }
