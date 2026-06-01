@@ -1,3 +1,6 @@
+// <           DEFAULTS
+@use './gene/defaults';
+
 // <           ALIGMENT
 @forward './gene/alignment/align';
 @forward './gene/alignment/justify';
