@@ -4,9 +4,11 @@ $config: (
 );
 
 $values: (
-    px: 5px,
-    per: 5%,
-    rem: 2rem,
+    px: 1px,
+    per: 1%,
+    rem: 1rem,
+    vh: 1vh,
+    vw: 1vw,
 );
 
 $colors: (
@@ -36,9 +38,6 @@ $breakpoints: (
 );
 
 $fonts: (
-);
-
-$fonts-custom: (
 );
 
 $images: (
